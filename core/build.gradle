@@ -41,12 +41,28 @@ dependencies {
     api "com.google.android.material:material:$googleAndroidMaterialVersion"
     api "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
 
+    // Jetpack dependencies
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleViewModelKtxVersion"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleLivedataKtxVersion"
+    api "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    // Coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesCore"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxCoroutinesCore"
+
     // Dagger dependencies
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
-    // Utils
+    // glide
+    api "com.github.bumptech.glide:glide:$glideVersion"
+    api "com.github.florent37:glidepalette:$glidePaletteVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // Debugging
     api "com.jakewharton.timber:timber:$timber"
+    implementation "com.facebook.stetho:stetho:$stethoVersion"
+    implementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

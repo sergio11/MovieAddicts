@@ -40,4 +40,16 @@ ext {
     appCompatVersion = '1.2.0'
     googleAndroidMaterialVersion = '1.2.1'
     constraintlayoutVersion = '2.0.4'
+    glideVersion = '4.11.0'
+    glidePaletteVersion = '2.1.2'
+    stethoVersion = '1.5.1'
+
+    lifeCycleViewModelKtxVersion = '2.3.0-rc01'
+    lifeCycleLivedataKtxVersion = '2.3.0-rc01'
+    fragmentKtxVersion = '1.2.5'
+
+    kotlinxCoroutinesCore = '1.4.2'
+    kotlinxCoroutinesAndroid = '1.4.2'
+
+
 }
