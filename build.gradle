@@ -24,3 +24,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    daggerVersion = '2.27'
+    timber = '4.7.1'
+}

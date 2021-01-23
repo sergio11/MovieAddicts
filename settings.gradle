@@ -1,2 +1,4 @@
+include ':feature-main'
+include ':core'
 include ':app'
 rootProject.name = "test"
