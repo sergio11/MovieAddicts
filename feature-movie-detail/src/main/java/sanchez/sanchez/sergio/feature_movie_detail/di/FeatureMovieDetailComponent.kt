@@ -1,7 +1,8 @@
-package sanchez.sanchez.sergio.feature_main.di
+package sanchez.sanchez.sergio.feature_movie_detail.di
 
 import dagger.Component
-import sanchez.sanchez.sergio.feature_main.ui.FeatureMainActivity
+import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivity
+
 import sanchez.sanchez.sergio.test.core.di.component.ApplicationComponent
 import sanchez.sanchez.sergio.test.core.di.module.ActivityModule
 import sanchez.sanchez.sergio.test.core.di.module.ViewModelModule
@@ -10,16 +11,15 @@ import sanchez.sanchez.sergio.test.core.di.scope.PerActivity
 @PerActivity
 @Component(
     modules = [
-        ActivityModule::class,
         ViewModelModule::class,
-        FeatureMainModule::class],
+        FeatureMovieDetailModule::class],
     dependencies = [ApplicationComponent::class]
 )
-interface FeatureMainComponent {
+interface FeatureMovieDetailComponent {
 
     /**
-     * Inject into Feature Main Activity
+     * Inject into Feature Movie Detail Activity
      */
-    fun inject(featureMainActivity: FeatureMainActivity)
+    fun inject(featureMovieDetailActivityActivity: FeatureMovieDetailActivity)
 
 }

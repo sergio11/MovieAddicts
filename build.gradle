@@ -26,6 +26,18 @@ task clean(type: Delete) {
 }
 
 ext {
+
+    // Compile Options
+    csVersion = 30
+    btVersion = "30.0.3"
+    msVersion = 16
+    tsVersion = 30
+
+    // Libraries
     daggerVersion = '2.27'
     timber = '4.7.1'
+    coreKtxVersion = '1.3.2'
+    appCompatVersion = '1.2.0'
+    googleAndroidMaterialVersion = '1.2.1'
+    constraintlayoutVersion = '2.0.4'
 }

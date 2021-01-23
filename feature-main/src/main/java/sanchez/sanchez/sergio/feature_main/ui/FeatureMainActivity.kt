@@ -11,7 +11,6 @@ import javax.inject.Inject
 
 class FeatureMainActivity : AppCompatActivity() {
 
-
     private val featureMainComponent: FeatureMainComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
         FeatureMainComponentFactory.getFeatureMainComponent(this)
     }

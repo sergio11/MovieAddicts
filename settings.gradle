@@ -1,3 +1,6 @@
+include ':feature-tv-detail'
+include ':feature-person-detail'
+include ':feature-movie-detail'
 include ':feature-main'
 include ':core'
 include ':app'
