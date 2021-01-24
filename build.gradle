@@ -8,7 +8,6 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -30,7 +29,7 @@ ext {
     // Compile Options
     csVersion = 30
     btVersion = "30.0.3"
-    msVersion = 21
+    msVersion = 23
     tsVersion = 30
 
     // Libraries
@@ -51,7 +50,10 @@ ext {
     kotlinxCoroutinesCore = '1.4.2'
     kotlinxCoroutinesAndroid = '1.4.2'
 
-    navigationVersion = "2.3.1"
+    navigationVersion = "2.3.2"
+
+    retrofitVersion = '2.9.0'
+    roomVersion = '2.3.0-alpha02'
 
 
 }
