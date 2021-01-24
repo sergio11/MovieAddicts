@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation_graph"
+    app:startDestination="@id/movieListFragment">
+
+    <!-- Movie List Fragment -->
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListFragment"
+        android:label="fragment_movie_list"
+        tools:layout="@layout/fragment_movie_list" />
+
+    <!-- Tv List Fragment -->
+    <fragment
+        android:id="@+id/tvListFragment"
+        android:name="sanchez.sanchez.sergio.feature_main.ui.tv.TvListFragment"
+        android:label="fragment_tv_list"
+        tools:layout="@layout/fragment_tv_list" />
+
+    <!-- Person List Fragment -->
+    <fragment
+        android:id="@+id/personListFragment"
+        android:name="sanchez.sanchez.sergio.feature_main.ui.person.PersonListFragment"
+        android:label="fragment_person_list"
+        tools:layout="@layout/fragment_person_list" />
+</navigation>

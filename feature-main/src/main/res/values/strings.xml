@@ -8,5 +8,7 @@
     <string name="summary">Summary</string>
     <string name="trailers">Trailers</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_movie_list_fragment">Hello Movie List fragment</string>
+    <string name="hello_person_list_fragment">Hello Person List fragment</string>
+    <string name="hello_tv_list_fragment">Hello Tv List fragment</string>
 </resources>

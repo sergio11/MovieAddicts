@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.feature_main.di
+package sanchez.sanchez.sergio.feature_main.di.module
 
 import dagger.Module
 

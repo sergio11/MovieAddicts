@@ -30,7 +30,7 @@ ext {
     // Compile Options
     csVersion = 30
     btVersion = "30.0.3"
-    msVersion = 16
+    msVersion = 21
     tsVersion = 30
 
     // Libraries
@@ -50,6 +50,8 @@ ext {
 
     kotlinxCoroutinesCore = '1.4.2'
     kotlinxCoroutinesAndroid = '1.4.2'
+
+    navigationVersion = "2.3.1"
 
 
 }

@@ -50,6 +50,10 @@ dependencies {
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleViewModelKtxVersion"
     api "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleLivedataKtxVersion"
     api "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+    // Navigation
+    api "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    api "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    api "androidx.navigation:navigation-runtime-ktx:$navigationVersion"
 
     // Coroutines
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesCore"
