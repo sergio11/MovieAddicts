@@ -1,7 +1,10 @@
-package sanchez.sanchez.sergio.feature_main.persistence.network.model.movie
+package sanchez.sanchez.sergio.feature_main.persistence.network.model
 
 import com.squareup.moshi.Json
 
+/**
+ * Discover Movies DTO
+ */
 data class DiscoverMoviesDTO (
     @field:Json(name = "page")
     val page: Long,

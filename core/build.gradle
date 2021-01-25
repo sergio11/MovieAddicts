@@ -78,8 +78,8 @@ dependencies {
 
     // Debugging
     api "com.jakewharton.timber:timber:$timber"
-    implementation "com.facebook.stetho:stetho:$stethoVersion"
-    implementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
+    api "com.facebook.stetho:stetho:$stethoVersion"
+    api "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

@@ -14,6 +14,9 @@ import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
 @Subcomponent(modules = [ MovieListViewModelModule::class, MovieListModule::class ])
 interface MovieListComponent: FragmentComponent {
 
+    /**
+     * inject
+     */
     fun inject(movieListFragment: MovieListFragment)
 
 }
