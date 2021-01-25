@@ -17,8 +17,6 @@ class MovieRepositoryModule {
     @Provides
     fun provideDiscoverMoviesRepository(
             disNetworkRepository: IDiscoverMoviesNetworkRepository
-    ) {
-        DiscoverMoviesRepositoryImpl(disNetworkRepository)
-    }
+    ) = DiscoverMoviesRepositoryImpl(disNetworkRepository)
 
 }
