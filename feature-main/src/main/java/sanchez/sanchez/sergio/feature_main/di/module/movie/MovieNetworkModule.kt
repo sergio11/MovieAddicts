@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import sanchez.sanchez.sergio.feature_main.persistence.network.mapper.MovieNetworkMapper
-import sanchez.sanchez.sergio.feature_main.persistence.network.repository.DiscoverMoviesNetworkRepositoryImpl
-import sanchez.sanchez.sergio.feature_main.persistence.network.repository.IDiscoverMoviesNetworkRepository
+import sanchez.sanchez.sergio.feature_main.persistence.network.repository.movies.DiscoverMoviesNetworkRepositoryImpl
+import sanchez.sanchez.sergio.feature_main.persistence.network.repository.movies.IDiscoverMoviesNetworkRepository
 import sanchez.sanchez.sergio.feature_main.persistence.network.service.DiscoverMoviesService
 import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
 

@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.feature_main.persistence.network.repository
+package sanchez.sanchez.sergio.feature_main.persistence.network.repository.movies
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.test.core.persistence.network.exception.NetworkException

@@ -1,7 +1,7 @@
 package sanchez.sanchez.sergio.feature_main.domain.usecase
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
-import sanchez.sanchez.sergio.feature_main.persistence.api.IDiscoverMoviesRepository
+import sanchez.sanchez.sergio.feature_main.persistence.api.movies.IDiscoverMoviesRepository
 
 /**
  * Discover Movies Interact

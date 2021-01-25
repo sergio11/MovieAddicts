@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.feature_main.persistence.network.model
+package sanchez.sanchez.sergio.feature_main.persistence.network.model.movies
 
 import com.squareup.moshi.Json
 

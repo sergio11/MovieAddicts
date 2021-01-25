@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.feature_main.persistence.api
+package sanchez.sanchez.sergio.feature_main.persistence.api.movies
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException

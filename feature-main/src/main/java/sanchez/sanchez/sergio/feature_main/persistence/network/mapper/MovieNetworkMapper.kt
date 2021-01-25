@@ -1,7 +1,7 @@
 package sanchez.sanchez.sergio.feature_main.persistence.network.mapper
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
-import sanchez.sanchez.sergio.feature_main.persistence.network.model.MovieDTO
+import sanchez.sanchez.sergio.feature_main.persistence.network.model.movies.MovieDTO
 
 class MovieNetworkMapper {
 

@@ -2,7 +2,7 @@ package sanchez.sanchez.sergio.feature_main.persistence.network.service
 
 import retrofit2.http.GET
 import retrofit2.http.Query
-import sanchez.sanchez.sergio.feature_main.persistence.network.model.DiscoverMoviesDTO
+import sanchez.sanchez.sergio.feature_main.persistence.network.model.movies.DiscoverMoviesDTO
 
 /**
  * Discover Movies Service
