@@ -18,6 +18,4 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
     override fun onInject() {
         component.inject(this)
     }
-
-
 }

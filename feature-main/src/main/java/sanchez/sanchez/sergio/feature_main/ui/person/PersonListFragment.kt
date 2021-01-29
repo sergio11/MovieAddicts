@@ -3,7 +3,6 @@ package sanchez.sanchez.sergio.feature_main.ui.person
 import androidx.appcompat.app.AppCompatActivity
 import sanchez.sanchez.sergio.feature_main.R
 import sanchez.sanchez.sergio.feature_main.databinding.FragmentPersonListBinding
-import sanchez.sanchez.sergio.feature_main.di.component.MovieListComponent
 import sanchez.sanchez.sergio.feature_main.di.component.PersonListComponent
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
