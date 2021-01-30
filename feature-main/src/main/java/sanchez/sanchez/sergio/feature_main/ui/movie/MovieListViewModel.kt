@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_main.domain.usecase.DiscoverMoviesInteract
+import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportViewModel
 import javax.inject.Inject
 
@@ -12,16 +13,16 @@ import javax.inject.Inject
  */
 class MovieListViewModel @Inject constructor(
         private val getMoviesInteract: DiscoverMoviesInteract
-): SupportViewModel<MovieListContract.Event, MovieListContract.State, MovieListContract.Effect>() {
+): SupportViewModel<LCEContract.Event, LCEContract.State, LCEContract.Effect>() {
 
-    override fun createInitialState(): MovieListContract.State =
-        MovieListContract.State(
-            MovieListContract.MoviesState.OnIdle
+    override fun createInitialState(): LCEContract.State =
+        LCEContract.State(
+            LCEContract.LCEState.OnIdle
         )
 
-    override fun handleEvent(event: MovieListContract.Event) {
+    override fun handleEvent(event: LCEContract.Event) {
         when(event) {
-            is MovieListContract.Event.OnFetchMovies -> {
+            is LCEContract.Event.OnFetchData -> {
                 fetchMovies(event.page)
             }
         }
@@ -36,18 +37,18 @@ class MovieListViewModel @Inject constructor(
      */
     private fun fetchMovies(page: Int) = viewModelScope.launch {
         Log.d("MOVIES_L", "fetchMovies (page -> $page) CALLED")
-        setState { copy(moviesState = MovieListContract.MoviesState.OnLoading) }
+        setState { copy(lceState = LCEContract.LCEState.OnLoading) }
         getMoviesInteract.execute(
                 params = DiscoverMoviesInteract.Params(page),
                 onSuccess = fun(movies) {
                     Log.d("MOVIES_L", "onSuccess (movies size -> ${movies.size}) CALLED")
                     setState {
-                        copy(moviesState = MovieListContract.MoviesState.OnLoaded(page, movies))
+                        copy(lceState = LCEContract.LCEState.OnLoaded(page, movies))
                     }
                 },
                 onError = fun(ex) {
                     Log.d("MOVIES_L", "onError ${ex.message} CALLED")
-                    setEffect { MovieListContract.Effect.OnShowError(ex) }
+                    setEffect { LCEContract.Effect.OnShowError(ex) }
                 }
         )
     }

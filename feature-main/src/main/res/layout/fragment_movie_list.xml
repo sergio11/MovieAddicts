@@ -5,14 +5,14 @@
     <data>
 
         <import type="android.view.View"/>
-        <import type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListContract.MoviesState" />
-        <import type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListContract.MoviesState.OnIdle" />
-        <import type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListContract.MoviesState.OnLoaded" />
-        <import type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListContract.MoviesState.OnLoading" />
+        <import type="sanchez.sanchez.sergio.feature_main.ui.core.LCEContract.LCEState" />
+        <import type="sanchez.sanchez.sergio.feature_main.ui.core.LCEContract.LCEState.OnIdle" />
+        <import type="sanchez.sanchez.sergio.feature_main.ui.core.LCEContract.LCEState.OnLoading" />
+        <import type="sanchez.sanchez.sergio.feature_main.ui.core.LCEContract.LCEState.OnLoaded" />
 
         <variable
             name="uiState"
-            type="MoviesState" />
+            type="LCEState" />
 
         <variable
             name="adapter"

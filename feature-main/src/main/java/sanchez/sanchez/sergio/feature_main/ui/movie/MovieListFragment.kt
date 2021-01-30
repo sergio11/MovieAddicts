@@ -9,6 +9,7 @@ import sanchez.sanchez.sergio.feature_main.R
 import sanchez.sanchez.sergio.feature_main.databinding.FragmentMovieListBinding
 import sanchez.sanchez.sergio.feature_main.di.component.MovieListComponent
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
+import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
 
 /**
@@ -29,9 +30,9 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
     override fun onInitObservers() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
-                Log.d("MOVIES_L", "uiState UPDATED, ${state.moviesState}")
+                Log.d("MOVIES_L", "uiState UPDATED, ${state.lceState}")
                 with(binding) {
-                    uiState = state.moviesState
+                    uiState = state.lceState
                 }
             }
         }
@@ -40,7 +41,7 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("MOVIES_L", "OnViewCreated CALLED, OnFetchMovies")
-        viewModel.setEvent(MovieListContract.Event.OnFetchMovies())
+        viewModel.setEvent(LCEContract.Event.OnFetchData())
 
     }
 
