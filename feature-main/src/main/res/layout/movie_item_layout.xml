@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="movie"
+            type="sanchez.sanchez.sergio.feature_main.domain.model.Movie" />
+
+        <variable
+            name="movieListener"
+            type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListAdapter.OnMovieClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/moviePosterCard"
+        android:layout_width="match_parent"
+        android:layout_height="290dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{() -> movieListener.onMovieClicked(movie)}"
+            android:foreground="?attr/selectableItemBackground">
+            <!-- Movie Poster -->
+            <ImageView
+                android:id="@+id/moviePoster"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:scaleType="fitXY"
+                app:loadPaletteImageColor="@{movie.posterPath}"
+                tools:src="@drawable/ic_star_white_24dp"
+                app:layout_constraintBottom_toTopOf="@id/movieTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/movieTitle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="title"
+                android:text="@{movie.title}"
+                app:layout_constraintTop_toBottomOf="@id/moviePoster"
+                app:layout_constraintStart_toStartOf="@id/moviePoster"
+                app:layout_constraintEnd_toEndOf="@id/moviePoster"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+</layout>

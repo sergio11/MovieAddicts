@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_main.ui.movie
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
@@ -9,13 +10,15 @@ import sanchez.sanchez.sergio.feature_main.R
 import sanchez.sanchez.sergio.feature_main.databinding.FragmentMovieListBinding
 import sanchez.sanchez.sergio.feature_main.di.component.MovieListComponent
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
+import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
 
 /**
  * Movie List Fragment
  */
-class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListBinding>(MovieListViewModel::class.java) {
+class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListBinding>(MovieListViewModel::class.java),
+    MovieListAdapter.OnMovieClickListener {
 
     private val component: MovieListComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
         FeatureMainComponentFactory.getMovieListComponent(requireActivity() as AppCompatActivity)
@@ -45,4 +48,21 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        with(binding) {
+            adapter = MovieListAdapter(
+                context = requireContext(),
+                data = mutableListOf(),
+                movieItemListener = this@MovieListFragment
+            )
+            swipeRefreshLayout.setOnRefreshListener {
+                viewModel.setEvent(LCEContract.Event.OnFetchData())
+            }
+        }
+    }
+
+    override fun onMovieClicked(movie: Movie) {
+        Log.d("MOVIES_L", "onMovieClicked CALLED (${movie.id})")
+    }
 }

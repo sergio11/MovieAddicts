@@ -1,9 +1,9 @@
 package sanchez.sanchez.sergio.feature_main.ui.movie
 
 import android.content.Context
-import android.view.View
 import android.view.ViewGroup
-import sanchez.sanchez.sergio.feature_main.R
+import sanchez.sanchez.sergio.feature_main.databinding.MovieItemLayoutBinding
+import sanchez.sanchez.sergio.feature_main.databinding.MovieItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.feature_main.ui.core.SupportAdapter
 
@@ -25,25 +25,26 @@ class MovieListAdapter(
      * @param viewType
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder =
-            MovieViewHolder(inflateLayout(R.layout.movie_item_layout, parent))
+            MovieViewHolder(MovieItemLayoutBindingImpl.inflate(inflater, parent, false))
 
 
     interface OnMovieClickListener {
         /**
          * on Movie Clicked
-         * @param character
+         * @param movie
          */
-        fun onMovieClicked(character: Movie)
+        fun onMovieClicked(movie: Movie)
     }
 
     /**
      * Movie View Holder
-     * @param itemView
+     * @param binding
      */
-    inner class MovieViewHolder(itemView: View): SupportAdapter.SupportViewHolder<Movie>(itemView) {
+    inner class MovieViewHolder(val binding: MovieItemLayoutBinding): SupportAdapter.SupportViewHolder<Movie>(binding.root) {
         override fun bind(model: Movie) {
-            itemView.setOnClickListener {
-                movieItemListener.onMovieClicked(model)
+            with(binding) {
+                movie = model
+                movieListener = movieItemListener
             }
         }
     }

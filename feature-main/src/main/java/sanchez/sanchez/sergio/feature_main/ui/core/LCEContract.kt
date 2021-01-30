@@ -18,7 +18,7 @@ class LCEContract {
     sealed class LCEState {
         object OnIdle: LCEState()
         object OnLoading : LCEState()
-        data class OnLoaded<T>(val page : Int, val movies: List<T>) : LCEState()
+        data class OnLoaded<T>(val page : Int, val data: List<T>) : LCEState()
     }
 
     sealed class Effect : UiEffect {

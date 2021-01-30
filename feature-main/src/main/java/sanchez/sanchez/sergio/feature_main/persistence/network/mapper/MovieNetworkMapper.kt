@@ -12,14 +12,14 @@ class MovieNetworkMapper {
     fun dtoToModel(dto: MovieDTO): Movie = Movie(
             id = dto.id,
             title = dto.title,
-            posterPath = dto.posterPath,
+            posterPath = BASE_POSTER_PATH + dto.posterPath,
             adult = dto.adult,
             overview = dto.overview,
             releaseDate = dto.releaseDate,
             genreIds = dto.genreIDS,
             originalTitle = dto.originalTitle,
             originalLanguage = dto.originalLanguage,
-            backdropPath = dto.backdropPath,
+            backdropPath = BASE_BACKDROP_PATH + dto.backdropPath,
             popularity = dto.popularity,
             voteCount = dto.voteCount,
             video = dto.video,
@@ -30,5 +30,10 @@ class MovieNetworkMapper {
             dtoList.map {
                 dtoToModel(it)
             }
+
+    companion object {
+        private const val BASE_POSTER_PATH = "https://image.tmdb.org/t/p/w342"
+        private const val BASE_BACKDROP_PATH = "https://image.tmdb.org/t/p/w780"
+    }
 
 }

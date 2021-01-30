@@ -17,6 +17,10 @@ abstract class SupportAdapter<T: SupportAdapter.SupportViewHolder<E>, E>(
         private val data: MutableList<E>
 ): RecyclerView.Adapter<T>() {
 
+    protected val inflater by lazy {
+        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    }
+
     /**
      * On Bind Model to View Holder
      * @param holder
@@ -62,7 +66,6 @@ abstract class SupportAdapter<T: SupportAdapter.SupportViewHolder<E>, E>(
      * Inflate Layout
      */
     protected fun inflateLayout(@LayoutRes layoutRest: Int, parent: ViewGroup): View {
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         return inflater.inflate(layoutRest, parent, false)
     }
 

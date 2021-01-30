@@ -12,10 +12,13 @@ object MovieListViewBindings {
      */
     @JvmStatic
     @BindingAdapter("adapterMovieList")
-    fun bindAdapterMovieList(view: RecyclerView, movies: List<Movie>) {
-        view.adapter?.let {
-            if(it is MovieListAdapter)
-                it.addData(movies)
+    fun bindAdapterMovieList(view: RecyclerView, movies: List<Any>?) {
+        movies?.let {
+            view.adapter?.let {
+                if(it is MovieListAdapter)
+                    it.addData(movies as List<Movie>)
+            }
         }
     }
+
 }
