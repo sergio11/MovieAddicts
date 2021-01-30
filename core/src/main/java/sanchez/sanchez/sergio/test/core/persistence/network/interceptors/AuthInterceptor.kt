@@ -29,6 +29,6 @@ class AuthInterceptor(
         /**
          * API Key Param Name
          */
-        private const val API_KEY_KEY_PARAM_NAME = "apikey"
+        private const val API_KEY_KEY_PARAM_NAME = "api_key"
     }
 }

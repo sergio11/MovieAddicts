@@ -17,8 +17,16 @@ class App: SupportApp() {
     }
 
     override fun getApplicationId(): String = BuildConfig.APPLICATION_ID
-    override fun getBaseUrl(): String = BuildConfig.APPLICATION_ID
-    override fun getApiKey(): String = BuildConfig.APPLICATION_ID
+
+    /**
+     * Get Base URL
+     */
+    override fun getBaseUrl(): String = BuildConfig.TMDB_BASE_URL
+
+    /**
+     * Get API Key
+     */
+    override fun getApiKey(): String = BuildConfig.TMDB_API_KEY
 
     /**
      * Private Methods

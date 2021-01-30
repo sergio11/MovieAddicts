@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.test.core.di.component
 
 import android.content.Context
 import dagger.Component
+import retrofit2.Retrofit
 import sanchez.sanchez.sergio.test.core.di.module.ApplicationModule
 import sanchez.sanchez.sergio.test.core.di.module.network.NetworkModule
 import sanchez.sanchez.sergio.test.core.di.scope.PerApplication
@@ -16,7 +17,7 @@ interface ApplicationComponent {
 
     //Exposed to sub-graphs.
     fun context(): Context
-
     fun applicationAware(): IApplicationAware
+    fun retrofit(): Retrofit
 
 }

@@ -1,20 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+    <data>
 
-    <FrameLayout
+        <import type="android.view.View"/>
+        <import type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListContract.MoviesState" />
+        <import type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListContract.MoviesState.OnIdle" />
+        <import type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListContract.MoviesState.OnLoaded" />
+        <import type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListContract.MoviesState.OnLoading" />
+
+        <variable
+            name="uiState"
+            type="MoviesState" />
+
+        <variable
+            name="adapter"
+            type="sanchez.sanchez.sergio.feature_main.ui.movie.MovieListAdapter" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.movie.MovieListFragment">
+        android:orientation="vertical">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/onIdleTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_movie_list_fragment" />
+            android:visibility="@{ uiState instanceof OnIdle ? View.VISIBLE : View.GONE }"
+            android:text="On Idle Text View" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/onLoadedTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{ uiState instanceof OnLoaded ? View.VISIBLE : View.GONE }"
+            android:text="On Loaded Text View" />
+
+        <TextView
+            android:id="@+id/onLoadingTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{ uiState instanceof OnLoading ? View.VISIBLE : View.GONE }"
+            android:text="On Loading Text View" />
+
+        <!--             app:paginationMovieList="@{viewModel}" -->
+
+        <!--<androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:adapter="@{adapter}"
+            app:adapterMovieList="@{movies}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/movie_item_layout" />-->
+
+    </LinearLayout>
 
 </layout>

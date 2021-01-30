@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import javax.inject.Inject
 
 abstract class SupportFragment<VM : ViewModel, VB: ViewDataBinding>(private val mViewModelClass: Class<VM>): Fragment() {
@@ -34,6 +35,7 @@ abstract class SupportFragment<VM : ViewModel, VB: ViewDataBinding>(private val 
         onInject()
         super.onCreate(savedInstanceState)
         viewModel = initViewModel()
+        onInitObservers()
     }
 
     override fun onCreateView(
@@ -55,6 +57,11 @@ abstract class SupportFragment<VM : ViewModel, VB: ViewDataBinding>(private val 
      * On Inject
      */
     abstract fun onInject()
+
+    /**
+     * On Init Observers
+     */
+    abstract fun onInitObservers()
 
     /**
      * Private Methods

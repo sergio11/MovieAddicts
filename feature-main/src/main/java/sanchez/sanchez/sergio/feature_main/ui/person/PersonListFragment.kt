@@ -1,6 +1,8 @@
 package sanchez.sanchez.sergio.feature_main.ui.person
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_main.R
 import sanchez.sanchez.sergio.feature_main.databinding.FragmentPersonListBinding
 import sanchez.sanchez.sergio.feature_main.di.component.PersonListComponent
@@ -18,5 +20,14 @@ class PersonListFragment : SupportFragment<PersonListViewModel, FragmentPersonLi
     override fun onInject() {
         component.inject(this)
     }
+
+    override fun onInitObservers() {
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiState.collect {
+
+            }
+        }
+    }
+
 
 }

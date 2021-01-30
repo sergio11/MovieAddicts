@@ -19,4 +19,8 @@ class TvListFragment : SupportFragment<TvListViewModel, FragmentTvListBinding>(T
         component.inject(this)
     }
 
+    override fun onInitObservers() {
+        
+    }
+
 }

@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.feature_main.di.module.core
+package sanchez.sanchez.sergio.feature_main.di.module.movie
 
 import dagger.Module
 import dagger.Provides

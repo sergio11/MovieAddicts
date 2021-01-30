@@ -1,28 +1,29 @@
 package sanchez.sanchez.sergio.feature_main.ui.movie
 
+import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.test.core.ui.UiEffect
 import sanchez.sanchez.sergio.test.core.ui.UiEvent
 import sanchez.sanchez.sergio.test.core.ui.UiState
+import java.lang.Exception
 
 class MovieListContract {
 
     sealed class Event : UiEvent {
-        object OnRandomNumberClicked : Event()
-        object OnShowToastClicked : Event()
+        data class OnFetchMovies(val page: Int = 1) : Event()
     }
 
     data class State(
-        val randomNumberState: RandomNumberState
+        val moviesState: MoviesState
     ) : UiState
 
-    sealed class RandomNumberState {
-        object Idle : RandomNumberState()
-        object Loading : RandomNumberState()
-        data class Success(val number : Int) : RandomNumberState()
+    sealed class MoviesState {
+        object OnIdle: MoviesState()
+        object OnLoading : MoviesState()
+        data class OnLoaded(val page : Int, val movies: List<Movie>) : MoviesState()
     }
 
     sealed class Effect : UiEffect {
-        object ShowToast : Effect()
+        data class OnShowError(val ex: Exception) : Effect()
     }
 
 }
