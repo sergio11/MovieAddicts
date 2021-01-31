@@ -2,6 +2,8 @@ package sanchez.sanchez.sergio.feature_main.ui.movie
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_main.domain.usecase.DiscoverMoviesInteract
 import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
@@ -17,7 +19,7 @@ class MovieListViewModel @Inject constructor(
 
     override fun createInitialState(): LCEContract.State =
         LCEContract.State(
-            LCEContract.LCEState.OnIdle
+                LCEContract.LCEState.OnIdle
         )
 
     override fun handleEvent(event: LCEContract.Event) {
@@ -28,6 +30,7 @@ class MovieListViewModel @Inject constructor(
         }
     }
 
+
     /**
      * Private Methods
      */
@@ -35,7 +38,7 @@ class MovieListViewModel @Inject constructor(
     /**
      * Fetch Movies
      */
-    private fun fetchMovies(page: Int) = viewModelScope.launch {
+    private fun fetchMovies(page: Int) = GlobalScope.launch {
         Log.d("MOVIES_L", "fetchMovies (page -> $page) CALLED")
         setState { copy(lceState = LCEContract.LCEState.OnLoading) }
         getMoviesInteract.execute(
@@ -47,6 +50,7 @@ class MovieListViewModel @Inject constructor(
                     }
                 },
                 onError = fun(ex) {
+                    ex.printStackTrace()
                     Log.d("MOVIES_L", "onError ${ex.message} CALLED")
                     setEffect { LCEContract.Effect.OnShowError(ex) }
                 }

@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:onClick="@{() -> movieListener.onMovieClicked(movie)}"
             android:foreground="?attr/selectableItemBackground">
+
             <!-- Movie Poster -->
             <ImageView
                 android:id="@+id/moviePoster"
@@ -56,8 +57,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-
-
 
 </layout>

@@ -8,8 +8,16 @@ import com.bumptech.glide.request.RequestOptions
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 
+/**
+ * Support Glide Bindings
+ */
 object SupportGlideBindings {
 
+    /**
+     * Bind Load Image
+     * @param view
+     * @param url
+     */
     @JvmStatic
     @BindingAdapter("loadImage")
     fun bindLoadImage(view: ImageView, url: String) {
@@ -18,6 +26,11 @@ object SupportGlideBindings {
             .into(view)
     }
 
+    /**
+     * Bind Load Circle Image
+     * @param view
+     * @param url
+     */
     @JvmStatic
     @BindingAdapter("loadCircleImage")
     fun bindLoadCircleImage(view: ImageView, url: String) {
@@ -29,9 +42,14 @@ object SupportGlideBindings {
 
     }
 
+    /**
+     * Bind Load Palette Image Color
+     * @param view
+     * @param url
+     */
     @JvmStatic
     @BindingAdapter("loadPaletteImageColor")
-    fun loadPaletteImageColor(view: ImageView, url: String) {
+    fun bindLoadPaletteImageColor(view: ImageView, url: String) {
         Glide.with(view)
             .load(url)
             .listener(

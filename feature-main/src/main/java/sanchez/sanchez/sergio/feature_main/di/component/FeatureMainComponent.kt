@@ -24,7 +24,7 @@ interface FeatureMainComponent {
      */
 
     fun movieListComponent(): MovieListComponent
-    fun personListComponent(): PersonListComponent
+    fun peopleListComponent(): PeopleListComponent
     fun tvListComponent(): TvListComponent
 
     /**

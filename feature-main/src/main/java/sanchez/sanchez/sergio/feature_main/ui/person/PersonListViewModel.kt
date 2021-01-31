@@ -1,7 +1,7 @@
 package sanchez.sanchez.sergio.feature_main.ui.person
 
 import android.util.Log
-import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_main.domain.usecase.FetchPopularPeopleInteract
 import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
@@ -36,19 +36,18 @@ class PersonListViewModel @Inject constructor(
      * Fetch Popular People
      * @param page
      */
-    private fun fetchPopularPeople(page: Int) = viewModelScope.launch {
-        Log.d("MOVIES_L", "fetchPopularPeople (page -> $page) CALLED")
+    private fun fetchPopularPeople(page: Int) = GlobalScope.launch {
         setState { copy(lceState = LCEContract.LCEState.OnLoading) }
         peopleInteract.execute(
             params = FetchPopularPeopleInteract.Params(page),
             onSuccess = fun(popularPeople) {
-                Log.d("MOVIES_L", "onSuccess (movies size -> ${popularPeople.size}) CALLED")
+                Log.d("PERSON_L", "onSuccess (people size -> ${popularPeople.size}) CALLED")
                 setState {
                     copy(lceState = LCEContract.LCEState.OnLoaded(page, popularPeople))
                 }
             },
             onError = fun(ex) {
-                Log.d("MOVIES_L", "onError ${ex.message} CALLED")
+                Log.d("PERSON_L", "onError ${ex.message} CALLED")
                 setEffect { LCEContract.Effect.OnShowError(ex) }
             }
         )

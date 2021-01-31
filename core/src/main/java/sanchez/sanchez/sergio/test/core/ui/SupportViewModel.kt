@@ -1,9 +1,11 @@
 package sanchez.sanchez.sergio.test.core.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 abstract class SupportViewModel<Event : UiEvent, State : UiState, Effect : UiEffect> : ViewModel() {
@@ -50,6 +52,9 @@ abstract class SupportViewModel<Event : UiEvent, State : UiState, Effect : UiEff
      */
     fun setEvent(event : Event) {
         val newEvent = event
+        Log.d("PERSON_L", "setEvent  CALLED")
+        Log.d("PERSON_L", "viewModelScope.isActive -> ${viewModelScope.isActive}")
+        Log.d("PERSON_L", "viewModelScope.isActive -> ${viewModelScope.coroutineContext.isActive}")
         viewModelScope.launch { _event.emit(newEvent) }
     }
 

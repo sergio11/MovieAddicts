@@ -15,10 +15,13 @@ object PersonListViewBindings {
      */
     @JvmStatic
     @BindingAdapter("adapterPersonList")
-    fun bindAdapterMovieList(view: RecyclerView, personList: List<Person>) {
-        view.adapter?.let {
-            if(it is PersonListAdapter)
-                it.addData(personList)
+    fun bindAdapterPersonList(view: RecyclerView, personList: List<Any>?) {
+        personList?.let { data ->
+            view.adapter?.let {
+                if(it is PeopleListAdapter)
+                    it.addData(data as List<Person>)
+            }
         }
+
     }
 }

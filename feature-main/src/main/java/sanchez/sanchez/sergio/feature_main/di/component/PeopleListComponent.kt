@@ -3,7 +3,7 @@ package sanchez.sanchez.sergio.feature_main.di.component
 import dagger.Subcomponent
 import sanchez.sanchez.sergio.feature_main.di.module.person.PersonListModule
 import sanchez.sanchez.sergio.feature_main.di.module.person.PersonListViewModelModule
-import sanchez.sanchez.sergio.feature_main.ui.person.PersonListFragment
+import sanchez.sanchez.sergio.feature_main.ui.person.PeopleListFragment
 import sanchez.sanchez.sergio.test.core.di.component.FragmentComponent
 import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
 
@@ -12,11 +12,11 @@ import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
  */
 @PerFragment
 @Subcomponent(modules = [ PersonListViewModelModule::class, PersonListModule::class ])
-interface PersonListComponent: FragmentComponent {
+interface PeopleListComponent: FragmentComponent {
 
     /**
      * Inject into
      */
-    fun inject(personListFragment: PersonListFragment)
+    fun inject(peopleListFragment: PeopleListFragment)
 
 }

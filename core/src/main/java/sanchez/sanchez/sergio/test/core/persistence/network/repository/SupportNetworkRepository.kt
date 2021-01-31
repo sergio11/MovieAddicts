@@ -1,5 +1,7 @@
 package sanchez.sanchez.sergio.test.core.persistence.network.repository
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import sanchez.sanchez.sergio.test.core.persistence.network.exception.*
 import java.io.IOException
 import java.net.ConnectException
@@ -20,8 +22,8 @@ abstract class SupportNetworkRepository {
      * Wrap for safe Network Call
      * @param onExecuted
      */
-    protected suspend fun <T> safeNetworkCall(onExecuted: suspend () -> T): T {
-        return try {
+    protected suspend fun <T> safeNetworkCall(onExecuted: suspend () -> T): T = withContext(Dispatchers.IO) {
+        try {
             onExecuted()
         } catch (exception: IOException){
             // map interrupted I/O to Network No Internet Exception

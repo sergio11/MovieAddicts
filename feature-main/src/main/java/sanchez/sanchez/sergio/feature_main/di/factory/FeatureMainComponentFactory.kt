@@ -10,7 +10,7 @@ object FeatureMainComponentFactory {
 
     private var featureMainComponent: FeatureMainComponent? = null
     private var movieListComponent: MovieListComponent? = null
-    private var personListComponent: PersonListComponent? = null
+    private var peopleListComponent: PeopleListComponent? = null
     private var tvListComponent: TvListComponent? = null
 
     /**
@@ -34,11 +34,11 @@ object FeatureMainComponentFactory {
         }
 
     /**
-     * Get Person List Component
+     * Get People List Component
      */
-    fun getPersonListComponent(activity: AppCompatActivity): PersonListComponent =
-        personListComponent ?: getFeatureMainComponent(activity).personListComponent().also {
-            personListComponent = it
+    fun getPeopleListComponent(activity: AppCompatActivity): PeopleListComponent =
+        peopleListComponent ?: getFeatureMainComponent(activity).peopleListComponent().also {
+            peopleListComponent = it
         }
 
     /**

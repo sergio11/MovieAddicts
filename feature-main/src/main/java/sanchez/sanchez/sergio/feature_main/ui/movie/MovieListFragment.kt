@@ -33,19 +33,12 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
     override fun onInitObservers() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
-                Log.d("MOVIES_L", "uiState UPDATED, ${state.lceState}")
+                Log.d("MOVIES_L", "uiState UPDATED")
                 with(binding) {
                     uiState = state.lceState
                 }
             }
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("MOVIES_L", "OnViewCreated CALLED, OnFetchMovies")
-        viewModel.setEvent(LCEContract.Event.OnFetchData())
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,7 +53,9 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
                 viewModel.setEvent(LCEContract.Event.OnFetchData())
             }
         }
+        viewModel.setEvent(LCEContract.Event.OnFetchData())
     }
+
 
     override fun onMovieClicked(movie: Movie) {
         Log.d("MOVIES_L", "onMovieClicked CALLED (${movie.id})")

@@ -11,7 +11,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import javax.inject.Inject
 
 abstract class SupportFragment<VM : ViewModel, VB: ViewDataBinding>(private val mViewModelClass: Class<VM>): Fragment() {
@@ -47,6 +46,7 @@ abstract class SupportFragment<VM : ViewModel, VB: ViewDataBinding>(private val 
         return binding.root
     }
 
+
     /**
      * Layout Id
      */
@@ -70,6 +70,7 @@ abstract class SupportFragment<VM : ViewModel, VB: ViewDataBinding>(private val 
     /**
      * Get View Model
      */
-    private fun initViewModel(): VM = ViewModelProvider(this, viewModelFactory).get(mViewModelClass)
+    private fun initViewModel(): VM =
+            ViewModelProvider(this, viewModelFactory).get(mViewModelClass)
     
 }

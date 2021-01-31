@@ -13,7 +13,7 @@
         android:title="@string/menu_tv"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/personListFragment"
+        android:id="@+id/peopleListFragment"
         android:enabled="true"
         android:icon="@drawable/ic_star_white_24dp"
         android:title="@string/menu_star"

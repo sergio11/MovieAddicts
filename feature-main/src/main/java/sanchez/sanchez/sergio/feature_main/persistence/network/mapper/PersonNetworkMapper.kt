@@ -13,7 +13,7 @@ class PersonNetworkMapper {
         id = dto.id,
         name = dto.name,
         popularity = dto.popularity,
-        profilePath = dto.profilePath,
+        profilePath = BASE_POSTER_PATH + dto.profilePath,
         adult = dto.adult
     )
 
@@ -25,5 +25,12 @@ class PersonNetworkMapper {
             dtoList.map {
                 dtoToModel(it)
             }
+
+
+    companion object {
+
+        private const val BASE_POSTER_PATH = "https://image.tmdb.org/t/p/w342"
+
+    }
 
 }
