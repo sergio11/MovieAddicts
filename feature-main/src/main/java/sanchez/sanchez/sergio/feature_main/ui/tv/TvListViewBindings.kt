@@ -15,10 +15,12 @@ object TvListViewBindings {
      */
     @JvmStatic
     @BindingAdapter("adapterTvList")
-    fun bindAdapterTvList(view: RecyclerView, tvList: List<Tv>) {
-        view.adapter?.let {
-            if(it is TvListAdapter)
-                it.addData(tvList)
+    fun bindAdapterTvList(view: RecyclerView, tvList: List<Any>?) {
+        tvList?.let { data ->
+            view.adapter?.let {
+                if(it is TvListAdapter)
+                    it.addData(data as List<Tv>)
+            }
         }
     }
 }

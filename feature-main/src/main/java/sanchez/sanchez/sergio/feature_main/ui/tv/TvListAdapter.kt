@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import sanchez.sanchez.sergio.feature_main.R
+import sanchez.sanchez.sergio.feature_main.databinding.TvItemLayoutBinding
+import sanchez.sanchez.sergio.feature_main.databinding.TvItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.ui.core.SupportAdapter
 
@@ -20,7 +22,7 @@ class TvListAdapter(
 ): SupportAdapter<TvListAdapter.TvViewHolder, Tv>(context, data) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvViewHolder =
-            TvViewHolder(inflateLayout(R.layout.tv_item_layout, parent))
+            TvViewHolder(TvItemLayoutBindingImpl.inflate(inflater, parent, false))
 
     interface OnTvClickListener {
 
@@ -33,12 +35,13 @@ class TvListAdapter(
 
     /**
      * Tv View Holder
-     * @param itemView
+     * @param binding
      */
-    inner class TvViewHolder(itemView: View): SupportAdapter.SupportViewHolder<Tv>(itemView) {
+    inner class TvViewHolder(val binding: TvItemLayoutBinding): SupportAdapter.SupportViewHolder<Tv>(binding.root) {
         override fun bind(model: Tv) {
-            itemView.setOnClickListener {
-                tvItemListener.onTvClicked(model)
+            with(binding) {
+                tv = model
+                tvListener = tvItemListener
             }
         }
     }

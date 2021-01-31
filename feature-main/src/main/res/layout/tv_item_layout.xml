@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="tv"
+            type="sanchez.sanchez.sergio.feature_main.domain.model.Tv" />
+
+        <variable
+            name="tvListener"
+            type="sanchez.sanchez.sergio.feature_main.ui.tv.TvListAdapter.OnTvClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/tvPosterCard"
+        android:layout_width="match_parent"
+        android:layout_height="290dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{() -> tvListener.onTvClicked(tv)}"
+            android:foreground="?attr/selectableItemBackground">
+
+            <!-- Tv Poster -->
+            <ImageView
+                android:id="@+id/tvPoster"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:scaleType="fitXY"
+                app:loadPaletteImageColor="@{tv.posterPath}"
+                tools:src="@drawable/ic_star_white_24dp"
+                app:layout_constraintBottom_toTopOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="title"
+                android:text="@{tv.name}"
+                app:layout_constraintTop_toBottomOf="@id/tvPoster"
+                app:layout_constraintStart_toStartOf="@id/tvPoster"
+                app:layout_constraintEnd_toEndOf="@id/tvPoster"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

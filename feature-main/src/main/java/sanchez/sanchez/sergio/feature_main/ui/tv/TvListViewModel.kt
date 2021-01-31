@@ -37,18 +37,18 @@ class TvListViewModel @Inject constructor(
      * @param page
      */
     private fun fetchTvs(page: Int) = viewModelScope.launch {
-        Log.d("MOVIES_L", "fetchPopularPeople (page -> $page) CALLED")
+        Log.d("TVS_L", "fetchTvs (page -> $page) CALLED")
         setState { copy(lceState = LCEContract.LCEState.OnLoading) }
         discoverTvsInteract.execute(
             params = DiscoverTvsInteract.Params(page),
             onSuccess = fun(tvList) {
-                Log.d("MOVIES_L", "onSuccess (movies size -> ${tvList.size}) CALLED")
+                Log.d("TVS_L", "onSuccess (TV size -> ${tvList.size}) CALLED")
                 setState {
                     copy(lceState = LCEContract.LCEState.OnLoaded(page, tvList))
                 }
             },
             onError = fun(ex) {
-                Log.d("MOVIES_L", "onError ${ex.message} CALLED")
+                Log.d("TVS_L", "onError ${ex.message} CALLED")
                 setEffect { LCEContract.Effect.OnShowError(ex) }
             }
         )
