@@ -54,8 +54,12 @@ class TvListFragment : SupportFragment<TvListViewModel, FragmentTvListBinding>(T
         viewModel.setEvent(LCEContract.Event.OnFetchData())
     }
 
+    /**
+     *  On Tv Clicked
+     *  @param tv
+     */
     override fun onTvClicked(tv: Tv) {
-
+        showTvDetail(tv.id)
     }
 
 }

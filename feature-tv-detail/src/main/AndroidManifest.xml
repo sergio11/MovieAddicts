@@ -4,7 +4,12 @@
 
     <application>
         <activity android:name=".ui.FeatureTvDetailActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="sanchez.sanchez.sergio.intent.action.SHOW_TV_DETAIL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
