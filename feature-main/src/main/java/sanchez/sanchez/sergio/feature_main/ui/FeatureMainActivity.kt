@@ -13,7 +13,7 @@ import timber.log.Timber
 class FeatureMainActivity : SupportActivity<ActivityFeatureMainBinding>() {
 
     private val featureMainComponent: FeatureMainComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureMainComponentFactory.getFeatureMainComponent(this)
+        FeatureMainComponentFactory.buildFeatureMainComponent(this)
     }
 
     override fun onInject() {

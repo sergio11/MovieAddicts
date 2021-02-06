@@ -76,7 +76,4 @@ abstract class SupportActivity<T: ViewDataBinding>: AppCompatActivity() {
      */
     open fun onSetupNavigation(savedInstanceState: Bundle?, navController: NavController){}
 
-
-
-
 }

@@ -14,10 +14,10 @@ object FeatureMainComponentFactory {
     private var tvListComponent: TvListComponent? = null
 
     /**
-     * Get Feature Main Component
+     * Build Feature Main Component
      * @param activity
      */
-    fun getFeatureMainComponent(activity: AppCompatActivity): FeatureMainComponent =
+    fun buildFeatureMainComponent(activity: AppCompatActivity): FeatureMainComponent =
         featureMainComponent ?: DaggerFeatureMainComponent.builder()
             .applicationComponent(AppComponentFactory.getAppComponent(
                 activity.application as SupportApp
@@ -26,27 +26,52 @@ object FeatureMainComponentFactory {
             }
 
     /**
-     * Get Movie List Component
+     * Remove Feature Main Component
      */
-    fun getMovieListComponent(activity: AppCompatActivity): MovieListComponent =
-        movieListComponent ?: getFeatureMainComponent(activity).movieListComponent().also {
+    fun removeFeatureMainComponent() {
+        featureMainComponent = null
+    }
+
+    /**
+     * Build Movie List Component
+     */
+    fun buildMovieListComponent(activity: AppCompatActivity): MovieListComponent =
+        movieListComponent ?: buildFeatureMainComponent(activity).movieListComponent().also {
             movieListComponent = it
         }
+
+    /**
+     * Remove Movie List Component
+     */
+    fun removeMovieListComponent() {
+        movieListComponent = null
+    }
 
     /**
      * Get People List Component
      */
     fun getPeopleListComponent(activity: AppCompatActivity): PeopleListComponent =
-        peopleListComponent ?: getFeatureMainComponent(activity).peopleListComponent().also {
+        peopleListComponent ?: buildFeatureMainComponent(activity).peopleListComponent().also {
             peopleListComponent = it
         }
+
+    /**
+     * Remove People List Component
+     */
+    fun removePeopleListComponent() {
+        peopleListComponent = null
+    }
 
     /**
      * Get Person List Component
      */
     fun getTvListComponent(activity: AppCompatActivity): TvListComponent =
-        tvListComponent ?: getFeatureMainComponent(activity).tvListComponent().also {
+        tvListComponent ?: buildFeatureMainComponent(activity).tvListComponent().also {
             tvListComponent = it
         }
+
+    fun removeTvListComponent() {
+        tvListComponent = null
+    }
 
 }

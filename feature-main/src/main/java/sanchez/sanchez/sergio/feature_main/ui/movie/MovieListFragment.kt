@@ -21,7 +21,7 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
     MovieListAdapter.OnMovieClickListener {
 
     private val component: MovieListComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureMainComponentFactory.getMovieListComponent(requireActivity() as AppCompatActivity)
+        FeatureMainComponentFactory.buildMovieListComponent(requireActivity() as AppCompatActivity)
     }
 
     override fun layoutId(): Int = R.layout.fragment_movie_list
@@ -56,8 +56,12 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
         viewModel.setEvent(LCEContract.Event.OnFetchData())
     }
 
-
+    /**
+     * Movie Clicked
+     * @param movie
+     */
     override fun onMovieClicked(movie: Movie) {
         Log.d("MOVIES_L", "onMovieClicked CALLED (${movie.id})")
+        showMovieDetail(movie.id)
     }
 }

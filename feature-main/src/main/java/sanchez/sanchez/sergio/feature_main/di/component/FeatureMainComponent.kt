@@ -20,7 +20,7 @@ interface FeatureMainComponent {
 
 
     /**
-     * Sub components
+     * Sub-components
      */
 
     fun movieListComponent(): MovieListComponent
