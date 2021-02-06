@@ -4,10 +4,11 @@
 
     <data />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/personDetailContainer"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="sanchez.sanchez.sergio.feature_person_detail.ui.person.PersonDetailFragment"/>
+        android:background="@android:color/holo_blue_bright">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

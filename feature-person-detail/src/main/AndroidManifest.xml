@@ -5,7 +5,12 @@
     <application>
         <activity
             android:name=".ui.FeaturePersonDetailActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="sanchez.sanchez.sergio.intent.action.SHOW_PERSON_DETAIL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

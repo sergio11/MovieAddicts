@@ -54,7 +54,12 @@ class PeopleListFragment : SupportFragment<PersonListViewModel, FragmentPeopleLi
         viewModel.setEvent(LCEContract.Event.OnFetchData())
     }
 
+    /**
+     * On Person Clicked
+     * @param person
+     */
     override fun onPersonClicked(person: Person) {
+        showPersonDetail(person.id)
     }
 
 }
