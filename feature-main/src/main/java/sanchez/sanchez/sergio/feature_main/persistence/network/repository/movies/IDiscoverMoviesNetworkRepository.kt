@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_main.persistence.network.repository.movie
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.test.core.persistence.network.exception.NetworkException
+import kotlin.jvm.Throws
 
 /**
  * Discover Movies Repository

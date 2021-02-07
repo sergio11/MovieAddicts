@@ -6,10 +6,10 @@ data class MovieVideosDTO (
         @field:Json(name = "id")
         val id: Long,
         @field:Json(name = "results")
-        val movies: List<MovieDTO>
+        val videos: List<VideoDTO>
 )
 
-data class MovieDTO (
+data class VideoDTO (
         @field:Json(name = "id")
         val id: String,
         @field:Json(name = "iso_639_1")

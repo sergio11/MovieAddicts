@@ -28,7 +28,7 @@ data class MovieDetailDTO (
         @field:Json(name = "popularity")
         val popularity: Double,
         @field:Json(name = "poster_path")
-        val posterPath: Any? = null,
+        val posterPath: String? = null,
         @field:Json(name = "production_companies")
         val productionCompanies: List<ProductionCompanyDTO>,
         @field:Json(name = "production_countries")

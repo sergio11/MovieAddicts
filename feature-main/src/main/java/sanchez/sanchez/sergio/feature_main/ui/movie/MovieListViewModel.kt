@@ -38,7 +38,7 @@ class MovieListViewModel @Inject constructor(
     /**
      * Fetch Movies
      */
-    private fun fetchMovies(page: Int) = GlobalScope.launch {
+    private fun fetchMovies(page: Int) = viewModelScope.launch {
         Log.d("MOVIES_L", "fetchMovies (page -> $page) CALLED")
         setState { copy(lceState = LCEContract.LCEState.OnLoading) }
         getMoviesInteract.execute(

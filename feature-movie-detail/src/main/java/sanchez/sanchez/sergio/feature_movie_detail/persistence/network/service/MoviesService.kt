@@ -17,7 +17,7 @@ interface MoviesService {
      * @param id
      */
     @GET("/3/movie/{movie_id}")
-    suspend fun getMovieDetails(@Path("movie_id") id: Int): MovieDetailDTO
+    suspend fun getMovieDetails(@Path("movie_id") id: Long): MovieDetailDTO
 
     /**
      * [Movie Keywords](https://developers.themoviedb.org/3/movies/get-movie-keywords)
@@ -29,7 +29,7 @@ interface MoviesService {
      * @return [MovieKeywordsDTO] response
      */
     @GET("/3/movie/{movie_id}/keywords")
-    suspend fun getMovieKeywords(@Path("movie_id") id: Int): MovieKeywordsDTO
+    suspend fun getMovieKeywords(@Path("movie_id") id: Long): MovieKeywordsDTO
 
     /**
      * [Movie Videos](https://developers.themoviedb.org/3/movies/get-movie-videos)
@@ -41,7 +41,7 @@ interface MoviesService {
      * @return [MovieVideosDTO] response
      */
     @GET("/3/movie/{movie_id}/videos")
-    suspend fun getMovieVideos(@Path("movie_id") id: Int): MovieVideosDTO
+    suspend fun getMovieVideos(@Path("movie_id") id: Long): MovieVideosDTO
 
     /**
      * [Movie Reviews](https://developers.themoviedb.org/3/movies/get-movie-reviews)
@@ -53,6 +53,6 @@ interface MoviesService {
      * @return [MovieReviewsDTO] response
      */
     @GET("/3/movie/{movie_id}/reviews")
-    suspend fun getMovieReviews(@Path("movie_id") id: Int): MovieReviewsDTO
+    suspend fun getMovieReviews(@Path("movie_id") id: Long): MovieReviewsDTO
 
 }

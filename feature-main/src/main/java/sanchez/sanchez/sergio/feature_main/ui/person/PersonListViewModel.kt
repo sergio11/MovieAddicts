@@ -1,6 +1,7 @@
 package sanchez.sanchez.sergio.feature_main.ui.person
 
 import android.util.Log
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_main.domain.usecase.FetchPopularPeopleInteract
@@ -36,7 +37,7 @@ class PersonListViewModel @Inject constructor(
      * Fetch Popular People
      * @param page
      */
-    private fun fetchPopularPeople(page: Int) = GlobalScope.launch {
+    private fun fetchPopularPeople(page: Int) = viewModelScope.launch {
         setState { copy(lceState = LCEContract.LCEState.OnLoading) }
         peopleInteract.execute(
             params = FetchPopularPeopleInteract.Params(page),
