@@ -19,5 +19,5 @@ interface PeopleService {
      * @return [PersonDetailDTO] response
      */
     @GET("/3/person/{person_id}")
-    suspend fun getPersonDetail(@Path("person_id") id: Int): PersonDetailDTO
+    suspend fun getPersonDetail(@Path("person_id") id: Long): PersonDetailDTO
 }
