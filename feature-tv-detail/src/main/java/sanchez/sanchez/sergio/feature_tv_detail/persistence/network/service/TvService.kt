@@ -16,7 +16,7 @@ interface TvService {
      * @return [TvDetailDTO] response
      */
     @GET("/3/tv/{tv_id}")
-    suspend fun getTvDetail(@Path("tv_id") id: Int): TvDetailDTO
+    suspend fun getTvDetail(@Path("tv_id") id: Long): TvDetailDTO
 
     /**
      * [Tv Videos](https://developers.themoviedb.org/3/tv/get-tv-keywords)
@@ -28,7 +28,7 @@ interface TvService {
      * @return [TvKeywordsDTO] response
      */
     @GET("/3/tv/{tv_id}/keywords")
-    suspend fun getTvKeywords(@Path("tv_id") id: Int): TvKeywordsDTO
+    suspend fun getTvKeywords(@Path("tv_id") id: Long): TvKeywordsDTO
 
     /**
      * [Tv Videos](https://developers.themoviedb.org/3/tv/get-tv-videos)
@@ -40,7 +40,7 @@ interface TvService {
      * @return [TvVideosDTO] response
      */
     @GET("/3/tv/{tv_id}/videos")
-    suspend fun getTvVideos(@Path("tv_id") id: Int): TvVideosDTO
+    suspend fun getTvVideos(@Path("tv_id") id: Long): TvVideosDTO
 
     /**
      * [Tv Reviews](https://developers.themoviedb.org/3/tv/get-tv-reviews)
@@ -52,5 +52,5 @@ interface TvService {
      * @return [TvReviewsDTO] response
      */
     @GET("/3/tv/{tv_id}/reviews")
-    suspend fun getTvReviews(@Path("tv_id") id: Int): TvReviewsDTO
+    suspend fun getTvReviews(@Path("tv_id") id: Long): TvReviewsDTO
 }

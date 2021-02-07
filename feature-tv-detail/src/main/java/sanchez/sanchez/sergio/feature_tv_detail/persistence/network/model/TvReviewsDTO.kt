@@ -40,6 +40,6 @@ data class AuthorDetailsDTO (
         @field:Json(name = "avatar_path")
         val avatarPath: String? = null,
         @field:Json(name = "rating")
-        val rating: Long
+        val rating: Long? = null
 )
 

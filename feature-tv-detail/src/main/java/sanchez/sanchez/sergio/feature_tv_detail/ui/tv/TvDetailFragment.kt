@@ -1,8 +1,12 @@
 package sanchez.sanchez.sergio.feature_tv_detail.ui.tv
 
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_tv_detail.R
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.TvDetailFragmentBinding
 import sanchez.sanchez.sergio.feature_tv_detail.di.component.TvDetailComponent
@@ -36,6 +40,30 @@ class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBind
     }
 
     override fun onInitObservers() {
-        Log.d("TV_DETAIL", "TV Id -> ${activityDelegate.getTvId()}")
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiState.collect { state ->
+                when(state.tvState) {
+
+                    is TvDetailContract.TvState.OnIdle -> {
+                        Log.d("TV_DETAIL", "OnIdle CALLED")
+                    }
+
+                    is TvDetailContract.TvState.OnLoading -> {
+                        Log.d("TV_DETAIL", "OnLoading CALLED")
+                    }
+
+                    is TvDetailContract.TvState.OnLoaded -> {
+                        Log.d("TV_DETAIL", "OnLoaded CALLED")
+
+                        Log.d("TV_DETAIL", "Title -> ${state.tvState.tv.name}")
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.setEvent(TvDetailContract.Event.FetchTvDetail(activityDelegate.getTvId()))
     }
 }
