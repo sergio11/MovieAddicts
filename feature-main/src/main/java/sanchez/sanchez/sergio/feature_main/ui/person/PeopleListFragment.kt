@@ -10,7 +10,7 @@ import sanchez.sanchez.sergio.feature_main.databinding.FragmentPeopleListBinding
 import sanchez.sanchez.sergio.feature_main.di.component.PeopleListComponent
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
-import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
+import sanchez.sanchez.sergio.test.core.ui.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
 
 /**

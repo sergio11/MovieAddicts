@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import sanchez.sanchez.sergio.feature_main.databinding.PersonItemLayoutBinding
 import sanchez.sanchez.sergio.feature_main.databinding.PersonItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
-import sanchez.sanchez.sergio.feature_main.ui.core.SupportAdapter
+import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
 
 /**
  * People List Adapter

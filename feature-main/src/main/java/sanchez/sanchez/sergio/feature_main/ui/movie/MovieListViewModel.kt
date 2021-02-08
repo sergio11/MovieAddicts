@@ -2,11 +2,9 @@ package sanchez.sanchez.sergio.feature_main.ui.movie
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_main.domain.usecase.DiscoverMoviesInteract
-import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
+import sanchez.sanchez.sergio.test.core.ui.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportViewModel
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.feature_main.ui.core.binding
+package sanchez.sanchez.sergio.test.core.ui.binding
 
 import android.view.View
 import android.widget.ImageView

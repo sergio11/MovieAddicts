@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.feature_main.ui.core
+package sanchez.sanchez.sergio.test.core.ui
 
 import android.content.Context
 import android.view.LayoutInflater

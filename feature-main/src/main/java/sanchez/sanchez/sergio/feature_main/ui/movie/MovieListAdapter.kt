@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import sanchez.sanchez.sergio.feature_main.databinding.MovieItemLayoutBinding
 import sanchez.sanchez.sergio.feature_main.databinding.MovieItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
-import sanchez.sanchez.sergio.feature_main.ui.core.SupportAdapter
+import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
 
 /**
  * Movie List Adapter

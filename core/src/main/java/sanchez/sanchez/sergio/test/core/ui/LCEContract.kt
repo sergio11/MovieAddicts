@@ -1,8 +1,5 @@
-package sanchez.sanchez.sergio.feature_main.ui.core
+package sanchez.sanchez.sergio.test.core.ui
 
-import sanchez.sanchez.sergio.test.core.ui.UiEffect
-import sanchez.sanchez.sergio.test.core.ui.UiEvent
-import sanchez.sanchez.sergio.test.core.ui.UiState
 import java.lang.Exception
 
 class LCEContract {

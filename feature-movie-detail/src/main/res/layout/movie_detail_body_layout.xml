@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="movie"
+      type="sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail" />
+
+    <variable
+      name="movieVideoListAdapter"
+      type="sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieVideoListAdapter" />
+
+    <variable
+      name="movieReviewListAdapter"
+      type="sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieReviewListAdapter" />
+
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/background"
+      android:orientation="vertical"
+      android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/detailBodyTrailersTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="@string/movie_detail_body_trailers_text"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/detailBodyRecyclerViewTrailers"/>
+
+    <!-- Movie Trailers -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/detailBodyRecyclerViewTrailers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/movie_video_item_layout"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailBodyTrailersTextView"
+        app:layout_constraintBottom_toTopOf="@id/detailBodySummaryTextView"
+        />
+
+    <!-- Summary -->
+    <TextView
+        android:id="@+id/detailBodySummaryTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="@string/movie_detail_body_summary_text"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/detailBodyRecyclerViewTrailers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/detailBodySummary"/>
+
+    <TextView
+        android:id="@+id/detailBodySummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@{movie.overview}"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        tools:text="Summary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailBodySummaryTextView"
+        app:layout_constraintBottom_toTopOf="@id/detailBodyTags"/>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/detailBodyTags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:singleLine="false"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailBodySummary"
+        app:layout_constraintBottom_toTopOf="@id/detailBodyReviews"/>
+
+    <TextView
+        android:id="@+id/detailBodyReviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="@string/movie_detail_body_reviews_text"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/detailBodyTags"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/detailBodyRecyclerViewReviews"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/detailBodyRecyclerViewReviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:nestedScrollingEnabled="false"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:ignore="UnusedAttribute"
+        tools:listitem="@layout/movie_review_item_layout"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/detailBodyReviews"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

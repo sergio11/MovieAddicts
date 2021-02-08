@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="review"
+      type="sanchez.sanchez.sergio.feature_movie_detail.domain.model.Review" />
+
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/common_margin"
+      android:background="@color/background">
+
+    <!-- Item Review Title -->
+    <TextView
+        android:id="@+id/itemReviewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{review.content}"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        tools:text="title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/itemReviewContent"/>
+
+    <!-- Item Review Content -->
+    <com.ms.square.android.expandabletextview.ExpandableTextView
+        android:id="@+id/itemReviewContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{review.content}"
+        app:animAlphaStart="1"
+        app:animDuration="200"
+        app:collapseDrawable="@drawable/ic_baseline_arrow_drop_up_24"
+        app:expandDrawable="@drawable/ic_baseline_arrow_drop_down_24"
+        app:maxCollapsedLines="4"
+        app:layout_constraintTop_toBottomOf="@id/itemReviewTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+      <TextView
+          android:id="@id/expandable_text"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="7dp"
+          android:background="?android:attr/selectableItemBackground"
+          android:fontFamily="sans-serif-light"
+          android:lineSpacingMultiplier="1.2"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          android:textColor="@color/white"
+          android:textSize="14sp"
+          tools:text="content" />
+
+      <ImageButton
+          android:id="@id/expand_collapse"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="left|bottom"
+          android:background="?android:attr/selectableItemBackground"
+          android:padding="6dp"
+          tools:ignore="ContentDescription,RtlHardcoded" />
+
+    </com.ms.square.android.expandabletextview.ExpandableTextView>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

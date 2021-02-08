@@ -2,10 +2,9 @@ package sanchez.sanchez.sergio.feature_main.ui.person
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_main.domain.usecase.FetchPopularPeopleInteract
-import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
+import sanchez.sanchez.sergio.test.core.ui.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportViewModel
 import javax.inject.Inject
 

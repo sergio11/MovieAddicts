@@ -14,11 +14,16 @@ class MovieVideoNetworkMapper {
             site = dto.site,
             key = dto.key,
             size = dto.size,
-            type = dto.type
+            type = dto.type,
+            thumbnailPath = "$YOUTUBE_THUMBNAIL_URL${dto.key}/default.jpg"
     )
 
     fun dtoToModel(dtoList: List<VideoDTO>) = dtoList.map {
         dtoToModel(it)
+    }
+
+    companion object {
+        private const val YOUTUBE_THUMBNAIL_URL = "https://img.youtube.com/vi/"
     }
 
 }

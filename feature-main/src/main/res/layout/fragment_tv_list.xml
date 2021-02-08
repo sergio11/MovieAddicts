@@ -6,10 +6,10 @@
 
         <import type="android.view.View"/>
         <import type="sanchez.sanchez.sergio.feature_main.domain.model.Tv" />
-        <import type="sanchez.sanchez.sergio.feature_main.ui.core.LCEContract.LCEState" />
-        <import type="sanchez.sanchez.sergio.feature_main.ui.core.LCEContract.LCEState.OnIdle" />
-        <import type="sanchez.sanchez.sergio.feature_main.ui.core.LCEContract.LCEState.OnLoading" />
-        <import type="sanchez.sanchez.sergio.feature_main.ui.core.LCEContract.LCEState.OnLoaded" />
+        <import type="sanchez.sanchez.sergio.test.core.ui.LCEContract.LCEState" />
+        <import type="sanchez.sanchez.sergio.test.core.ui.LCEContract.LCEState.OnIdle" />
+        <import type="sanchez.sanchez.sergio.test.core.ui.LCEContract.LCEState.OnLoading" />
+        <import type="sanchez.sanchez.sergio.test.core.ui.LCEContract.LCEState.OnLoaded" />
 
         <variable
             name="uiState"

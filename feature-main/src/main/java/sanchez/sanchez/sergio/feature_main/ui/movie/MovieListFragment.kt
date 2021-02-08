@@ -11,7 +11,7 @@ import sanchez.sanchez.sergio.feature_main.databinding.FragmentMovieListBinding
 import sanchez.sanchez.sergio.feature_main.di.component.MovieListComponent
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
-import sanchez.sanchez.sergio.feature_main.ui.core.LCEContract
+import sanchez.sanchez.sergio.test.core.ui.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
 
 /**

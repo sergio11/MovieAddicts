@@ -1,13 +1,11 @@
 package sanchez.sanchez.sergio.feature_main.ui.tv
 
 import android.content.Context
-import android.view.View
 import android.view.ViewGroup
-import sanchez.sanchez.sergio.feature_main.R
 import sanchez.sanchez.sergio.feature_main.databinding.TvItemLayoutBinding
 import sanchez.sanchez.sergio.feature_main.databinding.TvItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
-import sanchez.sanchez.sergio.feature_main.ui.core.SupportAdapter
+import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
 
 /**
  * Tv List Adapter
