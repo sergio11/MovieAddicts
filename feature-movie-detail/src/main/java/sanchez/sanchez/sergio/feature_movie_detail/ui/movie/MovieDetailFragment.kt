@@ -11,9 +11,9 @@ import sanchez.sanchez.sergio.feature_movie_detail.R
 import sanchez.sanchez.sergio.feature_movie_detail.databinding.MovieDetailFragmentBinding
 import sanchez.sanchez.sergio.feature_movie_detail.di.component.MovieDetailComponent
 import sanchez.sanchez.sergio.feature_movie_detail.di.factory.FeatureMovieDetailComponentFactory
+import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivity
 import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivityDelegate
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
-import java.lang.IllegalStateException
 
 /**
  * Movie Detail Fragment
@@ -26,12 +26,18 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
 
     private lateinit var activityDelegate: FeatureMovieDetailActivityDelegate
 
+    private val movieVideoListAdapter by lazy {
+        MovieVideoListAdapter(requireContext(), mutableListOf())
+    }
+
+    private val movieReviewListAdapter by lazy {
+        MovieReviewListAdapter(requireContext(), mutableListOf())
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
         if(context !is FeatureMovieDetailActivityDelegate)
             throw IllegalStateException("Parent Activity must implement a FeatureMovieDetailActivityDelegate interface")
-
         activityDelegate = context
     }
 
@@ -44,22 +50,14 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
     override fun onInitObservers() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
-                when(state.movieState) {
-
-                    is MovieDetailContract.MovieState.OnIdle -> {
-                        Log.d("MOVIES_DETAIL", "OnIdle CALLED")
-                    }
-
-                    is MovieDetailContract.MovieState.OnLoading -> {
-                        Log.d("MOVIES_DETAIL", "OnLoading CALLED")
-                    }
-
-                    is MovieDetailContract.MovieState.OnLoaded -> {
-                        Log.d("MOVIES_DETAIL", "OnLoaded CALLED")
-
-                        Log.d("MOVIES_DETAIL", "Title -> ${state.movieState.movie.title}")
-                        Log.d("MOVIES_DETAIL", "Keywords Size -> ${state.movieState.movie.keywords?.size}")
-                    }
+                with(binding) {
+                    activity = requireActivity() as FeatureMovieDetailActivity
+                    videoListAdapter = movieVideoListAdapter
+                    reviewListAdapter = movieReviewListAdapter
+                    movie = if (state.movieState is MovieDetailContract.MovieState.OnLoaded)
+                        state.movieState.movie
+                    else
+                        null
                 }
             }
         }

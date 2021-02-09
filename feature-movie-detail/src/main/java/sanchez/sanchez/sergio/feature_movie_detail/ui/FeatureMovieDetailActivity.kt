@@ -1,6 +1,6 @@
 package sanchez.sanchez.sergio.feature_movie_detail.ui
 
-import android.os.Bundle
+import android.view.MenuItem
 import sanchez.sanchez.sergio.feature_movie_detail.R
 import sanchez.sanchez.sergio.feature_movie_detail.databinding.ActivityFeatureMovieDetailBinding
 import sanchez.sanchez.sergio.feature_movie_detail.di.component.FeatureMovieDetailComponent
@@ -20,6 +20,11 @@ class FeatureMovieDetailActivity : SupportActivity<ActivityFeatureMovieDetailBin
     }
 
     override fun layoutId(): Int = R.layout.activity_feature_movie_detail
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) onBackPressed()
+        return false
+    }
 
     override fun initializeUI() {
         if(!intent.hasExtra(MOVIE_ID_ARG_NAME))

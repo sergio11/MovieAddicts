@@ -5,6 +5,11 @@
 
     <data>
 
+        <import type="android.view.View" />
+        <import type="sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieDetailContract.MovieState.OnIdle" />
+        <import type="sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieDetailContract.MovieState.OnLoading" />
+        <import type="sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieDetailContract.MovieState.OnLoaded" />
+
         <variable
             name="movie"
             type="sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail" />
@@ -23,11 +28,13 @@
 
     </data>
 
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:fitsSystemWindows="false">
+        android:fitsSystemWindows="false"
+        android:visibility="@{movie != null ? View.VISIBLE : View.GONE}">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -46,7 +53,7 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <ImageView
-                    android:id="@+id/movie_detail_poster"
+                    android:id="@+id/movieDetailPoster"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -55,11 +62,11 @@
                     tools:ignore="ContentDescription" />
 
                 <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/movie_detail_toolbar"
+                    android:id="@+id/movieDetailToolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
-                    app:bindToolbarWithTitle="@{movie.title}"
+                    app:bindToolbarWithTitle='@{movie.title ?? ""}'
                     app:bindToolbarWithActivity="@{activity}" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -78,13 +85,15 @@
                 android:orientation="vertical"
                 android:padding="15dp">
 
+                <!-- Movie Detail Header -->
                 <include
-                    android:id="@+id/detail_header"
+                    android:id="@+id/movieDetailHeader"
                     layout="@layout/movie_detail_header_layout"
                     app:movie="@{movie}" />
 
+                <!-- Movie Detail Body -->
                 <include
-                    android:id="@+id/detail_body"
+                    android:id="@+id/movieDetailBody"
                     layout="@layout/movie_detail_body_layout"
                     app:movie="@{movie}"
                     app:movieReviewListAdapter="@{reviewListAdapter}"
