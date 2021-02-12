@@ -1,5 +1,6 @@
 package sanchez.sanchez.sergio.feature_tv_detail.ui
 
+import android.view.MenuItem
 import sanchez.sanchez.sergio.feature_tv_detail.R
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.ActivityFeatureTvDetailBinding
 import sanchez.sanchez.sergio.feature_tv_detail.di.component.FeatureTvDetailComponent
@@ -17,6 +18,11 @@ class FeatureTvDetailActivity : SupportActivity<ActivityFeatureTvDetailBinding>(
 
     override fun onInject() {
         component.inject(this)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) onBackPressed()
+        return false
     }
 
     override fun initializeUI() {

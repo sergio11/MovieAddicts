@@ -33,6 +33,7 @@ class TvDetailContract {
             val tvState: TvState
     ) : UiState
 
+
     sealed class TvState {
         object OnIdle: TvState()
         object OnLoading : TvState()

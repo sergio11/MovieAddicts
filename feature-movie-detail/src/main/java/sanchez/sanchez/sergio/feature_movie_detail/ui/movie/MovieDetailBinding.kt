@@ -98,16 +98,4 @@ object MovieDetailBinding {
         }
     }
 
-    /**
-     * Bind Visibility By List State
-     * @param view
-     * @param anyList
-     */
-    @JvmStatic
-    @BindingAdapter("bindVisibilityByListState")
-    fun bindVisibilityByListState(view: View, anyList: List<Any>?) {
-        if(!anyList.isNullOrEmpty())
-            view.visible()
-    }
-
 }

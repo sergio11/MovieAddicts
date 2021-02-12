@@ -25,9 +25,7 @@ class FeatureMainActivity : SupportActivity<ActivityFeatureMainBinding>() {
     override fun navHostId(): Int = R.id.mainNavHostContainer
 
     override fun onSetupNavigation(savedInstanceState: Bundle?, navController: NavController) {
-        Timber.d("onSetupNavigation CALLED")
         with(binding) {
-            Timber.d("setupWithNavController CALLED")
             NavigationUI.setupWithNavController(mainBottomNavigation, navController)
         }
     }

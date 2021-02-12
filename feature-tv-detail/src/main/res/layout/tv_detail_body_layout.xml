@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="tv"
+            type="sanchez.sanchez.sergio.feature_tv_detail.domain.model.TvDetail" />
+
+        <variable
+            name="tvVideoAdapter"
+            type="sanchez.sanchez.sergio.feature_tv_detail.ui.tv.TvVideoListAdapter" />
+
+        <variable
+            name="tvReviewAdapter"
+            type="sanchez.sanchez.sergio.feature_tv_detail.ui.tv.TvReviewListAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/detailBodyTrailers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="Trailers"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:bindVisibilityByListState="@{tv.videos}"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detailBodyRecyclerViewTrailers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:bindTvVideoAdapter="@{tvVideoAdapter}"
+            app:bindTvVideoList="@{tv.videos}"
+            app:bindVisibilityByListState="@{tv.videos}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/tv_video_item_layout"
+            tools:visibility="visible" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="Summary"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/detailBodySummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{tv.overview}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            tools:text="Summary" />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/detailBodyTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:visibility="gone"
+            app:singleLine="false"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/detailBodyReviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="Reviews"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:bindVisibilityByListState="@{tv.reviews}"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detailBodyRecyclerViewReviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:bindTvReviewAdapter="@{tvReviewAdapter}"
+            app:bindTvReviewList="@{tv.reviews}"
+            app:bindVisibilityByListState="@{tv.reviews}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:ignore="UnusedAttribute"
+            tools:listitem="@layout/tv_review_item_layout"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+</layout>

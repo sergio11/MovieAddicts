@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    
-    <data />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="activity"
+            type="sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivity" />
+
+        <variable
+            name="tv"
+            type="sanchez.sanchez.sergio.feature_tv_detail.domain.model.TvDetail" />
+
+        <variable
+            name="tvVideoAdapter"
+            type="sanchez.sanchez.sergio.feature_tv_detail.ui.tv.TvVideoListAdapter" />
+
+        <variable
+            name="tvReviewAdapter"
+            type="sanchez.sanchez.sergio.feature_tv_detail.ui.tv.TvReviewListAdapter" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_green_dark">
+        android:background="@color/background"
+        android:fitsSystemWindows="false">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:elevation="4dp"
+            tools:targetApi="LOLLIPOP">
 
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                app:contentScrim="@color/colorPrimary"
+                app:expandedTitleGravity="top|left"
+                app:expandedTitleTextAppearance="@style/CollapsedExpandedTitleText"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/tvDetailPoster"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:bindBackDrop="@{tv}"
+                    app:layout_collapseMode="parallax"
+                    tools:ignore="ContentDescription" />
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/tvDetailToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:bindToolbarWithTitle='@{tv.name ?? ""}'
+                    app:bindToolbarWithActivity="@{activity}" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/common_margin"
+                android:orientation="vertical"
+                android:padding="@dimen/common_big_padding">
+
+                <include
+                    android:id="@+id/tvDetailHeader"
+                    layout="@layout/tv_detail_header_layout"
+                    app:tv="@{tv}" />
+
+                <include
+                    android:id="@+id/tvDetailBody"
+                    layout="@layout/tv_detail_body_layout"
+                    app:tvReviewAdapter="@{tvReviewAdapter}"
+                    app:tv="@{tv}"
+                    app:tvVideoAdapter="@{tvVideoAdapter}" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

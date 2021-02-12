@@ -12,9 +12,9 @@ class TvDetailNetworkMapper {
             id = dto.id,
             name = dto.name,
             originalName = dto.originalName,
-            posterPath = dto.posterPath,
+            posterPath = BASE_BACKDROP_PATH + dto.posterPath,
             popularity = dto.popularity,
-            backdropPath = dto.backdropPath,
+            backdropPath = BASE_BACKDROP_PATH + dto.backdropPath,
             voteAverage = dto.voteAverage,
             overview = dto.overview,
             firstAirDate = dto.firstAirDate,
@@ -23,5 +23,9 @@ class TvDetailNetworkMapper {
             originalLanguage = dto.originalLanguage,
             voteCount = dto.voteCount
     )
+
+    companion object {
+        private const val BASE_BACKDROP_PATH = "https://image.tmdb.org/t/p/w780"
+    }
 
 }

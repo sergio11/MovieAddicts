@@ -3,5 +3,5 @@
 
     <dimen name="common_margin">8dp</dimen>
     <dimen name="common_padding">10dp</dimen>
-
+    <dimen name="common_big_padding">15dp</dimen>
 </resources>

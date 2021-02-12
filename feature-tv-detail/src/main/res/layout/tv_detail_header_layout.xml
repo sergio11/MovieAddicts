@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="tv"
+            type="sanchez.sanchez.sergio.feature_tv_detail.domain.model.TvDetail" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDetailHeaderTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxEms="12"
+            android:singleLine="true"
+            android:text="@{tv.name}"
+            android:textColor="@color/white"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvDetailHeaderRelease"
+            tools:text="Movie Title"/>
+
+        <TextView
+            android:id="@+id/tvDetailHeaderRelease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:bindAirDate="@{tv}"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailHeaderTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvDetailHeaderStar"
+            tools:text="Release Date :"/>
+
+        <RatingBar
+            android:id="@+id/tvDetailHeaderStar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:rating="@{(float)tv.voteAverage / 2}"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailHeaderRelease"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:rating="3.5f"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

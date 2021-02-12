@@ -2,7 +2,6 @@ package sanchez.sanchez.sergio.feature_tv_detail.ui.tv
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -11,6 +10,7 @@ import sanchez.sanchez.sergio.feature_tv_detail.R
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.TvDetailFragmentBinding
 import sanchez.sanchez.sergio.feature_tv_detail.di.component.TvDetailComponent
 import sanchez.sanchez.sergio.feature_tv_detail.di.factory.FeatureTvDetailComponentFactory
+import sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivity
 import sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivityDelegate
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
 import java.lang.IllegalStateException
@@ -22,6 +22,14 @@ class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBind
 
     private val component: TvDetailComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
         FeatureTvDetailComponentFactory.buildTvDetailComponent(requireActivity() as AppCompatActivity)
+    }
+
+    private val tvVideoListAdapter by lazy {
+        TvVideoListAdapter(requireContext(), mutableListOf())
+    }
+
+    private val tvReviewListAdapter by lazy {
+        TvReviewListAdapter(requireContext(), mutableListOf())
     }
 
     lateinit var activityDelegate: FeatureTvDetailActivityDelegate
@@ -42,21 +50,14 @@ class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBind
     override fun onInitObservers() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
-                when(state.tvState) {
-
-                    is TvDetailContract.TvState.OnIdle -> {
-                        Log.d("TV_DETAIL", "OnIdle CALLED")
-                    }
-
-                    is TvDetailContract.TvState.OnLoading -> {
-                        Log.d("TV_DETAIL", "OnLoading CALLED")
-                    }
-
-                    is TvDetailContract.TvState.OnLoaded -> {
-                        Log.d("TV_DETAIL", "OnLoaded CALLED")
-
-                        Log.d("TV_DETAIL", "Title -> ${state.tvState.tv.name}")
-                    }
+                with(binding) {
+                    activity = requireActivity() as FeatureTvDetailActivity
+                    tv = if(state.tvState is TvDetailContract.TvState.OnLoaded)
+                        state.tvState.tv
+                    else
+                        null
+                    tvVideoAdapter = tvVideoListAdapter
+                    tvReviewAdapter = tvReviewListAdapter
                 }
             }
         }

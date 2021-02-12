@@ -1,5 +1,6 @@
 package sanchez.sanchez.sergio.test.core.ui.binding
 
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.appbar.MaterialToolbar
 import sanchez.sanchez.sergio.test.core.extension.applyToolbarMargin
 import sanchez.sanchez.sergio.test.core.extension.simpleToolbarWithHome
+import sanchez.sanchez.sergio.test.core.extension.visible
 import sanchez.sanchez.sergio.test.core.ui.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
 
@@ -32,5 +34,17 @@ object SupportBindings {
             simpleToolbarWithHome(toolbar, title)
             applyToolbarMargin(toolbar)
         }
+    }
+
+    /**
+     * Bind Visibility By List State
+     * @param view
+     * @param anyList
+     */
+    @JvmStatic
+    @BindingAdapter("bindVisibilityByListState")
+    fun bindVisibilityByListState(view: View, anyList: List<Any>?) {
+        if(!anyList.isNullOrEmpty())
+            view.visible()
     }
 }
