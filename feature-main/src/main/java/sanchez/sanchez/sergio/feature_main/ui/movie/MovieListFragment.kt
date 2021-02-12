@@ -1,10 +1,14 @@
 package sanchez.sanchez.sergio.feature_main.ui.movie
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_main.R
 import sanchez.sanchez.sergio.feature_main.databinding.FragmentMovieListBinding
@@ -49,6 +53,20 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
                 data = mutableListOf(),
                 movieItemListener = this@MovieListFragment
             )
+            recyclerView.apply {
+                addItemDecoration(object: RecyclerView.ItemDecoration() {
+                    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                        super.getItemOffsets(outRect, view, parent, state)
+                        val commonPadding = requireContext().resources.getDimension(R.dimen.common_padding).toInt()
+                        outRect.apply {
+                            left = commonPadding
+                            right = commonPadding
+                            top = commonPadding
+                            bottom = commonPadding
+                        }
+                    }
+                })
+            }
             swipeRefreshLayout.setOnRefreshListener {
                 viewModel.setEvent(LCEContract.Event.OnFetchData())
             }
