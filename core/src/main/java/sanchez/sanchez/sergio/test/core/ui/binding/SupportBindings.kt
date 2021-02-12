@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.appbar.MaterialToolbar
 import sanchez.sanchez.sergio.test.core.extension.applyToolbarMargin
 import sanchez.sanchez.sergio.test.core.extension.simpleToolbarWithHome
@@ -18,6 +19,12 @@ object SupportBindings {
         view.isRefreshing = lceState is LCEContract.LCEState.OnLoading
     }
 
+    /**
+     * Bind Toolbar with Title
+     * @param toolbar
+     * @param activity
+     * @param title
+     */
     @JvmStatic
     @BindingAdapter("bindToolbarWithActivity", "bindToolbarWithTitle")
     fun bindToolbarWithTitle(toolbar: MaterialToolbar, activity: AppCompatActivity, title: String) {

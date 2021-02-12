@@ -2,5 +2,6 @@
 <resources>
 
     <dimen name="common_margin">8dp</dimen>
+    <dimen name="common_padding">10dp</dimen>
 
 </resources>

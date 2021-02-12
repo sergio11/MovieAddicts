@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_main.ui.person
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
@@ -57,9 +58,10 @@ class PeopleListFragment : SupportFragment<PersonListViewModel, FragmentPeopleLi
     /**
      * On Person Clicked
      * @param person
+     * @param itemPersonProfileImageView
      */
-    override fun onPersonClicked(person: Person) {
-        showPersonDetail(person.id)
+    override fun onPersonClicked(person: Person, itemPersonProfileImageView: ImageView) {
+        showPersonDetail(person.id, itemPersonProfileImageView)
     }
 
 }

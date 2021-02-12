@@ -67,9 +67,10 @@ fun AppCompatActivity.simpleToolbarWithHome(toolbar: Toolbar, toolbarTitle: Stri
  * @param toolbar
  */
 fun AppCompatActivity.applyToolbarMargin(toolbar: Toolbar) {
-    toolbar.layoutParams = (toolbar.layoutParams as CollapsingToolbarLayout.LayoutParams).apply {
-        topMargin = getStatusBarSize()
-    }
+    if(toolbar.layoutParams is CollapsingToolbarLayout.LayoutParams)
+        toolbar.layoutParams = (toolbar.layoutParams as CollapsingToolbarLayout.LayoutParams).apply {
+            topMargin = getStatusBarSize()
+        }
 }
 
 /**

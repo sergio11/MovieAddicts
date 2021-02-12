@@ -6,9 +6,6 @@
     <data>
 
         <import type="android.view.View" />
-        <import type="sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieDetailContract.MovieState.OnIdle" />
-        <import type="sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieDetailContract.MovieState.OnLoading" />
-        <import type="sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieDetailContract.MovieState.OnLoaded" />
 
         <variable
             name="movie"

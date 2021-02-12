@@ -1,12 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">TheMovies2</string>
     <string name="menu_movie">Movie</string>
     <string name="menu_tv">Tv</string>
     <string name="menu_star">Star</string>
-    <string name="transition_profile">transition_profile</string>
     <string name="reviews">Reviews</string>
     <string name="summary">Summary</string>
     <string name="trailers">Trailers</string>
+    <string name="person_detail_transition_name" tools:ignore="ExtraTranslation">person_detail_transition_name</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_movie_list_fragment">Hello Movie List fragment</string>
     <string name="hello_person_list_fragment">Hello Person List fragment</string>

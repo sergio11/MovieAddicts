@@ -11,7 +11,7 @@ class PersonDetailNetworkMapper {
     fun dtoToModel(dto: PersonDetailDTO) = PersonDetail(
             id = dto.id,
             name = dto.name,
-            profilePath = dto.profilePath,
+            profilePath = BASE_BACKDROP_PATH + dto.profilePath,
             adult = dto.adult,
             popularity = dto.popularity,
             birthday = dto.birthday,
@@ -20,5 +20,9 @@ class PersonDetailNetworkMapper {
             alsoKnownAs = dto.alsoKnownAs,
             biography = dto.biography
     )
+
+    companion object {
+        private const val BASE_BACKDROP_PATH = "https://image.tmdb.org/t/p/w780"
+    }
 
 }

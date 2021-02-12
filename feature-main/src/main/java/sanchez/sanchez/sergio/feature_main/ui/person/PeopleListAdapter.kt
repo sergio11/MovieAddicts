@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_main.ui.person
 
 import android.content.Context
 import android.view.ViewGroup
+import android.widget.ImageView
 import sanchez.sanchez.sergio.feature_main.databinding.PersonItemLayoutBinding
 import sanchez.sanchez.sergio.feature_main.databinding.PersonItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
@@ -30,8 +31,9 @@ class PeopleListAdapter(
         /**
          * on Person Clicked
          * @param person
+         * @param itemPersonProfileImageView
          */
-        fun onPersonClicked(person: Person)
+        fun onPersonClicked(person: Person, itemPersonProfileImageView: ImageView)
     }
 
     /**

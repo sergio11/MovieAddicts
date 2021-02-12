@@ -1,5 +1,6 @@
 package sanchez.sanchez.sergio.feature_person_detail.ui
 
+import android.view.MenuItem
 import sanchez.sanchez.sergio.feature_person_detail.R
 import sanchez.sanchez.sergio.feature_person_detail.databinding.ActivityFeaturePersonDetailBinding
 import sanchez.sanchez.sergio.feature_person_detail.di.component.FeaturePersonDetailComponent
@@ -16,6 +17,11 @@ class FeaturePersonDetailActivity : SupportActivity<ActivityFeaturePersonDetailB
 
     override fun onInject() {
         component.inject(this)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) onBackPressed()
+        return false
     }
 
     override fun layoutId(): Int = R.layout.activity_feature_person_detail

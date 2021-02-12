@@ -2,7 +2,6 @@ package sanchez.sanchez.sergio.feature_person_detail.ui.person
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -11,6 +10,7 @@ import sanchez.sanchez.sergio.feature_person_detail.R
 import sanchez.sanchez.sergio.feature_person_detail.databinding.PersonDetailFragmentBinding
 import sanchez.sanchez.sergio.feature_person_detail.di.component.PersonDetailComponent
 import sanchez.sanchez.sergio.feature_person_detail.di.factory.FeaturePersonDetailComponentFactory
+import sanchez.sanchez.sergio.feature_person_detail.ui.FeaturePersonDetailActivity
 import sanchez.sanchez.sergio.feature_person_detail.ui.FeaturePersonDetailActivityDelegate
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
 import java.lang.IllegalStateException
@@ -44,21 +44,12 @@ class PersonDetailFragment: SupportFragment<PersonDetailViewModel, PersonDetailF
     override fun onInitObservers() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
-                when(state.personState) {
-
-                    is PersonDetailContract.PersonState.OnIdle -> {
-                        Log.d("PERSON_DETAIL", "OnIdle CALLED")
-                    }
-
-                    is PersonDetailContract.PersonState.OnLoading -> {
-                        Log.d("PERSON_DETAIL", "OnLoading CALLED")
-                    }
-
-                    is PersonDetailContract.PersonState.OnLoaded -> {
-                        Log.d("PERSON_DETAIL", "OnLoaded CALLED")
-
-                        Log.d("PERSON_DETAIL", "Name -> ${state.personState.personDetail.name}")
-                    }
+                with(binding) {
+                    activity = requireActivity() as FeaturePersonDetailActivity
+                    person = if(state.personState is PersonDetailContract.PersonState.OnLoaded)
+                        state.personState.personDetail
+                    else
+                        null
                 }
             }
         }
