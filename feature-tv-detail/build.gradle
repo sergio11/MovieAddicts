@@ -50,6 +50,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
+    // UI utils
+    implementation 'com.ms-square:expandableTextView:0.1.4'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

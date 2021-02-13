@@ -17,5 +17,51 @@
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/itemVideoCover"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:loadPaletteImageColor="@{video.thumbnailPath}"
+                tools:ignore="ContentDescription"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/itemVideoTitle"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                app:layout_constraintTop_toTopOf="@id/itemVideoCover"
+                app:layout_constraintStart_toStartOf="@id/itemVideoCover"
+                app:layout_constraintEnd_toEndOf="@id/itemVideoCover"
+                app:layout_constraintBottom_toBottomOf="@id/itemVideoCover"
+                android:src="@drawable/icon_youtube"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/itemVideoTitle"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="@{video.name}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/itemVideoCover"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </com.google.android.material.card.MaterialCardView>
 </layout>

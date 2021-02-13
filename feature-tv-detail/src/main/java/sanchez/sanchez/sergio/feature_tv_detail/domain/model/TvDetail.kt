@@ -47,5 +47,6 @@ data class Video(
         val site: String,
         val key: String,
         val size: Long,
-        val type: String
+        val type: String,
+        val thumbnailPath: String
 )
