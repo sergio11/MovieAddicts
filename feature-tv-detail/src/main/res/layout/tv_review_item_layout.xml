@@ -14,23 +14,22 @@
   <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="@dimen/common_margin"
-      android:background="@color/background">
+      android:layout_marginBottom="@dimen/common_big_margin"
+      android:background="@color/colorAppBackground">
 
     <!-- Item Review Title -->
     <TextView
         android:id="@+id/itemReviewTitle"
+        style="@style/TextAppearance.App.Subtitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@{review.content}"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        tools:text="title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@{review.author}"
+        app:layout_constraintBottom_toTopOf="@id/itemReviewContent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/itemReviewContent"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Author" />
 
     <!-- Item Review Content -->
     <com.ms.square.android.expandabletextview.ExpandableTextView
@@ -50,24 +49,20 @@
 
       <TextView
           android:id="@id/expandable_text"
+          style="@style/TextAppearance.App.Subtitle2"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="7dp"
-          android:background="?android:attr/selectableItemBackground"
-          android:fontFamily="sans-serif-light"
+          android:layout_marginTop="@dimen/common_margin"
           android:lineSpacingMultiplier="1.2"
-          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-          android:textColor="@color/white"
-          android:textSize="14sp"
           tools:text="content" />
 
       <ImageButton
           android:id="@id/expand_collapse"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_gravity="left|bottom"
+          android:layout_gravity="right|bottom"
           android:background="?android:attr/selectableItemBackground"
-          android:padding="6dp"
+          android:padding="@dimen/common_padding"
           tools:ignore="ContentDescription,RtlHardcoded" />
 
     </com.ms.square.android.expandabletextview.ExpandableTextView>

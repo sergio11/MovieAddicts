@@ -22,15 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="@{() -> tvListener.onTvClicked(tv)}"
+            android:background="@color/colorPrimaryDark"
             android:foreground="?attr/selectableItemBackground">
 
             <!-- Tv Poster -->
             <ImageView
                 android:id="@+id/tvPoster"
                 android:layout_width="0dp"
-                android:layout_height="240dp"
-                android:scaleType="fitXY"
-                app:loadPaletteImageColor="@{tv.posterPath}"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:loadImage="@{tv.posterPath}"
                 tools:src="@drawable/ic_star_white_24dp"
                 app:layout_constraintBottom_toTopOf="@id/tvTitle"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,19 +41,19 @@
 
             <TextView
                 android:id="@+id/tvTitle"
+                style="@style/TextAppearance.App.Subtitle1"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
+                android:textColor="@color/colorAccent"
+                android:padding="@dimen/common_small_padding"
                 android:gravity="center"
-                android:padding="3dp"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:text="title"
+                android:maxLines="2"
                 android:text="@{tv.name}"
                 app:layout_constraintTop_toBottomOf="@id/tvPoster"
                 app:layout_constraintStart_toStartOf="@id/tvPoster"
                 app:layout_constraintEnd_toEndOf="@id/tvPoster"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="title"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

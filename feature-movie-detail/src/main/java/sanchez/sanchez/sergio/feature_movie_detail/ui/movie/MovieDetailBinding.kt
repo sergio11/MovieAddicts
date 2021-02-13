@@ -1,13 +1,15 @@
 package sanchez.sanchez.sergio.feature_movie_detail.ui.movie
 
 import android.annotation.SuppressLint
-import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import sanchez.sanchez.sergio.feature_movie_detail.R
+import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Keyword
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Review
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Video
@@ -27,8 +29,11 @@ object MovieDetailBinding {
     @JvmStatic
     @SuppressLint("SetTextI18n")
     @BindingAdapter("bindReleaseDate")
-    fun bindReleaseDate(view: TextView, movie: MovieDetail) {
-        view.text = "Release Date : ${movie.releaseDate}"
+    fun bindReleaseDate(view: TextView, movie: MovieDetail?) {
+        movie?.releaseDate?.let {
+            view.text = "Release Date : $it"
+        }
+
     }
 
     /**
@@ -95,6 +100,28 @@ object MovieDetailBinding {
             val adapter = view.adapter
             if(adapter is MovieReviewListAdapter)
                 adapter.addData(it)
+        }
+    }
+
+    /**
+     * Bind Movie Keyword List
+     * @param chipGroup
+     * @param keywords
+     */
+    @JvmStatic
+    @BindingAdapter("bindMovieKeywordList")
+    fun bindMovieKeywordList(chipGroup: ChipGroup, keywords: List<Keyword>?) {
+        keywords?.let {
+            chipGroup.visible()
+            for (keyword in it) {
+                chipGroup.addView(
+                    Chip(chipGroup.context).apply {
+                        text = keyword.name
+                        isCheckable = false
+                        setChipBackgroundColorResource(R.color.colorPrimary)
+                    }
+                )
+            }
         }
     }
 

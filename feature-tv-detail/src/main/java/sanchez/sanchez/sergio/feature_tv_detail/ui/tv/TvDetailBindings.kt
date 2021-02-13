@@ -6,10 +6,15 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import sanchez.sanchez.sergio.feature_tv_detail.R
+import sanchez.sanchez.sergio.feature_tv_detail.domain.model.Keyword
 import sanchez.sanchez.sergio.feature_tv_detail.domain.model.Review
 import sanchez.sanchez.sergio.feature_tv_detail.domain.model.TvDetail
 import sanchez.sanchez.sergio.feature_tv_detail.domain.model.Video
 import sanchez.sanchez.sergio.test.core.extension.requestGlideListener
+import sanchez.sanchez.sergio.test.core.extension.visible
 
 /**
  * Tv Detail Bindings
@@ -90,6 +95,28 @@ object TvDetailBindings {
     fun bindTvReviewList(view: RecyclerView, reviews: List<Review>?) {
         reviews?.let {
             (view.adapter as? TvReviewListAdapter)?.addData(it)
+        }
+    }
+
+    /**
+     * Bind Tv Keyword List
+     * @param chipGroup
+     * @param keywords
+     */
+    @JvmStatic
+    @BindingAdapter("bindTvKeywordList")
+    fun bindTvKeywordList(chipGroup: ChipGroup, keywords: List<Keyword>?) {
+        keywords?.let {
+            chipGroup.visible()
+            for (keyword in it) {
+                chipGroup.addView(
+                    Chip(chipGroup.context).apply {
+                        text = keyword.name
+                        isCheckable = false
+                        setChipBackgroundColorResource(R.color.colorPrimary)
+                    }
+                )
+            }
         }
     }
 

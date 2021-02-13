@@ -40,7 +40,7 @@ class MovieListAdapter(
      * Movie View Holder
      * @param binding
      */
-    inner class MovieViewHolder(val binding: MovieItemLayoutBinding): SupportAdapter.SupportViewHolder<Movie>(binding.root) {
+    inner class MovieViewHolder(private val binding: MovieItemLayoutBinding): SupportAdapter.SupportViewHolder<Movie>(binding.root) {
         override fun bind(model: Movie) {
             with(binding) {
                 movie = model

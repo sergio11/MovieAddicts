@@ -65,6 +65,7 @@ dependencies {
     // Room
     api "androidx.room:room-runtime:$roomVersion"
     api "androidx.room:room-ktx:$roomVersion"
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     kapt "androidx.room:room-compiler:$roomVersion"
 
     // Dagger dependencies
@@ -73,7 +74,6 @@ dependencies {
 
     // glide
     api "com.github.bumptech.glide:glide:$glideVersion"
-    api "com.github.florent37:glidepalette:$glidePaletteVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
     // Debugging

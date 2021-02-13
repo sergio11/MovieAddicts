@@ -49,7 +49,7 @@ fun View.circularRevealedAtCenter() {
         ViewAnimationUtils.createCircularReveal(view, cx, cy, 0f, finalRadius.toFloat())
             .apply {
                 view.visible()
-                view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.background))
+                view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.colorAppBackground))
                 duration = 550
                 start()
             }

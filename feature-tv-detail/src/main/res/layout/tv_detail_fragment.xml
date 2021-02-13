@@ -25,7 +25,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
+        android:background="@color/colorAppBackground"
         android:fitsSystemWindows="false">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -38,10 +38,10 @@
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/background"
+                android:background="@color/colorAppBackground"
                 app:contentScrim="@color/colorPrimary"
-                app:expandedTitleGravity="top|left"
-                app:expandedTitleTextAppearance="@style/CollapsedExpandedTitleText"
+                app:expandedTitleGravity="center"
+                app:expandedTitleTextAppearance="@style/TextAppearance.App.Headline3"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <ImageView

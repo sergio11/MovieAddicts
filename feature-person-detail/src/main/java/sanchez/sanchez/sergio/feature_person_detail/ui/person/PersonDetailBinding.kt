@@ -57,12 +57,12 @@ object PersonDetailBinding {
                         Chip(chipGroup.context).apply {
                             text = nameTag
                             isCheckable = false
-                            setTextAppearanceResource(R.style.ChipTextStyle)
                             setChipBackgroundColorResource(R.color.colorPrimary)
                         }
                 )
             }
         }
     }
+
 
 }

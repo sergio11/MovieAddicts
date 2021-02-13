@@ -22,37 +22,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="@{() -> movieListener.onMovieClicked(movie)}"
-            android:foreground="?attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            android:background="@color/colorPrimaryDark">
 
             <!-- Movie Poster -->
             <ImageView
                 android:id="@+id/moviePoster"
                 android:layout_width="0dp"
-                android:layout_height="240dp"
-                android:scaleType="fitXY"
-                app:loadPaletteImageColor="@{movie.posterPath}"
-                tools:src="@drawable/ic_star_white_24dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:loadImage="@{movie.posterPath}"
                 app:layout_constraintBottom_toTopOf="@id/movieTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_star_white_24dp"/>
 
+            <!-- Movie Title -->
             <TextView
                 android:id="@+id/movieTitle"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                style="@style/TextAppearance.App.Subtitle1"
+                android:textColor="@color/colorAccent"
                 android:gravity="center"
-                android:padding="3dp"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:text="title"
+                android:maxLines="2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="@dimen/common_small_padding"
                 android:text="@{movie.title}"
                 app:layout_constraintTop_toBottomOf="@id/moviePoster"
                 app:layout_constraintStart_toStartOf="@id/moviePoster"
                 app:layout_constraintEnd_toEndOf="@id/moviePoster"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="title"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -37,7 +37,6 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
     override fun onInitObservers() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
-                Log.d("MOVIES_L", "uiState UPDATED")
                 with(binding) {
                     uiState = state.lceState
                 }
@@ -57,7 +56,7 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
                 addItemDecoration(object: RecyclerView.ItemDecoration() {
                     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                         super.getItemOffsets(outRect, view, parent, state)
-                        val commonPadding = requireContext().resources.getDimension(R.dimen.common_padding).toInt()
+                        val commonPadding = requireContext().resources.getDimension(R.dimen.common_small_padding).toInt()
                         outRect.apply {
                             left = commonPadding
                             right = commonPadding

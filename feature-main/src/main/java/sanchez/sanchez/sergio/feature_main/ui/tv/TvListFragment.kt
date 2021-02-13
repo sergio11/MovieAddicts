@@ -52,7 +52,7 @@ class TvListFragment : SupportFragment<TvListViewModel, FragmentTvListBinding>(T
                 addItemDecoration(object: RecyclerView.ItemDecoration() {
                     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                         super.getItemOffsets(outRect, view, parent, state)
-                        val commonPadding = requireContext().resources.getDimension(R.dimen.common_padding).toInt()
+                        val commonPadding = requireContext().resources.getDimension(R.dimen.common_small_padding).toInt()
                         outRect.apply {
                             left = commonPadding
                             right = commonPadding

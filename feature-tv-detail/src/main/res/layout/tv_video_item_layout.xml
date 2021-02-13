@@ -11,22 +11,23 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_margin="4dp"
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/common_margin"
         android:foreground="?attr/selectableItemBackground"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
 
             <ImageView
                 android:id="@+id/itemVideoCover"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
-                app:loadPaletteImageColor="@{video.thumbnailPath}"
+                app:loadImage="@{video.thumbnailPath}"
                 tools:ignore="ContentDescription"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,14 +48,14 @@
 
             <TextView
                 android:id="@+id/itemVideoTitle"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
+                style="@style/TextAppearance.App.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:maxLines="2"
                 android:gravity="center"
-                android:padding="3dp"
+                android:padding="@dimen/common_small_padding"
+                android:textColor="@color/colorAccent"
                 android:text="@{video.name}"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/itemVideoCover"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

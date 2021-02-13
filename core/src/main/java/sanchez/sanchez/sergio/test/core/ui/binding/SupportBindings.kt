@@ -3,18 +3,20 @@ package sanchez.sanchez.sergio.test.core.ui.binding
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.appbar.MaterialToolbar
 import sanchez.sanchez.sergio.test.core.extension.applyToolbarMargin
 import sanchez.sanchez.sergio.test.core.extension.simpleToolbarWithHome
 import sanchez.sanchez.sergio.test.core.extension.visible
 import sanchez.sanchez.sergio.test.core.ui.LCEContract
-import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
 
 object SupportBindings {
 
+    /**
+     * Bind Swipe Refresh State
+     * @param view
+     * @param lceState
+     */
     @JvmStatic
     @BindingAdapter("bindSwipeRefreshState")
     fun bindSwipeRefreshState(view: SwipeRefreshLayout, lceState: LCEContract.LCEState) {

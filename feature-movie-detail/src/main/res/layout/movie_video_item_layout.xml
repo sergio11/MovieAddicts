@@ -11,58 +11,57 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_margin="4dp"
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/common_margin"
         android:foreground="?attr/selectableItemBackground"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
 
             <ImageView
-                android:id="@+id/item_video_cover"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/itemVideoCover"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:scaleType="centerCrop"
-                app:loadPaletteImageColor="@{video.thumbnailPath}"
-                tools:ignore="ContentDescription" />
+                app:loadImage="@{video.thumbnailPath}"
+                tools:ignore="ContentDescription"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/itemVideoTitle"/>
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="20dp"
-                android:layout_centerInParent="true"
                 android:scaleType="fitXY"
+                app:layout_constraintTop_toTopOf="@id/itemVideoCover"
+                app:layout_constraintStart_toStartOf="@id/itemVideoCover"
+                app:layout_constraintEnd_toEndOf="@id/itemVideoCover"
+                app:layout_constraintBottom_toBottomOf="@id/itemVideoCover"
                 android:src="@drawable/icon_youtube"
                 tools:ignore="ContentDescription" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_alignParentBottom="true"
-                android:orientation="vertical"
-                tools:background="@color/colorPrimaryDark">
+            <TextView
+                android:id="@+id/itemVideoTitle"
+                style="@style/TextAppearance.App.Subtitle2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:maxLines="2"
+                android:gravity="center"
+                android:padding="@dimen/common_small_padding"
+                android:textColor="@color/colorAccent"
+                android:text="@{video.name}"
+                app:layout_constraintTop_toBottomOf="@id/itemVideoCover"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="title" />
 
-                <LinearLayout
-                    android:id="@+id/item_video_palette"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:alpha="0.7"
-                    android:orientation="vertical" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/item_video_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dp"
-                    android:text="@{video.name}"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    tools:text="title" />
-            </RelativeLayout>
-        </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
