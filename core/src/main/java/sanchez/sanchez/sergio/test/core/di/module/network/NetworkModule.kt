@@ -32,7 +32,6 @@ class NetworkModule {
     @PerApplication
     fun provideConverterFactory(): Converter.Factory =
             MoshiConverterFactory.create(Moshi.Builder()
-                    //.add(DateJsonAdapter())
                     .build())
 
     /**

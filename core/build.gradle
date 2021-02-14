@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'io.objectbox'
 }
 
 android {
@@ -62,11 +63,8 @@ dependencies {
     // Retrofit
     api "com.squareup.retrofit2:retrofit:$retrofitVersion"
     api "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
-    // Room
-    api "androidx.room:room-runtime:$roomVersion"
-    api "androidx.room:room-ktx:$roomVersion"
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
-    kapt "androidx.room:room-compiler:$roomVersion"
+
+    api 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     // Dagger dependencies
     implementation "com.google.dagger:dagger:$daggerVersion"

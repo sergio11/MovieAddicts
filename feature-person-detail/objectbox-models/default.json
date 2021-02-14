@@ -1,0 +1,79 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5062944591770363489",
+      "lastPropertyId": "10:3573344422205107620",
+      "name": "PersonDetailEntity",
+      "properties": [
+        {
+          "id": "1:6493428028776228430",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6770288530012681646",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:2139366707194431456",
+          "name": "profile_path",
+          "type": 9
+        },
+        {
+          "id": "4:4017764364292020165",
+          "name": "adult",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "5:162264142905637342",
+          "name": "popularity",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "6:4213247955181659397",
+          "name": "birthday",
+          "type": 9
+        },
+        {
+          "id": "7:614946570361956713",
+          "name": "known_for_department",
+          "type": 9
+        },
+        {
+          "id": "8:5871408352418927649",
+          "name": "place_of_birth",
+          "type": 9
+        },
+        {
+          "id": "9:1111893784375146735",
+          "name": "also_known_as",
+          "type": 9
+        },
+        {
+          "id": "10:3573344422205107620",
+          "name": "biography",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:5062944591770363489",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

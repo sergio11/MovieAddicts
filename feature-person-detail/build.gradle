@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'io.objectbox'
 }
 
 android {
@@ -16,6 +17,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+
+        buildConfigField "String", "BOX_STORE_NAME", "\"FEATURE_PERSON_DETAIL\""
     }
 
     buildTypes {
@@ -35,6 +39,12 @@ android {
 
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    kapt {
+        arguments {
+            arg("objectbox.debug", true)
+        }
     }
 }
 
