@@ -1,9 +1,6 @@
 package sanchez.sanchez.sergio.feature_person_detail.persistence.db.model
 
-import io.objectbox.annotation.Convert
-import io.objectbox.annotation.Entity
-import io.objectbox.annotation.Id
-import io.objectbox.annotation.NameInDb
+import io.objectbox.annotation.*
 import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConverter
 
 /**
@@ -11,7 +8,8 @@ import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConve
  */
 @Entity
 data class PersonDetailEntity(
-    @Id var id: Long,
+    @Id var objectId: Long = 0,
+    @Unique val id: Long,
     @NameInDb("name")
     val name: String,
     @NameInDb("profile_path")

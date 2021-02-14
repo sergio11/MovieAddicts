@@ -4,21 +4,74 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:5062944591770363489",
-      "lastPropertyId": "1:6493428028776228430",
+      "id": "1:3714177492114812608",
+      "lastPropertyId": "11:9202150075240286298",
       "name": "PersonDetailEntity",
       "properties": [
         {
-          "id": "1:6493428028776228430",
-          "name": "id",
+          "id": "1:8865747950685393352",
+          "name": "objectId",
           "type": 6,
           "flags": 1
+        },
+        {
+          "id": "2:5658104565114519532",
+          "name": "id",
+          "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "3:2759564523894033816",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "4:7149771020635710949",
+          "name": "profile_path",
+          "type": 9
+        },
+        {
+          "id": "5:3475882623659054022",
+          "name": "adult",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "6:6845356196514676843",
+          "name": "popularity",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "7:8762937034977148347",
+          "name": "birthday",
+          "type": 9
+        },
+        {
+          "id": "8:1189181050791208508",
+          "name": "known_for_department",
+          "type": 9
+        },
+        {
+          "id": "9:1793920127386023310",
+          "name": "place_of_birth",
+          "type": 9
+        },
+        {
+          "id": "10:3941639653733056796",
+          "name": "also_known_as",
+          "type": 9
+        },
+        {
+          "id": "11:9202150075240286298",
+          "name": "biography",
+          "type": 9
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "1:5062944591770363489",
+  "lastEntityId": "1:3714177492114812608",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
