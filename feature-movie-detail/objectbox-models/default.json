@@ -1,0 +1,264 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "3:154812956829469528",
+      "lastPropertyId": "15:8710363197755471554",
+      "name": "MovieDetailEntity",
+      "properties": [
+        {
+          "id": "1:2771012208845315551",
+          "name": "objectId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4777043032179315697",
+          "name": "id",
+          "indexId": "3:634282179973761954",
+          "type": 6,
+          "flags": 44
+        },
+        {
+          "id": "3:5598721643122347024",
+          "name": "original_title",
+          "type": 9
+        },
+        {
+          "id": "4:2376177311280599106",
+          "name": "original_language",
+          "type": 9
+        },
+        {
+          "id": "5:8622334358135212804",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "6:6448827950751841371",
+          "name": "poster_path",
+          "type": 9
+        },
+        {
+          "id": "7:2673479201050498200",
+          "name": "adult",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "8:1011075478190224311",
+          "name": "overview",
+          "type": 9
+        },
+        {
+          "id": "9:336062549737519016",
+          "name": "release_date",
+          "type": 9
+        },
+        {
+          "id": "10:51759731014305488",
+          "name": "genres",
+          "type": 9
+        },
+        {
+          "id": "11:1251409326105528118",
+          "name": "backdrop_path",
+          "type": 9
+        },
+        {
+          "id": "12:4652043621114140964",
+          "name": "popularity",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "13:7997745297506656532",
+          "name": "vote_count",
+          "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "14:4233145538905018678",
+          "name": "video",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "15:8710363197755471554",
+          "name": "vote_average",
+          "type": 8,
+          "flags": 4
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:7107918488826333635",
+          "name": "keywords",
+          "targetId": "5:8162899367974696797"
+        },
+        {
+          "id": "2:1730100736956162744",
+          "name": "videos",
+          "targetId": "6:6124835057705446636"
+        },
+        {
+          "id": "3:3754358716748911535",
+          "name": "reviews",
+          "targetId": "7:2922419347102063103"
+        }
+      ]
+    },
+    {
+      "id": "5:8162899367974696797",
+      "lastPropertyId": "3:3410500459761980158",
+      "name": "KeywordEntity",
+      "properties": [
+        {
+          "id": "1:2628276941645387396",
+          "name": "objectId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7744415158578148927",
+          "name": "id",
+          "indexId": "5:6312989858654691599",
+          "type": 6,
+          "flags": 44
+        },
+        {
+          "id": "3:3410500459761980158",
+          "name": "name",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:6124835057705446636",
+      "lastPropertyId": "8:220447048056048574",
+      "name": "VideoEntity",
+      "properties": [
+        {
+          "id": "1:7636018662900299504",
+          "name": "objectId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:213561622146505393",
+          "name": "id",
+          "indexId": "6:5058952874813839814",
+          "type": 9,
+          "flags": 2080
+        },
+        {
+          "id": "3:1850407266709646805",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "4:7937348408409673695",
+          "name": "site",
+          "type": 9
+        },
+        {
+          "id": "5:3766192322337823646",
+          "name": "key",
+          "type": 9
+        },
+        {
+          "id": "6:3997947180856873883",
+          "name": "size",
+          "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "7:8489207762464827910",
+          "name": "type",
+          "type": 9
+        },
+        {
+          "id": "8:220447048056048574",
+          "name": "thumbnail_path",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:2922419347102063103",
+      "lastPropertyId": "5:7751810394284590688",
+      "name": "ReviewEntity",
+      "properties": [
+        {
+          "id": "1:1534564345001196573",
+          "name": "objectId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4877415042427165888",
+          "name": "id",
+          "indexId": "7:8496272800300766231",
+          "type": 9,
+          "flags": 2080
+        },
+        {
+          "id": "3:3467380781802887600",
+          "name": "author",
+          "type": 9
+        },
+        {
+          "id": "4:1104657021547545149",
+          "name": "content",
+          "type": 9
+        },
+        {
+          "id": "5:7751810394284590688",
+          "name": "url",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "7:2922419347102063103",
+  "lastIndexId": "7:8496272800300766231",
+  "lastRelationId": "3:3754358716748911535",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    5448814263170834978,
+    8591197425868362488,
+    6067039441920633712
+  ],
+  "retiredIndexUids": [
+    5238348709374903451,
+    4748377449199347164,
+    816189119259757216
+  ],
+  "retiredPropertyUids": [
+    6553428105687256358,
+    5801237577631686514,
+    6915160566070541321,
+    1851864453920366143,
+    9216714911230276681,
+    2120063360807182404,
+    4693503694424235410,
+    5390606648037442534,
+    9017104732099569721,
+    532290333577320583,
+    8394961784534146136,
+    8113337615693608191,
+    3678219131873941840,
+    2800459950583191080,
+    1657872783722380663,
+    6910657926910398113
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
