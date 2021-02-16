@@ -9,7 +9,6 @@ data class Tv(
     val overview: String,
     val firstAirDate: String,
     val originCountry: List<String>,
-    val genreIDS: List<Long>,
     val originalLanguage: String,
     val voteCount: Long,
     val name: String,

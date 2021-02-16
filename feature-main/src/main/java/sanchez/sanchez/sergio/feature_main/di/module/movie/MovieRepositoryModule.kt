@@ -10,7 +10,7 @@ import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
 /**
  * Movie Repository Module
  */
-@Module(includes = [ MoviesNetworkModule::class ])
+@Module(includes = [ MoviesNetworkModule::class, MovieDatabaseModule::class ])
 class MovieRepositoryModule {
 
     @PerFragment

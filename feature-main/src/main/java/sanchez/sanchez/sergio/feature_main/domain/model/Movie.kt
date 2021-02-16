@@ -6,7 +6,6 @@ data class Movie(
   val adult: Boolean,
   val overview: String,
   val releaseDate: String?,
-  val genreIds: List<Long>,
   val originalTitle: String,
   val originalLanguage: String,
   val title: String,

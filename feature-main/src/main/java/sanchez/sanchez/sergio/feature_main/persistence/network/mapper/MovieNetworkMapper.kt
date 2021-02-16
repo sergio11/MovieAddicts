@@ -16,7 +16,6 @@ class MovieNetworkMapper {
             adult = dto.adult,
             overview = dto.overview,
             releaseDate = dto.releaseDate,
-            genreIds = dto.genreIDS,
             originalTitle = dto.originalTitle,
             originalLanguage = dto.originalLanguage,
             backdropPath = BASE_BACKDROP_PATH + dto.backdropPath,

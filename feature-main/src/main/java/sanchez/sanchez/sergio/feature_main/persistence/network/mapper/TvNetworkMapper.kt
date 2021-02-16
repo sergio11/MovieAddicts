@@ -20,7 +20,6 @@ class TvNetworkMapper {
         overview = dto.overview,
         firstAirDate = dto.firstAirDate,
         originCountry = dto.originCountry,
-        genreIDS = dto.genreIDS,
         originalLanguage = dto.originalLanguage,
         voteCount = dto.voteCount
     )

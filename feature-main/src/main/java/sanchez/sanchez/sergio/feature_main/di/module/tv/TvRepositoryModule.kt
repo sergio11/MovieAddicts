@@ -10,7 +10,7 @@ import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
 /**
  * Tv Repository Module
  */
-@Module(includes = [ TvNetworkModule::class ])
+@Module(includes = [ TvNetworkModule::class, TvDatabaseModule::class ])
 class TvRepositoryModule {
 
     /**

@@ -10,7 +10,7 @@ import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
 /**
  * People Repository Module
  */
-@Module(includes = [ PeopleNetworkModule::class ])
+@Module(includes = [ PeopleNetworkModule::class, PeopleDatabaseModule::class ])
 class PeopleRepositoryModule {
 
     /**
