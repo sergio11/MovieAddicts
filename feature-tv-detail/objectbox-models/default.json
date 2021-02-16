@@ -1,0 +1,231 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:3790676802100665935",
+      "lastPropertyId": "14:2583392919617353455",
+      "name": "TvDetailEntity",
+      "properties": [
+        {
+          "id": "1:6687949273717135376",
+          "name": "objectId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7125752299506626184",
+          "name": "id",
+          "indexId": "1:11777140540945296",
+          "type": 6,
+          "flags": 44
+        },
+        {
+          "id": "3:8845904541844833458",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "4:3529084682278910007",
+          "name": "original_name",
+          "type": 9
+        },
+        {
+          "id": "5:3901601626609063597",
+          "name": "poster_path",
+          "type": 9
+        },
+        {
+          "id": "6:1222387507525941672",
+          "name": "popularity",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "7:2999651635414402342",
+          "name": "backdrop_path",
+          "type": 9
+        },
+        {
+          "id": "8:6193410911879054242",
+          "name": "vote_average",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "9:2146098735022724652",
+          "name": "overview",
+          "type": 9
+        },
+        {
+          "id": "10:3751256593071878864",
+          "name": "first_air_date",
+          "type": 9
+        },
+        {
+          "id": "11:3644683533564617149",
+          "name": "origin_country",
+          "type": 9
+        },
+        {
+          "id": "12:487213001898569363",
+          "name": "genres",
+          "type": 9
+        },
+        {
+          "id": "13:6591768892715313017",
+          "name": "original_language",
+          "type": 9
+        },
+        {
+          "id": "14:2583392919617353455",
+          "name": "vote_count",
+          "type": 6,
+          "flags": 4
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:8838139501955747135",
+          "name": "keywords",
+          "targetId": "2:8609862749493340648"
+        },
+        {
+          "id": "2:2665283659979803137",
+          "name": "videos",
+          "targetId": "3:8433170373493241749"
+        },
+        {
+          "id": "3:1604549004672233733",
+          "name": "reviews",
+          "targetId": "4:4291813495747637071"
+        }
+      ]
+    },
+    {
+      "id": "2:8609862749493340648",
+      "lastPropertyId": "3:8079976452547064538",
+      "name": "KeywordEntity",
+      "properties": [
+        {
+          "id": "1:3956584246565495785",
+          "name": "objectId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6865882574379966110",
+          "name": "id",
+          "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "3:8079976452547064538",
+          "name": "name",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:8433170373493241749",
+      "lastPropertyId": "8:6781347952065020379",
+      "name": "VideoEntity",
+      "properties": [
+        {
+          "id": "1:1984662055847818096",
+          "name": "objectId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3440348381855398134",
+          "name": "id",
+          "type": 9
+        },
+        {
+          "id": "3:700274185522070319",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "4:8006793782389983954",
+          "name": "site",
+          "type": 9
+        },
+        {
+          "id": "5:1787543324811448350",
+          "name": "key",
+          "type": 9
+        },
+        {
+          "id": "6:3681927400294848531",
+          "name": "size",
+          "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "7:2690078207786392424",
+          "name": "type",
+          "type": 9
+        },
+        {
+          "id": "8:6781347952065020379",
+          "name": "thumbnail_path",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:4291813495747637071",
+      "lastPropertyId": "5:8760129388002294805",
+      "name": "ReviewEntity",
+      "properties": [
+        {
+          "id": "1:5231250197619860884",
+          "name": "objectId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2401914011086201618",
+          "name": "id",
+          "type": 9
+        },
+        {
+          "id": "3:2110019750304383484",
+          "name": "author",
+          "type": 9
+        },
+        {
+          "id": "4:8671610266818566143",
+          "name": "content",
+          "type": 9
+        },
+        {
+          "id": "5:8760129388002294805",
+          "name": "url",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "4:4291813495747637071",
+  "lastIndexId": "4:6398401594829007791",
+  "lastRelationId": "3:1604549004672233733",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [
+    6398401594829007791,
+    2374673705462987800,
+    6254027402701037298
+  ],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

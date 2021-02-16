@@ -34,13 +34,13 @@ class MovieDetailEntityMapper(
         voteCount = movieDetailEntity.voteCount,
         video = movieDetailEntity.video,
         voteAverage = movieDetailEntity.voteAverage,
-        keywords = movieDetailEntity.keywords?.let {
+        keywords = movieDetailEntity.keywords.let {
             movieKeywordEntityMapper.entityToModel(it)
         },
-        videos = movieDetailEntity.videos?.let {
+        videos = movieDetailEntity.videos.let {
             movieVideoEntityMapper.entityToModel(it)
         },
-        reviews = movieDetailEntity.reviews?.let {
+        reviews = movieDetailEntity.reviews.let {
             movieReviewEntityMapper.entityToModel(it)
         }
     )
@@ -63,17 +63,17 @@ class MovieDetailEntityMapper(
         popularity = movieDetail.popularity,
         voteCount = movieDetail.voteCount,
         video = movieDetail.video,
-        voteAverage = movieDetail.voteAverage,
-        keywords = movieDetail.keywords?.let {
-            movieKeywordEntityMapper.modelToEntity(it)
-        },
-        videos = movieDetail.videos?.let {
-            movieVideoEntityMapper.modelToEntity(it)
-        },
-        reviews = movieDetail.reviews?.let {
-            movieReviewEntityMapper.modelToEntity(it)
+        voteAverage = movieDetail.voteAverage
+    ).apply {
+        movieDetail.keywords?.let {
+             keywords.addAll(movieKeywordEntityMapper.modelToEntity(it))
         }
-    )
-
+        movieDetail.videos?.let {
+            videos.addAll(movieVideoEntityMapper.modelToEntity(it))
+        }
+        movieDetail.reviews?.let {
+            reviews.addAll(movieReviewEntityMapper.modelToEntity(it))
+        }
+    }
 
 }

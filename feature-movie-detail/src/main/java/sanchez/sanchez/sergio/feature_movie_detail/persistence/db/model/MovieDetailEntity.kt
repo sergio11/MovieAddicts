@@ -1,6 +1,7 @@
 package sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model
 
 import io.objectbox.annotation.*
+import io.objectbox.relation.ToMany
 import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConverter
 
 /**
@@ -16,12 +17,6 @@ data class MovieDetailEntity(
     val originalLanguage: String,
     @NameInDb("title")
     val title: String,
-    @NameInDb("keywords")
-    var keywords: List<KeywordEntity>? = ArrayList(),
-    @NameInDb("videos")
-    var videos: List<VideoEntity>? = ArrayList(),
-    @NameInDb("reviews")
-    var reviews: List<ReviewEntity>? = ArrayList(),
     @NameInDb("poster_path")
     val posterPath: String?,
     @NameInDb("adult")
@@ -43,7 +38,15 @@ data class MovieDetailEntity(
     val video: Boolean,
     @NameInDb("vote_average")
     val voteAverage: Double
-)
+) {
+
+    @NameInDb("keywords")
+    lateinit var keywords: ToMany<KeywordEntity>
+    @NameInDb("videos")
+    lateinit var videos: ToMany<VideoEntity>
+    @NameInDb("reviews")
+    lateinit var reviews: ToMany<ReviewEntity>
+}
 
 /**
  * Keyword Entity Definition
@@ -51,7 +54,7 @@ data class MovieDetailEntity(
 @Entity
 data class KeywordEntity (
     @Id var objectId: Long = 0,
-    @Unique val id: Long,
+    val id: Long,
     @NameInDb("name")
     val name: String)
 
@@ -61,7 +64,7 @@ data class KeywordEntity (
 @Entity
 data class ReviewEntity (
     @Id var objectId: Long = 0,
-    @Unique val id: String,
+    val id: String,
     @NameInDb("author")
     val author: String,
     @NameInDb("content")
@@ -76,7 +79,7 @@ data class ReviewEntity (
 @Entity
 data class VideoEntity (
     @Id var objectId: Long = 0,
-    @Unique val id: String,
+    val id: String,
     @NameInDb("name")
     val name: String,
     @NameInDb("site")
