@@ -6,6 +6,8 @@ import kotlinx.coroutines.withContext
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.MovieEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.movies.MovieEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.exception.DBErrorException
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.exception.DBNoResultException
 
 /**
  * Discover Movies DB Repository Impl
@@ -21,7 +23,13 @@ class DiscoverMoviesDBRepositoryImpl(
      * Get All Movies
      */
     override suspend fun getAll(): List<Movie> = withContext(Dispatchers.IO) {
-        TODO("Not yet implemented")
+        if(movieDAO.isEmpty)
+            throw DBNoResultException("No movies was found")
+        try {
+            movieEntityMapper.entityToModel(movieDAO.all)
+        } catch (ex: Exception) {
+            throw DBErrorException("Error getting movies from box", ex)
+        }
     }
 
     /**
@@ -29,6 +37,13 @@ class DiscoverMoviesDBRepositoryImpl(
      * @param movies
      */
     override suspend fun save(movies: List<Movie>) = withContext(Dispatchers.IO) {
-        TODO("Not yet implemented")
+        try {
+            movieDAO.run {
+                removeAll()
+                put(movieEntityMapper.modelToEntity(movies))
+            }
+        } catch (ex: Exception) {
+            throw DBErrorException("Error getting movies from box", ex)
+        }
     }
 }

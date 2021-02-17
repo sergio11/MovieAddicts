@@ -36,4 +36,32 @@ class MovieEntityMapper {
         entityToModel(it)
     }
 
+    /**
+     * Model To Entity
+     * @param model
+     */
+    fun modelToEntity(model: Movie) = MovieEntity(
+            id = model.id,
+            title = model.title,
+            posterPath = model.posterPath,
+            adult = model.adult,
+            overview = model.overview,
+            releaseDate = model.releaseDate,
+            originalTitle = model.originalTitle,
+            originalLanguage = model.originalLanguage,
+            backdropPath = model.backdropPath,
+            popularity = model.popularity,
+            voteCount = model.voteCount,
+            video = model.video,
+            voteAverage = model.voteAverage
+    )
+
+    /**
+     * Model To Entity
+     * @param modelList
+     */
+    fun modelToEntity(modelList: List<Movie>) = modelList.map {
+        modelToEntity(it)
+    }
+
 }

@@ -19,4 +19,16 @@ class PersonEntityMapper {
     fun entityToModel(entityList: List<PersonEntity>) = entityList.map {
         entityToModel(it)
     }
+
+    fun modelToEntity(model: Person) = PersonEntity(
+            id = model.id,
+            name = model.name,
+            popularity = model.popularity,
+            profilePath = model.profilePath,
+            adult = model.adult
+    )
+
+    fun modelToEntity(modelList: List<Person>) = modelList.map {
+        modelToEntity(it)
+    }
 }

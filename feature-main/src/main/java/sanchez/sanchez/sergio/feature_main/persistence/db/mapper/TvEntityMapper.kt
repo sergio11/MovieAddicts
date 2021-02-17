@@ -26,4 +26,23 @@ class TvEntityMapper {
     fun entityToModel(entityList: List<TvEntity>) = entityList.map {
         entityToModel(it)
     }
+
+    fun modelToEntity(model: Tv) = TvEntity(
+            id = model.id,
+            name = model.name,
+            originalName = model.originalName,
+            posterPath = model.posterPath,
+            popularity = model.popularity,
+            backdropPath = model.backdropPath,
+            voteAverage = model.voteAverage,
+            overview = model.overview,
+            firstAirDate = model.firstAirDate,
+            originCountry = model.originCountry,
+            originalLanguage = model.originalLanguage,
+            voteCount = model.voteCount
+    )
+
+    fun modelToEntity(modelList: List<Tv>) = modelList.map {
+        modelToEntity(it)
+    }
 }

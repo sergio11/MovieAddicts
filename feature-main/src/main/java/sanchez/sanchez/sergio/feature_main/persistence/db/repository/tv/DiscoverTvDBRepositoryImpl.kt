@@ -6,6 +6,8 @@ import kotlinx.coroutines.withContext
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.TvEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.tv.TvEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.exception.DBErrorException
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.exception.DBNoResultException
 
 /**
  * Discover Tv DB Repository Impl
@@ -17,11 +19,31 @@ class DiscoverTvDBRepositoryImpl(
     private val tvEntityMapper: TvEntityMapper
 ): IDiscoverTvDBRepository {
 
+    /**
+     * Get All Tv series
+     */
     override suspend fun getAll(): List<Tv> = withContext(Dispatchers.IO) {
-        TODO("Not yet implemented")
+        if(tvDAO.isEmpty)
+            throw DBNoResultException("No tv series was found")
+        try {
+            tvEntityMapper.entityToModel(tvDAO.all)
+        } catch (ex: Exception) {
+            throw DBErrorException("Error getting tv series from box", ex)
+        }
     }
 
+    /**
+     * Save Tv series
+     * @param tvList
+     */
     override suspend fun save(tvList: List<Tv>) = withContext(Dispatchers.IO) {
-        TODO("Not yet implemented")
+        try {
+            tvDAO.run {
+                removeAll()
+                put(tvEntityMapper.modelToEntity(tvList))
+            }
+        } catch (ex: Exception) {
+            throw DBErrorException("Error getting tv series from box", ex)
+        }
     }
 }

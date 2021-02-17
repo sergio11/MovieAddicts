@@ -6,6 +6,8 @@ import kotlinx.coroutines.withContext
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.PersonEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.people.PersonEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.exception.DBErrorException
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.exception.DBNoResultException
 
 /**
  * People DB Repository
@@ -21,7 +23,13 @@ class PeopleDBRepositoryImpl(
      * Get All People
      */
     override suspend fun getAll(): List<Person> = withContext(Dispatchers.IO) {
-        TODO("Not yet implemented")
+        if(peopleDAO.isEmpty)
+            throw DBNoResultException("No People was found")
+        try {
+            personEntityMapper.entityToModel(peopleDAO.all)
+        } catch (ex: Exception) {
+            throw DBErrorException("Error getting people from box", ex)
+        }
     }
 
     /**
@@ -29,6 +37,13 @@ class PeopleDBRepositoryImpl(
      * @param people
      */
     override suspend fun save(people: List<Person>) {
-        TODO("Not yet implemented")
+        try {
+            peopleDAO.run {
+                removeAll()
+                put(personEntityMapper.modelToEntity(people))
+            }
+        } catch (ex: Exception) {
+            throw DBErrorException("Error getting people from box", ex)
+        }
     }
 }
