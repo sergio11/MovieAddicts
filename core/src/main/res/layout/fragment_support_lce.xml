@@ -1,11 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <import type="android.view.View"/>
-        <import type="sanchez.sanchez.sergio.feature_main.domain.model.Person" />
         <import type="sanchez.sanchez.sergio.test.core.ui.LCEContract.LCEState" />
         <import type="sanchez.sanchez.sergio.test.core.ui.LCEContract.LCEState.OnIdle" />
         <import type="sanchez.sanchez.sergio.test.core.ui.LCEContract.LCEState.OnLoading" />
@@ -14,10 +13,6 @@
         <variable
             name="uiState"
             type="LCEState" />
-
-        <variable
-            name="adapter"
-            type="sanchez.sanchez.sergio.feature_main.ui.person.PeopleListAdapter" />
 
     </data>
 
@@ -42,11 +37,8 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:visibility="@{ uiState instanceof OnLoaded ? View.VISIBLE : View.GONE }"
-                app:adapter="@{adapter}"
-                app:adapterPersonList="@{uiState instanceof OnLoaded ? ((OnLoaded)uiState).data : null}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="2"
-                tools:listitem="@layout/person_item_layout" />
+                app:spanCount="2"/>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
