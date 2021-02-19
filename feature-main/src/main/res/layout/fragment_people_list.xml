@@ -36,32 +36,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <androidx.core.widget.NestedScrollView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fillViewport="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clipToPadding="false"
-                        android:visibility="@{ uiState instanceof OnLoaded ? View.VISIBLE : View.GONE }"
-                        app:adapter="@{adapter}"
-                        app:adapterPersonList="@{uiState instanceof OnLoaded ? ((OnLoaded)uiState).data : null}"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        app:spanCount="2"
-                        tools:listitem="@layout/person_item_layout" />
-
-                </LinearLayout>
-
-            </androidx.core.widget.NestedScrollView>
+                android:clipToPadding="false"
+                android:visibility="@{ uiState instanceof OnLoaded ? View.VISIBLE : View.GONE }"
+                app:adapter="@{adapter}"
+                app:adapterPersonList="@{uiState instanceof OnLoaded ? ((OnLoaded)uiState).data : null}"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/person_item_layout" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

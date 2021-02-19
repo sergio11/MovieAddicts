@@ -15,6 +15,7 @@ import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactor
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.test.core.ui.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
+import sanchez.sanchez.sergio.test.core.ui.SupportRecyclerViewPagination
 
 /**
  * People List Fragment
@@ -62,13 +63,20 @@ class PeopleListFragment : SupportFragment<PersonListViewModel, FragmentPeopleLi
                         }
                     }
                 })
+
+                SupportRecyclerViewPagination(
+                        recyclerView = this,
+                        isLoading = { viewModel.isLoading() },
+                        loadMore = { viewModel.setEvent(LCEContract.Event.OnLoadNextPage) },
+                        onLast = { false }
+                )
             }
             swipeRefreshLayout.setOnRefreshListener {
-                viewModel.setEvent(LCEContract.Event.OnFetchData())
+                viewModel.setEvent(LCEContract.Event.OnLoadInitialData)
             }
         }
 
-        viewModel.setEvent(LCEContract.Event.OnFetchData())
+        viewModel.setEvent(LCEContract.Event.OnLoadInitialData)
     }
 
     /**

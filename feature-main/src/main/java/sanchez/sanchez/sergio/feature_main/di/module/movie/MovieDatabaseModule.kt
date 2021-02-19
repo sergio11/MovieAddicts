@@ -4,7 +4,6 @@ import dagger.Module
 import dagger.Provides
 import io.objectbox.Box
 import io.objectbox.BoxStore
-import sanchez.sanchez.sergio.feature_main.di.module.core.DatabaseModule
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.MovieEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.movies.MovieEntity
 import sanchez.sanchez.sergio.feature_main.persistence.db.repository.movies.DiscoverMoviesDBRepositoryImpl
@@ -14,7 +13,7 @@ import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
 /**
  * Movie Database Module
  */
-@Module(includes = [ DatabaseModule::class ])
+@Module
 class MovieDatabaseModule {
 
     /**

@@ -21,7 +21,11 @@ class DiscoverMoviesRepositoryImpl (
      */
     override suspend fun getDiscoverMovies(page: Int): List<Movie> = try {
         discoverMoviesNetworkRepository.getDiscoverMovies(page).also {
-            moviesDBRepository.save(it)
+            try {
+                moviesDBRepository.save(it)
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+            }
         }
     } catch (ex: Exception) {
         try {

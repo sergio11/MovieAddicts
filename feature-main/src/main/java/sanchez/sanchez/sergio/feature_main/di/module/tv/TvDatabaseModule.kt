@@ -4,7 +4,6 @@ import dagger.Module
 import dagger.Provides
 import io.objectbox.Box
 import io.objectbox.BoxStore
-import sanchez.sanchez.sergio.feature_main.di.module.core.DatabaseModule
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.TvEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.tv.TvEntity
 import sanchez.sanchez.sergio.feature_main.persistence.db.repository.tv.DiscoverTvDBRepositoryImpl
@@ -14,7 +13,7 @@ import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
 /**
  * Tv Database Module
  */
-@Module(includes = [ DatabaseModule::class ])
+@Module
 class TvDatabaseModule {
 
     /**

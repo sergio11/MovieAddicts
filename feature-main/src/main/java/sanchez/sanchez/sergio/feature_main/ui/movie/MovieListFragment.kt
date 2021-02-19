@@ -7,7 +7,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_main.R
@@ -17,6 +16,7 @@ import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactor
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.test.core.ui.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
+import sanchez.sanchez.sergio.test.core.ui.SupportRecyclerViewPagination
 
 /**
  * Movie List Fragment
@@ -65,12 +65,24 @@ class MovieListFragment : SupportFragment<MovieListViewModel, FragmentMovieListB
                         }
                     }
                 })
+
+                SupportRecyclerViewPagination(
+                        recyclerView = this,
+                        isLoading = { viewModel.isLoading() },
+                        loadMore = { viewModel.setEvent(LCEContract.Event.OnLoadNextPage) },
+                        onLast = { false }
+                )
             }
-            swipeRefreshLayout.setOnRefreshListener {
-                viewModel.setEvent(LCEContract.Event.OnFetchData())
+
+            swipeRefreshLayout.apply {
+                setProgressBackgroundColorSchemeColor(ContextCompat.getColor(requireContext(), android.R.color.black))
+                setColorSchemeColors(ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark))
+                setOnRefreshListener {
+                    viewModel.setEvent(LCEContract.Event.OnLoadInitialData)
+                }
             }
         }
-        viewModel.setEvent(LCEContract.Event.OnFetchData())
+        viewModel.setEvent(LCEContract.Event.OnLoadInitialData)
     }
 
     /**

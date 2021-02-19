@@ -5,7 +5,8 @@ import java.lang.Exception
 class LCEContract {
 
     sealed class Event : UiEvent {
-        data class OnFetchData(val page: Int = 1) : Event()
+        object OnLoadInitialData : Event()
+        object OnLoadNextPage : Event()
     }
 
     data class State(
