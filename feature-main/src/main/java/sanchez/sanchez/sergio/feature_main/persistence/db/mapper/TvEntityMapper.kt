@@ -2,13 +2,14 @@ package sanchez.sanchez.sergio.feature_main.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.tv.TvEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
 
 /**
  * Tv Entity Mapper
  */
-class TvEntityMapper {
+class TvEntityMapper: IEntityToModelMapper<TvEntity, Tv> {
 
-    fun entityToModel(entity: TvEntity) = Tv(
+    override fun entityToModel(entity: TvEntity) = Tv(
         id = entity.id,
         name = entity.name,
         originalName = entity.originalName,
@@ -23,11 +24,11 @@ class TvEntityMapper {
         voteCount = entity.voteCount
     )
 
-    fun entityToModel(entityList: List<TvEntity>) = entityList.map {
+    override fun entityToModel(entityList: List<TvEntity>) = entityList.map {
         entityToModel(it)
     }
 
-    fun modelToEntity(model: Tv) = TvEntity(
+    override fun modelToEntity(model: Tv) = TvEntity(
             id = model.id,
             name = model.name,
             originalName = model.originalName,
@@ -42,7 +43,7 @@ class TvEntityMapper {
             voteCount = model.voteCount
     )
 
-    fun modelToEntity(modelList: List<Tv>) = modelList.map {
+    override fun modelToEntity(modelList: List<Tv>) = modelList.map {
         modelToEntity(it)
     }
 }

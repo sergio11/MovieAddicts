@@ -2,17 +2,18 @@ package sanchez.sanchez.sergio.feature_main.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.movies.MovieEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
 
 /**
  * Movie entity Mapper
  */
-class MovieEntityMapper {
+class MovieEntityMapper: IEntityToModelMapper<MovieEntity, Movie> {
 
     /**
      * Entity to model
      * @param entity
      */
-    fun entityToModel(entity: MovieEntity) = Movie(
+    override fun entityToModel(entity: MovieEntity) = Movie(
             id = entity.id,
             title = entity.title,
             posterPath = entity.posterPath,
@@ -32,7 +33,7 @@ class MovieEntityMapper {
      * Entity to model
      * @param entityList
      */
-    fun entityToModel(entityList: List<MovieEntity>) = entityList.map {
+    override fun entityToModel(entityList: List<MovieEntity>) = entityList.map {
         entityToModel(it)
     }
 
@@ -40,7 +41,7 @@ class MovieEntityMapper {
      * Model To Entity
      * @param model
      */
-    fun modelToEntity(model: Movie) = MovieEntity(
+    override fun modelToEntity(model: Movie) = MovieEntity(
             id = model.id,
             title = model.title,
             posterPath = model.posterPath,
@@ -60,7 +61,7 @@ class MovieEntityMapper {
      * Model To Entity
      * @param modelList
      */
-    fun modelToEntity(modelList: List<Movie>) = modelList.map {
+    override fun modelToEntity(modelList: List<Movie>) = modelList.map {
         modelToEntity(it)
     }
 

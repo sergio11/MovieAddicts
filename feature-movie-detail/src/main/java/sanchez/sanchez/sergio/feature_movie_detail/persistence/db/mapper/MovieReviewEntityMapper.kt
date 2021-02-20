@@ -2,17 +2,18 @@ package sanchez.sanchez.sergio.feature_movie_detail.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Review
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.ReviewEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
 
 /**
  * Movie Review Entity Mapper
  */
-class MovieReviewEntityMapper {
+class MovieReviewEntityMapper: IEntityToModelMapper<ReviewEntity, Review> {
 
     /**
      * Entity to model
      * @param entity
      */
-    fun entityToModel(entity: ReviewEntity) = Review(
+    override fun entityToModel(entity: ReviewEntity) = Review(
             id = entity.id,
             author = entity.author,
             content = entity.content,
@@ -23,7 +24,7 @@ class MovieReviewEntityMapper {
      * Entity to model
      * @param entityList
      */
-    fun entityToModel(entityList: List<ReviewEntity>) = entityList.map {
+    override fun entityToModel(entityList: List<ReviewEntity>) = entityList.map {
         entityToModel(it)
     }
 
@@ -31,7 +32,7 @@ class MovieReviewEntityMapper {
      * Model To Entity
      * @param model
      */
-    fun modelToEntity(model: Review) = ReviewEntity(
+    override fun modelToEntity(model: Review) = ReviewEntity(
         id = model.id,
         author = model.author,
         content = model.content,
@@ -42,7 +43,7 @@ class MovieReviewEntityMapper {
      * Model to Entity
      * @param modelList
      */
-    fun modelToEntity(modelList: List<Review>) = modelList.map {
+    override fun modelToEntity(modelList: List<Review>) = modelList.map {
         modelToEntity(it)
     }
 

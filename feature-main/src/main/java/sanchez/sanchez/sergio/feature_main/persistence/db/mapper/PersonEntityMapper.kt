@@ -2,13 +2,14 @@ package sanchez.sanchez.sergio.feature_main.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.people.PersonEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
 
 /**
  * Person Entity Mapper
  */
-class PersonEntityMapper {
+class PersonEntityMapper: IEntityToModelMapper<PersonEntity, Person> {
 
-    fun entityToModel(entity: PersonEntity) = Person(
+    override fun entityToModel(entity: PersonEntity) = Person(
         id = entity.id,
         name = entity.name,
         popularity = entity.popularity,
@@ -16,11 +17,11 @@ class PersonEntityMapper {
         adult = entity.adult
     )
 
-    fun entityToModel(entityList: List<PersonEntity>) = entityList.map {
+    override fun entityToModel(entityList: List<PersonEntity>) = entityList.map {
         entityToModel(it)
     }
 
-    fun modelToEntity(model: Person) = PersonEntity(
+    override fun modelToEntity(model: Person) = PersonEntity(
             id = model.id,
             name = model.name,
             popularity = model.popularity,
@@ -28,7 +29,7 @@ class PersonEntityMapper {
             adult = model.adult
     )
 
-    fun modelToEntity(modelList: List<Person>) = modelList.map {
+    override fun modelToEntity(modelList: List<Person>) = modelList.map {
         modelToEntity(it)
     }
 }

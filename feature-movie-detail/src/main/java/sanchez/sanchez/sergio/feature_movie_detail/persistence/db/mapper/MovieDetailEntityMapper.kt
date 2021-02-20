@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_movie_detail.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.MovieDetailEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
 
 /**
  * Movie Detail Entity Mapper
@@ -13,67 +14,75 @@ class MovieDetailEntityMapper(
     private val movieKeywordEntityMapper: MovieKeywordEntityMapper,
     private val movieReviewEntityMapper: MovieReviewEntityMapper,
     private val movieVideoEntityMapper: MovieVideoEntityMapper
-) {
+): IEntityToModelMapper<MovieDetailEntity, MovieDetail> {
 
     /**
      * Entity to model
-     * @param movieDetailEntity
+     * @param entity
      */
-    fun entityToModel(movieDetailEntity: MovieDetailEntity) = MovieDetail(
-        id = movieDetailEntity.id,
-        title = movieDetailEntity.title,
-        originalTitle = movieDetailEntity.originalTitle,
-        originalLanguage = movieDetailEntity.originalLanguage,
-        posterPath = movieDetailEntity.posterPath,
-        adult = movieDetailEntity.adult,
-        overview = movieDetailEntity.overview,
-        releaseDate = movieDetailEntity.releaseDate,
-        genres = movieDetailEntity.genres,
-        backdropPath =  movieDetailEntity.backdropPath,
-        popularity = movieDetailEntity.popularity,
-        voteCount = movieDetailEntity.voteCount,
-        video = movieDetailEntity.video,
-        voteAverage = movieDetailEntity.voteAverage,
-        keywords = movieDetailEntity.keywords.let {
+    override fun entityToModel(entity: MovieDetailEntity) = MovieDetail(
+        id = entity.id,
+        title = entity.title,
+        originalTitle = entity.originalTitle,
+        originalLanguage = entity.originalLanguage,
+        posterPath = entity.posterPath,
+        adult = entity.adult,
+        overview = entity.overview,
+        releaseDate = entity.releaseDate,
+        genres = entity.genres,
+        backdropPath =  entity.backdropPath,
+        popularity = entity.popularity,
+        voteCount = entity.voteCount,
+        video = entity.video,
+        voteAverage = entity.voteAverage,
+        keywords = entity.keywords.let {
             movieKeywordEntityMapper.entityToModel(it)
         },
-        videos = movieDetailEntity.videos.let {
+        videos = entity.videos.let {
             movieVideoEntityMapper.entityToModel(it)
         },
-        reviews = movieDetailEntity.reviews.let {
+        reviews = entity.reviews.let {
             movieReviewEntityMapper.entityToModel(it)
         }
     )
 
+    override fun entityToModel(entityList: List<MovieDetailEntity>) = entityList.map {
+        entityToModel(it)
+    }
+
     /**
      * Model to Entity
-     * @param movieDetail
+     * @param model
      */
-    fun modelToEntity(movieDetail: MovieDetail) = MovieDetailEntity(
-        id = movieDetail.id,
-        title = movieDetail.title,
-        originalTitle = movieDetail.originalTitle,
-        originalLanguage = movieDetail.originalLanguage,
-        posterPath = movieDetail.posterPath,
-        adult = movieDetail.adult,
-        overview = movieDetail.overview,
-        releaseDate = movieDetail.releaseDate,
-        genres = movieDetail.genres,
-        backdropPath =  movieDetail.backdropPath,
-        popularity = movieDetail.popularity,
-        voteCount = movieDetail.voteCount,
-        video = movieDetail.video,
-        voteAverage = movieDetail.voteAverage
+    override fun modelToEntity(model: MovieDetail) = MovieDetailEntity(
+        id = model.id,
+        title = model.title,
+        originalTitle = model.originalTitle,
+        originalLanguage = model.originalLanguage,
+        posterPath = model.posterPath,
+        adult = model.adult,
+        overview = model.overview,
+        releaseDate = model.releaseDate,
+        genres = model.genres,
+        backdropPath =  model.backdropPath,
+        popularity = model.popularity,
+        voteCount = model.voteCount,
+        video = model.video,
+        voteAverage = model.voteAverage
     ).apply {
-        movieDetail.keywords?.let {
+        model.keywords?.let {
              keywords.addAll(movieKeywordEntityMapper.modelToEntity(it))
         }
-        movieDetail.videos?.let {
+        model.videos?.let {
             videos.addAll(movieVideoEntityMapper.modelToEntity(it))
         }
-        movieDetail.reviews?.let {
+        model.reviews?.let {
             reviews.addAll(movieReviewEntityMapper.modelToEntity(it))
         }
+    }
+
+    override fun modelToEntity(modelList: List<MovieDetail>) = modelList.map {
+        modelToEntity(it)
     }
 
 }
