@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_person_detail.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_person_detail.domain.model.PersonDetail
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.PersonDetailEntity
+import java.util.*
 
 /**
  * Person Detail Entity Mapper
@@ -41,7 +42,8 @@ class PersonDetailEntityMapper {
             knownForDepartment = model.knownForDepartment,
             placeOfBirth = model.placeOfBirth,
             alsoKnownAs = model.alsoKnownAs,
-            biography = model.biography
+            biography = model.biography,
+            savedAtInMillis = Date().time
         )
 
 }

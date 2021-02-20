@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:3714177492114812608",
-      "lastPropertyId": "11:9202150075240286298",
+      "lastPropertyId": "12:2096906945427913360",
       "name": "PersonDetailEntity",
       "properties": [
         {
@@ -67,6 +67,12 @@
           "id": "11:9202150075240286298",
           "name": "biography",
           "type": 9
+        },
+        {
+          "id": "12:2096906945427913360",
+          "name": "saved_at_in_millis",
+          "type": 6,
+          "flags": 4
         }
       ],
       "relations": []

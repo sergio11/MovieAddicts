@@ -28,5 +28,7 @@ data class PersonDetailEntity(
     @Convert(converter = StringListConverter::class, dbType = String::class)
     val alsoKnownAs: List<String>?,
     @NameInDb("biography")
-    val biography: String
+    val biography: String,
+    @NameInDb("saved_at_in_millis")
+    val savedAtInMillis: Long
 )
