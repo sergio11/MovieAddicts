@@ -3,10 +3,10 @@
     package="sanchez.sanchez.sergio.feature_main">
 
     <application>
-        <activity android:name=".ui.FeatureMainActivity">
+        <activity android:name=".ui.FeatureMainActivity" android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="sanchez.sanchez.sergio.intent.action.SHOW_HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

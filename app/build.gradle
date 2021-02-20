@@ -50,6 +50,7 @@ dependencies {
 
     // Modules
     implementation project(":core")
+    implementation project(":feature-splash")
     implementation project(":feature-main")
     implementation project(":feature-movie-detail")
     implementation project(":feature-person-detail")

@@ -2,6 +2,7 @@
 
   <!-- Customize your theme here. -->
   <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
     <!-- Original AppCompat attributes. -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorSecondary">@color/colorAccent</item>
@@ -23,6 +24,11 @@
     <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
     <item name="textAppearanceOverline">@style/TextAppearance.App.Overline</item>
 
+  </style>
+
+  <style name="AppTheme.SplashScreen" parent="Theme.MaterialComponents.NoActionBar">
+    <item name="android:windowBackground">@drawable/app_background</item>
+    <item name="android:windowFullscreen">true</item>
   </style>
 
   <!-- Card View -->

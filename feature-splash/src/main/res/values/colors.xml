@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- Splash Background Gradient Colors -->
+    <color name="colorGradientStart">@color/colorPrimaryDark</color>
+    <color name="colorGradientCenter">@color/colorPrimary</color>
+    <color name="colorGradientEnd">@color/colorAccent</color>
+    <color name="colorStripeStart">@color/translucentPrimaryColor</color>
+    <color name="colorStripeEnd">@color/translucentPrimaryDarkColor</color>
+</resources>

@@ -6,4 +6,6 @@
     <color name="colorAccent">#000000</color>
     <color name="colorAppBackground">#000000</color>
     <color name="colorAppListItemDivider">#BDBDBD</color>
+    <color name="translucentPrimaryColor">#45FF9800</color>
+    <color name="translucentPrimaryDarkColor">#45F57C00</color>
 </resources>
