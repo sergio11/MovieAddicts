@@ -6,7 +6,6 @@ import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_main.domain.usecase.DiscoverMoviesInteract
 import sanchez.sanchez.sergio.test.core.ui.LCEContract
 import sanchez.sanchez.sergio.test.core.ui.SupportLCEViewModel
-import sanchez.sanchez.sergio.test.core.ui.SupportViewModel
 import javax.inject.Inject
 
 /**
@@ -19,16 +18,16 @@ class MovieListViewModel @Inject constructor(
     /**
      * Fetch Movies
      */
-    override fun onFetchData(page: Int) {
+    override fun onFetchData(page: Long) {
         viewModelScope.launch {
             Log.d("MOVIES_L", "fetchMovies (page -> $page) CALLED")
             setState { copy(lceState = LCEContract.LCEState.OnLoading) }
             getMoviesInteract.execute(
                     params = DiscoverMoviesInteract.Params(page),
-                    onSuccess = fun(movies) {
-                        Log.d("MOVIES_L", "onSuccess (movies size -> ${movies.size}) CALLED")
+                    onSuccess = fun(pageData) {
+                        Log.d("MOVIES_L", "onSuccess (movies size -> ${pageData.data.size}) CALLED")
                         setState {
-                            copy(lceState = LCEContract.LCEState.OnLoaded(page, movies))
+                            copy(lceState = LCEContract.LCEState.OnLoaded(pageData))
                         }
                     },
                     onError = fun(ex) {

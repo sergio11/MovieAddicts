@@ -20,5 +20,5 @@ interface DiscoverMoviesService {
      *  @return [DiscoverMoviesDTO] response
      */
     @GET("/3/discover/movie?language=en&sort_by=popularity.desc")
-    suspend fun getDiscoverMovies(@Query("page") page: Int): DiscoverMoviesDTO
+    suspend fun getDiscoverMovies(@Query("page") page: Long): DiscoverMoviesDTO
 }

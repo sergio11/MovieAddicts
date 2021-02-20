@@ -13,8 +13,8 @@ interface PeopleService {
      *
      * @param [page] Specify the page of results to query.
      *
-     * @return [PeopleResponse] response
+     * @return [PopularPeopleDTO] response
      */
     @GET("/3/person/popular?language=en")
-    suspend fun fetchPopularPeople(@Query("page") page: Int): PopularPeopleDTO
+    suspend fun fetchPopularPeople(@Query("page") page: Long): PopularPeopleDTO
 }

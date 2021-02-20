@@ -19,15 +19,15 @@ class PersonListViewModel @Inject constructor(
      * Fetch Popular People
      * @param page
      */
-    override fun onFetchData(page: Int) {
+    override fun onFetchData(page: Long) {
         viewModelScope.launch {
             setState { copy(lceState = LCEContract.LCEState.OnLoading) }
             peopleInteract.execute(
                     params = FetchPopularPeopleInteract.Params(page),
-                    onSuccess = fun(popularPeople) {
-                        Log.d("PERSON_L", "onSuccess (people size -> ${popularPeople.size}) CALLED")
+                    onSuccess = fun(pageData) {
+                        Log.d("PERSON_L", "onSuccess (people size -> ${pageData.data.size}) CALLED")
                         setState {
-                            copy(lceState = LCEContract.LCEState.OnLoaded(page, popularPeople))
+                            copy(lceState = LCEContract.LCEState.OnLoaded(pageData))
                         }
                     },
                     onError = fun(ex) {

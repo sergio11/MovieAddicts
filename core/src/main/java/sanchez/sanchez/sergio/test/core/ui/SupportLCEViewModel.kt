@@ -18,8 +18,8 @@ abstract class SupportLCEViewModel: SupportViewModel<LCEContract.Event, LCEContr
             is LCEContract.Event.OnLoadNextPage -> {
                 val lceState = currentState.lceState
                 if(lceState is LCEContract.LCEState.OnLoaded<*>) {
-                    Log.d("ADAPTER", "onFetchData(${lceState.page + 1}) CALLED")
-                    onFetchData(lceState.page + 1)
+                    Log.d("ADAPTER", "onFetchData(${lceState.pageData.page + 1}) CALLED")
+                    onFetchData(lceState.pageData.page + 1)
                 } else {
                     Log.d("ADAPTER", "onFetchData CALLED")
                     onFetchData()
@@ -32,6 +32,11 @@ abstract class SupportLCEViewModel: SupportViewModel<LCEContract.Event, LCEContr
 
     fun isIdle() = currentState.lceState is LCEContract.LCEState.OnIdle
 
+    fun isLastPage() = currentState.lceState.let { state ->
+        state is LCEContract.LCEState.OnLoaded<*> &&
+                state.pageData.isLast
+    }
+
     /**
      * abstract methods
      */
@@ -40,7 +45,7 @@ abstract class SupportLCEViewModel: SupportViewModel<LCEContract.Event, LCEContr
      * On Fetch Data
      * @param page
      */
-    protected abstract fun onFetchData(page: Int = 1)
+    protected abstract fun onFetchData(page: Long = 1)
 
 
 }

@@ -4,6 +4,7 @@ import androidx.annotation.WorkerThread
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.feature_main.persistence.network.mapper.PersonNetworkMapper
 import sanchez.sanchez.sergio.feature_main.persistence.network.service.PeopleService
+import sanchez.sanchez.sergio.test.core.domain.model.PageData
 import sanchez.sanchez.sergio.test.core.persistence.network.exception.NetworkNoResultException
 import sanchez.sanchez.sergio.test.core.persistence.network.repository.SupportNetworkRepository
 
@@ -22,10 +23,14 @@ class PeopleNetworkRepositoryImpl(
      * @param page
      */
     @WorkerThread
-    override suspend fun fetchPopularPeople(page: Int): List<Person> = safeNetworkCall {
+    override suspend fun fetchPopularPeople(page: Long): PageData<Person> = safeNetworkCall {
         val result = peopleService.fetchPopularPeople(page)
         if(result.results.isEmpty())
             throw NetworkNoResultException("Not Popular People found")
-        personNetworkMapper.dtoToModel(result.results)
+        PageData(
+                page = result.page,
+                data = personNetworkMapper.dtoToModel(result.results),
+                isLast = result.page == result.totalPages
+        )
     }
 }

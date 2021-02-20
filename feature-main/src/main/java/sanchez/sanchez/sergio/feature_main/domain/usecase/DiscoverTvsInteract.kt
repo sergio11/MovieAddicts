@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_main.domain.usecase
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.persistence.api.tv.IDiscoverTvRepository
+import sanchez.sanchez.sergio.test.core.domain.model.PageData
 
 /**
  * Discover Tvs Interact
@@ -16,10 +17,10 @@ class DiscoverTvsInteract (private val discoverTvRepository: IDiscoverTvReposito
      */
     suspend fun execute(
         params: Params,
-        onSuccess: (tvList: List<Tv>) -> Unit,
+        onSuccess: (pageData: PageData<Tv>) -> Unit,
         onError: (ex: Exception) -> Unit) = try {
-        val tvList = discoverTvRepository.fetchDiscoverTv(params.page)
-        onSuccess(tvList)
+        val pageData = discoverTvRepository.fetchDiscoverTv(params.page)
+        onSuccess(pageData)
     } catch (ex: Exception) {
         onError(ex)
     }
@@ -28,7 +29,7 @@ class DiscoverTvsInteract (private val discoverTvRepository: IDiscoverTvReposito
      * Params
      */
     data class Params(
-        val page: Int
+        val page: Long
     )
 
 }

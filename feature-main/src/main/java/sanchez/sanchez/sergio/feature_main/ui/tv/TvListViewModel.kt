@@ -19,16 +19,16 @@ class TvListViewModel @Inject constructor(
      * On Fetch Data
      * @param page
      */
-    override fun onFetchData(page: Int) {
+    override fun onFetchData(page: Long) {
         viewModelScope.launch {
             Log.d("TVS_L", "fetchTvs (page -> $page) CALLED")
             setState { copy(lceState = LCEContract.LCEState.OnLoading) }
             discoverTvsInteract.execute(
                     params = DiscoverTvsInteract.Params(page),
-                    onSuccess = fun(tvList) {
-                        Log.d("TVS_L", "onSuccess (TV size -> ${tvList.size}) CALLED")
+                    onSuccess = fun(pageData) {
+                        Log.d("TVS_L", "onSuccess (TV size -> ${pageData.data.size}) CALLED")
                         setState {
-                            copy(lceState = LCEContract.LCEState.OnLoaded(page, tvList))
+                            copy(lceState = LCEContract.LCEState.OnLoaded(pageData))
                         }
                     },
                     onError = fun(ex) {

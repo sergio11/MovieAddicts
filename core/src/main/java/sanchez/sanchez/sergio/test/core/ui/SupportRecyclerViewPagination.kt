@@ -1,6 +1,5 @@
 package sanchez.sanchez.sergio.test.core.ui
 
-import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

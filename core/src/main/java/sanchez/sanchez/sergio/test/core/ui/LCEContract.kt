@@ -1,5 +1,6 @@
 package sanchez.sanchez.sergio.test.core.ui
 
+import sanchez.sanchez.sergio.test.core.domain.model.PageData
 import java.lang.Exception
 
 class LCEContract {
@@ -16,7 +17,7 @@ class LCEContract {
     sealed class LCEState {
         object OnIdle: LCEState()
         object OnLoading : LCEState()
-        data class OnLoaded<T>(val page : Int, val data: List<T>) : LCEState()
+        data class OnLoaded<T>(val pageData: PageData<T>) : LCEState()
     }
 
     sealed class Effect : UiEffect {

@@ -16,6 +16,6 @@ interface DiscoverTvService {
      *  @return [DiscoverTvDTO] response
      */
     @GET("/3/discover/tv?language=en&sort_by=popularity.desc")
-    suspend fun fetchDiscoverTv(@Query("page") page: Int): DiscoverTvDTO
+    suspend fun fetchDiscoverTv(@Query("page") page: Long): DiscoverTvDTO
 
 }

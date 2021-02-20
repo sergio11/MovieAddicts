@@ -31,7 +31,7 @@ abstract class SupportLCEFragment<VM : SupportLCEViewModel, E, VH: SupportAdapte
                     uiState = it.lceState
                     @Suppress("UNCHECKED_CAST")
                     (it.lceState as? LCEContract.LCEState.OnLoaded<E>)?.let {
-                        supportAdapter?.addData(it.data)
+                        supportAdapter?.addData(it.pageData.data)
                     }
                 }
             }
@@ -59,7 +59,7 @@ abstract class SupportLCEFragment<VM : SupportLCEViewModel, E, VH: SupportAdapte
                         recyclerView = this,
                         isLoading = { viewModel.isLoading() },
                         loadMore = { viewModel.setEvent(LCEContract.Event.OnLoadNextPage) },
-                        onLast = { false }
+                        onLast = { viewModel.isLastPage() }
                 )
 
                 adapter = onBuildAdapter().also {
