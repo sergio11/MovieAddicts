@@ -3,6 +3,7 @@ package sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model
 import io.objectbox.annotation.*
 import io.objectbox.relation.ToMany
 import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConverter
+import sanchez.sanchez.sergio.test.core.persistence.db.model.IObjectBoxEntity
 
 /**
  * Movie Detail Entity
@@ -10,7 +11,7 @@ import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConve
 @Entity
 data class MovieDetailEntity(
     @Id var objectId: Long = 0,
-    @Unique val id: Long,
+    @Unique override val id: Long,
     @NameInDb("original_title")
     val originalTitle: String,
     @NameInDb("original_language")
@@ -37,8 +38,10 @@ data class MovieDetailEntity(
     @NameInDb("video")
     val video: Boolean,
     @NameInDb("vote_average")
-    val voteAverage: Double
-) {
+    val voteAverage: Double,
+    @NameInDb("saved_at_in_millis")
+    override val savedAtInMillis: Long
+): IObjectBoxEntity{
 
     @NameInDb("keywords")
     lateinit var keywords: ToMany<KeywordEntity>
@@ -46,6 +49,7 @@ data class MovieDetailEntity(
     lateinit var videos: ToMany<VideoEntity>
     @NameInDb("reviews")
     lateinit var reviews: ToMany<ReviewEntity>
+
 }
 
 /**

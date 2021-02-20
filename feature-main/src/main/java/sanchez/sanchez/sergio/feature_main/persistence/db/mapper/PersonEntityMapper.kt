@@ -3,6 +3,7 @@ package sanchez.sanchez.sergio.feature_main.persistence.db.mapper
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.people.PersonEntity
 import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
+import java.util.*
 
 /**
  * Person Entity Mapper
@@ -26,7 +27,8 @@ class PersonEntityMapper: IEntityToModelMapper<PersonEntity, Person> {
             name = model.name,
             popularity = model.popularity,
             profilePath = model.profilePath,
-            adult = model.adult
+            adult = model.adult,
+            savedAtInMillis = Date().time
     )
 
     override fun modelToEntity(modelList: List<Person>) = modelList.map {

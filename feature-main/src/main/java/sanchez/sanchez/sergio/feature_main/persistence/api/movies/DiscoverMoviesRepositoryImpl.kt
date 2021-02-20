@@ -1,9 +1,9 @@
 package sanchez.sanchez.sergio.feature_main.persistence.api.movies
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
-import sanchez.sanchez.sergio.feature_main.persistence.db.repository.movies.IDiscoverMoviesDBRepository
 import sanchez.sanchez.sergio.feature_main.persistence.network.repository.movies.IDiscoverMoviesNetworkRepository
 import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
 import java.lang.Exception
 
 /**
@@ -13,7 +13,7 @@ import java.lang.Exception
  */
 class DiscoverMoviesRepositoryImpl (
         private val discoverMoviesNetworkRepository: IDiscoverMoviesNetworkRepository,
-        private val moviesDBRepository: IDiscoverMoviesDBRepository): IDiscoverMoviesRepository {
+        private val moviesDBRepository: IDBRepository<Movie>): IDiscoverMoviesRepository {
 
     /**
      * Get Discover Movies

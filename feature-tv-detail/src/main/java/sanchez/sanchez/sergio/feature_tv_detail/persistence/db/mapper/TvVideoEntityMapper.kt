@@ -2,17 +2,18 @@ package sanchez.sanchez.sergio.feature_tv_detail.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_tv_detail.domain.model.Video
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.db.model.VideoEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
 
 /**
  * Tv Video Entity Mapper
  */
-class TvVideoEntityMapper {
+class TvVideoEntityMapper: IEntityToModelMapper<VideoEntity, Video> {
 
     /**
      * Entity to model
      * @param entity
      */
-    fun entityToModel(entity: VideoEntity) = Video(
+    override fun entityToModel(entity: VideoEntity) = Video(
             id = entity.id,
             name = entity.name,
             site = entity.site,
@@ -26,7 +27,7 @@ class TvVideoEntityMapper {
      * Entity to model
      * @param entityList
      */
-    fun entityToModel(entityList: List<VideoEntity>) = entityList.map {
+    override fun entityToModel(entityList: List<VideoEntity>) = entityList.map {
         entityToModel(it)
     }
 
@@ -34,7 +35,7 @@ class TvVideoEntityMapper {
      * Model To Entity
      * @param model
      */
-    fun modelToEntity(model: Video) = VideoEntity(
+    override fun modelToEntity(model: Video) = VideoEntity(
             id = model.id,
             name = model.name,
             site = model.site,
@@ -48,7 +49,7 @@ class TvVideoEntityMapper {
      * Model to entity
      * @param modelList
      */
-    fun modelToEntity(modelList: List<Video>) = modelList.map {
+    override fun modelToEntity(modelList: List<Video>) = modelList.map {
         modelToEntity(it)
     }
 }

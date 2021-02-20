@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:3790676802100665935",
-      "lastPropertyId": "14:2583392919617353455",
+      "lastPropertyId": "15:7031408633759448780",
       "name": "TvDetailEntity",
       "properties": [
         {
@@ -81,6 +81,12 @@
         {
           "id": "14:2583392919617353455",
           "name": "vote_count",
+          "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "15:7031408633759448780",
+          "name": "saved_at_in_millis",
           "type": 6,
           "flags": 4
         }

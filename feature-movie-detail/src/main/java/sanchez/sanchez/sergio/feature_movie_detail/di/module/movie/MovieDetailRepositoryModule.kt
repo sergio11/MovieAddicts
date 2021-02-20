@@ -2,11 +2,12 @@ package sanchez.sanchez.sergio.feature_movie_detail.di.module.movie
 
 import dagger.Module
 import dagger.Provides
+import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.api.IMoviesRepository
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.api.MoviesRepositoryImpl
-import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.repository.IMoviesDBRepository
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repository.IMoviesNetworkRepository
 import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
 
 /**
  * Movie Detail Repository Module
@@ -23,6 +24,6 @@ class MovieDetailRepositoryModule {
     @Provides
     fun provideMoviesRepository(
             moviesNetworkRepository: IMoviesNetworkRepository,
-            movieDBRepository: IMoviesDBRepository
+            movieDBRepository: IDBRepository<MovieDetail>
     ): IMoviesRepository = MoviesRepositoryImpl(moviesNetworkRepository, movieDBRepository)
 }

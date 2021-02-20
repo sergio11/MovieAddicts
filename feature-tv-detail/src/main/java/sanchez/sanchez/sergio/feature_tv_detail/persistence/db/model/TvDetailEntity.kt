@@ -3,6 +3,7 @@ package sanchez.sanchez.sergio.feature_tv_detail.persistence.db.model
 import io.objectbox.annotation.*
 import io.objectbox.relation.ToMany
 import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConverter
+import sanchez.sanchez.sergio.test.core.persistence.db.model.IObjectBoxEntity
 
 /**
  * Tv Detail Entity Definition
@@ -10,7 +11,7 @@ import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConve
 @Entity
 data class TvDetailEntity (
         @Id var objectId: Long = 0,
-        @Unique val id: Long,
+        @Unique override val id: Long,
         @NameInDb("name")
         val name: String,
         @NameInDb("original_name")
@@ -36,8 +37,10 @@ data class TvDetailEntity (
         @NameInDb("original_language")
         val originalLanguage: String,
         @NameInDb("vote_count")
-        val voteCount: Long
-) {
+        val voteCount: Long,
+        @NameInDb("saved_at_in_millis")
+        override val savedAtInMillis: Long
+): IObjectBoxEntity {
         @NameInDb("keywords")
         lateinit var keywords: ToMany<KeywordEntity>
         @NameInDb("videos")

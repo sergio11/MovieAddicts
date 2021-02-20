@@ -1,9 +1,9 @@
 package sanchez.sanchez.sergio.feature_main.persistence.api.tv
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
-import sanchez.sanchez.sergio.feature_main.persistence.db.repository.tv.IDiscoverTvDBRepository
 import sanchez.sanchez.sergio.feature_main.persistence.network.repository.tv.IDiscoverTvNetworkRepository
 import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
 import java.lang.Exception
 
 /**
@@ -13,7 +13,7 @@ import java.lang.Exception
  */
 class DiscoverTvRepositoryImpl(
     private val discoverTvNetworkRepository: IDiscoverTvNetworkRepository,
-    private val discoverTvDBRepository: IDiscoverTvDBRepository
+    private val discoverTvDBRepository: IDBRepository<Tv>
 ): IDiscoverTvRepository {
 
     /**

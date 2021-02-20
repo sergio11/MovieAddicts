@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_main.persistence.db.model.tv
 
 import io.objectbox.annotation.*
 import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConverter
+import sanchez.sanchez.sergio.test.core.persistence.db.model.IObjectBoxEntity
 
 /**
  * Tv Entity
@@ -9,7 +10,7 @@ import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConve
 @Entity
 class TvEntity (
     @Id var objectId: Long = 0,
-    @Unique val id: Long,
+    @Unique override val id: Long,
     @NameInDb("poster_path")
     val posterPath: String,
     @NameInDb("popularity")
@@ -32,5 +33,7 @@ class TvEntity (
     @NameInDb("name")
     val name: String,
     @NameInDb("original_name")
-    val originalName: String
-    )
+    val originalName: String,
+    @NameInDb("saved_at_in_millis")
+    override val savedAtInMillis: Long
+    ): IObjectBoxEntity

@@ -2,9 +2,9 @@ package sanchez.sanchez.sergio.feature_tv_detail.persistence.api
 
 import android.util.Log
 import sanchez.sanchez.sergio.feature_tv_detail.domain.model.TvDetail
-import sanchez.sanchez.sergio.feature_tv_detail.persistence.db.repository.ITvDBRepository
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.network.repository.ITvNetworkRepository
 import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
 
 /**
  * Tv Repository Impl
@@ -13,7 +13,7 @@ import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
  */
 class TvRepositoryImpl constructor(
         private val tvRepoNetworkRepository: ITvNetworkRepository,
-        private val tvDBRepository: ITvDBRepository
+        private val tvDBRepository: IDBRepository<TvDetail>
 ): ITvRepository {
 
     /**

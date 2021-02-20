@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "3:154812956829469528",
-      "lastPropertyId": "15:8710363197755471554",
+      "lastPropertyId": "16:6515784898202323751",
       "name": "MovieDetailEntity",
       "properties": [
         {
@@ -89,6 +89,12 @@
           "id": "15:8710363197755471554",
           "name": "vote_average",
           "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "16:6515784898202323751",
+          "name": "saved_at_in_millis",
+          "type": 6,
           "flags": 4
         }
       ],

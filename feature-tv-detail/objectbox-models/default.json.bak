@@ -117,9 +117,8 @@
         {
           "id": "2:6865882574379966110",
           "name": "id",
-          "indexId": "2:2374673705462987800",
           "type": 6,
-          "flags": 44
+          "flags": 4
         },
         {
           "id": "3:8079976452547064538",
@@ -143,9 +142,7 @@
         {
           "id": "2:3440348381855398134",
           "name": "id",
-          "indexId": "3:6254027402701037298",
-          "type": 9,
-          "flags": 2080
+          "type": 9
         },
         {
           "id": "3:700274185522070319",
@@ -195,9 +192,7 @@
         {
           "id": "2:2401914011086201618",
           "name": "id",
-          "indexId": "4:6398401594829007791",
-          "type": 9,
-          "flags": 2080
+          "type": 9
         },
         {
           "id": "3:2110019750304383484",
@@ -225,7 +220,11 @@
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
-  "retiredIndexUids": [],
+  "retiredIndexUids": [
+    6398401594829007791,
+    2374673705462987800,
+    6254027402701037298
+  ],
   "retiredPropertyUids": [],
   "retiredRelationUids": [],
   "version": 1

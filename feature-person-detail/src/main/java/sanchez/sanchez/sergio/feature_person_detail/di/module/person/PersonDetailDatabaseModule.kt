@@ -6,13 +6,16 @@ import dagger.Provides
 import io.objectbox.Box
 import io.objectbox.BoxStore
 import sanchez.sanchez.sergio.feature_person_detail.BuildConfig.BOX_STORE_NAME
+import sanchez.sanchez.sergio.feature_person_detail.domain.model.PersonDetail
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.mapper.PersonDetailEntityMapper
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.MyObjectBox
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.PersonDetailEntity
-import sanchez.sanchez.sergio.feature_person_detail.persistence.db.repository.IPeopleDBRepository
-import sanchez.sanchez.sergio.feature_person_detail.persistence.db.repository.PeopleObjectBoxRepositoryImpl
-import sanchez.sanchez.sergio.feature_person_detail.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
+import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.PersonDetailEntity_
 import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
 
 /**
  * Person Detail Database Module
@@ -37,7 +40,8 @@ class PersonDetailDatabaseModule {
      */
     @Provides
     @PerFragment
-    fun providePersonDetailEntityMapper() = PersonDetailEntityMapper()
+    fun providePersonDetailEntityMapper(): IEntityToModelMapper<PersonDetailEntity, PersonDetail>
+        = PersonDetailEntityMapper()
 
     /**
      * Provide People DAO
@@ -53,7 +57,12 @@ class PersonDetailDatabaseModule {
      */
     @Provides
     @PerFragment
-    fun provideObjectBoxConfiguration() = ObjectBoxRepositoryConfiguration(MAX_OBJECTS_ALLOWED, OBJECTS_EXPIRE_IN_MILLIS)
+    fun provideObjectBoxConfiguration(): ObjectBoxRepositoryConfiguration<PersonDetailEntity>
+        = ObjectBoxRepositoryConfiguration(
+            maxObjectsAllowed = MAX_OBJECTS_ALLOWED,
+            objectsExpireInMillis = OBJECTS_EXPIRE_IN_MILLIS,
+            objectIdProperty = PersonDetailEntity_.id,
+            savedAtInMillisProperty = PersonDetailEntity_.savedAtInMillis)
 
     /**
      * Provide People DB Repository
@@ -65,19 +74,17 @@ class PersonDetailDatabaseModule {
     @PerFragment
     fun providePeopleDBRepository(
         peopleDAO: Box<PersonDetailEntity>,
-        personDetailEntityMapper: PersonDetailEntityMapper,
-        objectBoxConfiguration: ObjectBoxRepositoryConfiguration
-    ): IPeopleDBRepository =
-        PeopleObjectBoxRepositoryImpl(
-            peopleDAO, personDetailEntityMapper, objectBoxConfiguration
+        personDetailEntityMapper: IEntityToModelMapper<PersonDetailEntity, PersonDetail>,
+        objectBoxConfiguration: ObjectBoxRepositoryConfiguration<PersonDetailEntity>
+    ): IDBRepository<PersonDetail> =
+        SupportObjectBoxRepositoryImpl(
+                peopleDAO, personDetailEntityMapper, objectBoxConfiguration
         )
 
 
     companion object {
-
         private const val MAX_OBJECTS_ALLOWED = 10
         private const val OBJECTS_EXPIRE_IN_MILLIS = 86400000 // 24 hours
-
     }
 
 }

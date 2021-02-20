@@ -1,7 +1,15 @@
 package sanchez.sanchez.sergio.feature_tv_detail.persistence.db.mapper
 
+import sanchez.sanchez.sergio.feature_tv_detail.domain.model.Keyword
+import sanchez.sanchez.sergio.feature_tv_detail.domain.model.Review
 import sanchez.sanchez.sergio.feature_tv_detail.domain.model.TvDetail
+import sanchez.sanchez.sergio.feature_tv_detail.domain.model.Video
+import sanchez.sanchez.sergio.feature_tv_detail.persistence.db.model.KeywordEntity
+import sanchez.sanchez.sergio.feature_tv_detail.persistence.db.model.ReviewEntity
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.db.model.TvDetailEntity
+import sanchez.sanchez.sergio.feature_tv_detail.persistence.db.model.VideoEntity
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
+import java.util.*
 
 /**
  * Tv Detail Entity Mapper
@@ -10,16 +18,16 @@ import sanchez.sanchez.sergio.feature_tv_detail.persistence.db.model.TvDetailEnt
  * @param tvVideoEntityMapper
  */
 class TvDetailEntityMapper(
-        private val tvKeywordEntityMapper: TvKeywordEntityMapper,
-        private val tvReviewEntityMapper: TvReviewEntityMapper,
-        private val tvVideoEntityMapper: TvVideoEntityMapper
-) {
+        private val tvKeywordEntityMapper: IEntityToModelMapper<KeywordEntity, Keyword>,
+        private val tvReviewEntityMapper: IEntityToModelMapper<ReviewEntity, Review>,
+        private val tvVideoEntityMapper: IEntityToModelMapper<VideoEntity, Video>
+): IEntityToModelMapper<TvDetailEntity, TvDetail> {
 
     /**
      * Entity to model
      * @param entity
      */
-    fun entityToModel(entity: TvDetailEntity) = TvDetail(
+    override fun entityToModel(entity: TvDetailEntity) = TvDetail(
             id = entity.id,
             name = entity.name,
             originalName = entity.originalName,
@@ -49,7 +57,7 @@ class TvDetailEntityMapper(
      * Entity to Model
      * @param entityList
      */
-    fun entityToModel(entityList: List<TvDetailEntity>) = entityList.map {
+    override fun entityToModel(entityList: List<TvDetailEntity>) = entityList.map {
         entityToModel(it)
     }
 
@@ -57,7 +65,7 @@ class TvDetailEntityMapper(
      * Model to entity
      * @param model
      */
-    fun modelToEntity(model: TvDetail) = TvDetailEntity(
+    override fun modelToEntity(model: TvDetail) = TvDetailEntity(
             id = model.id,
             name = model.name,
             originalName = model.originalName,
@@ -70,7 +78,8 @@ class TvDetailEntityMapper(
             originCountry = model.originCountry,
             genres = model.genres,
             originalLanguage = model.originalLanguage,
-            voteCount = model.voteCount
+            voteCount = model.voteCount,
+            savedAtInMillis = Date().time
     ).apply {
         model.keywords?.let {
             keywords.addAll(tvKeywordEntityMapper.modelToEntity(it))
@@ -87,7 +96,7 @@ class TvDetailEntityMapper(
      * Model to entity
      * @param modelList
      */
-    fun modelToEntity(modelList: List<TvDetail>) = modelList.map {
+    override fun modelToEntity(modelList: List<TvDetail>) = modelList.map {
         modelToEntity(it)
     }
 }

@@ -2,9 +2,9 @@ package sanchez.sanchez.sergio.feature_movie_detail.persistence.api
 
 import android.util.Log
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
-import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.repository.IMoviesDBRepository
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repository.IMoviesNetworkRepository
 import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
 
 /**
  * Movies Repository Impl
@@ -13,7 +13,7 @@ import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
  */
 class MoviesRepositoryImpl constructor(
         private val moviesNetworkRepository: IMoviesNetworkRepository,
-        private val movieDBRepository: IMoviesDBRepository
+        private val movieDBRepository: IDBRepository<MovieDetail>
 ): IMoviesRepository {
 
     /**

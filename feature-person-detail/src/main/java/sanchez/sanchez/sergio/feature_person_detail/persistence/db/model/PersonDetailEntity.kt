@@ -1,6 +1,7 @@
 package sanchez.sanchez.sergio.feature_person_detail.persistence.db.model
 
 import io.objectbox.annotation.*
+import sanchez.sanchez.sergio.test.core.persistence.db.model.IObjectBoxEntity
 import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConverter
 
 /**
@@ -9,7 +10,7 @@ import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConve
 @Entity
 data class PersonDetailEntity(
     @Id var objectId: Long = 0,
-    @Unique val id: Long,
+    @Unique override val id: Long,
     @NameInDb("name")
     val name: String,
     @NameInDb("profile_path")
@@ -30,5 +31,5 @@ data class PersonDetailEntity(
     @NameInDb("biography")
     val biography: String,
     @NameInDb("saved_at_in_millis")
-    val savedAtInMillis: Long
-)
+    override val savedAtInMillis: Long
+): IObjectBoxEntity

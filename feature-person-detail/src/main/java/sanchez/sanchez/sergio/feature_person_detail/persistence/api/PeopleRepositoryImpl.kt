@@ -2,9 +2,9 @@ package sanchez.sanchez.sergio.feature_person_detail.persistence.api
 
 import android.util.Log
 import sanchez.sanchez.sergio.feature_person_detail.domain.model.PersonDetail
-import sanchez.sanchez.sergio.feature_person_detail.persistence.db.repository.IPeopleDBRepository
 import sanchez.sanchez.sergio.feature_person_detail.persistence.network.repository.IPeopleNetworkRepository
 import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
 
 /**
  * People Repository Impl
@@ -13,7 +13,7 @@ import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
  */
 class PeopleRepositoryImpl constructor(
         private val peopleNetworkRepository: IPeopleNetworkRepository,
-        private val peopleDBRepository: IPeopleDBRepository
+        private val peopleDBRepository: IDBRepository<PersonDetail>
 ): IPeopleRepository {
 
     /**

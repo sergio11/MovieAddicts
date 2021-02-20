@@ -4,11 +4,15 @@ import dagger.Module
 import dagger.Provides
 import io.objectbox.Box
 import io.objectbox.BoxStore
+import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.TvEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.tv.TvEntity
-import sanchez.sanchez.sergio.feature_main.persistence.db.repository.tv.DiscoverTvDBRepositoryImpl
-import sanchez.sanchez.sergio.feature_main.persistence.db.repository.tv.IDiscoverTvDBRepository
+import sanchez.sanchez.sergio.feature_main.persistence.db.model.tv.TvEntity_
 import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
+import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
 
 /**
  * Tv Database Module
@@ -21,7 +25,19 @@ class TvDatabaseModule {
      */
     @Provides
     @PerFragment
-    fun provideTvEntityMapper() = TvEntityMapper()
+    fun provideTvEntityMapper(): IEntityToModelMapper<TvEntity, Tv> = TvEntityMapper()
+
+    /**
+     * Provide Object Box Configuration
+     */
+    @Provides
+    @PerFragment
+    fun provideObjectBoxConfiguration(): ObjectBoxRepositoryConfiguration<TvEntity>
+            = ObjectBoxRepositoryConfiguration(
+            maxObjectsAllowed = MAX_OBJECTS_ALLOWED,
+            objectsExpireInMillis = OBJECTS_EXPIRE_IN_MILLIS,
+            objectIdProperty = TvEntity_.id,
+            savedAtInMillisProperty = TvEntity_.savedAtInMillis)
 
     /**
      * Provide Tv DAO
@@ -41,8 +57,13 @@ class TvDatabaseModule {
     @PerFragment
     fun provideTvDBRepository(
         tvDAO: Box<TvEntity>,
-        tvEntityMapper: TvEntityMapper
-    ): IDiscoverTvDBRepository =
-        DiscoverTvDBRepositoryImpl(tvDAO, tvEntityMapper)
+        tvEntityMapper: IEntityToModelMapper<TvEntity, Tv>,
+        objectBoxRepositoryConfiguration: ObjectBoxRepositoryConfiguration<TvEntity>
+    ): IDBRepository<Tv> =
+        SupportObjectBoxRepositoryImpl(tvDAO, tvEntityMapper, objectBoxRepositoryConfiguration)
 
+    companion object {
+        private const val MAX_OBJECTS_ALLOWED = 20
+        private const val OBJECTS_EXPIRE_IN_MILLIS = 86400000 // 24 hours
+    }
 }
