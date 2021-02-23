@@ -17,7 +17,7 @@ object FeatureTvDetailComponentFactory {
      * Build Feature Tv Detail Component
      * @param activity
      */
-    fun buildFeatureTvDetailComponent(activity: AppCompatActivity): FeatureTvDetailComponent =
+    fun getFeatureTvDetailComponent(activity: AppCompatActivity): FeatureTvDetailComponent =
         featureTvDetailComponent ?: DaggerFeatureTvDetailComponent.builder()
             .applicationComponent(AppComponentFactory.getAppComponent(
                 activity.application as SupportApp
@@ -26,13 +26,28 @@ object FeatureTvDetailComponentFactory {
             }
 
     /**
+     * Remove Feature Tv Detail Component
+     */
+    fun removeFeatureTvDetailComponent() {
+        featureTvDetailComponent = null
+        tvDetailComponent = null
+    }
+
+    /**
      * Build Tv Detail Component
      * @param activity
      */
-    fun buildTvDetailComponent(activity: AppCompatActivity): TvDetailComponent =
-            tvDetailComponent ?: buildFeatureTvDetailComponent(activity).tvDetailComponent().also {
+    fun getTvDetailComponent(activity: AppCompatActivity): TvDetailComponent =
+            tvDetailComponent ?: getFeatureTvDetailComponent(activity).tvDetailComponent().also {
                 tvDetailComponent = it
             }
+
+    /**
+     * Remove Tv Detail Component
+     */
+    fun removeTvDetailComponent() {
+        tvDetailComponent
+    }
 
 
 }

@@ -8,7 +8,6 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_person_detail.R
 import sanchez.sanchez.sergio.feature_person_detail.databinding.PersonDetailFragmentBinding
-import sanchez.sanchez.sergio.feature_person_detail.di.component.PersonDetailComponent
 import sanchez.sanchez.sergio.feature_person_detail.di.factory.FeaturePersonDetailComponentFactory
 import sanchez.sanchez.sergio.feature_person_detail.ui.FeaturePersonDetailActivity
 import sanchez.sanchez.sergio.feature_person_detail.ui.FeaturePersonDetailActivityDelegate
@@ -19,10 +18,6 @@ import java.lang.IllegalStateException
  * Person Detail Fragment
  */
 class PersonDetailFragment: SupportFragment<PersonDetailViewModel, PersonDetailFragmentBinding>(PersonDetailViewModel::class.java) {
-
-    private val component: PersonDetailComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeaturePersonDetailComponentFactory.buildPersonDetailComponent(requireActivity() as AppCompatActivity)
-    }
 
     private lateinit var activityDelegate: FeaturePersonDetailActivityDelegate
 
@@ -37,8 +32,13 @@ class PersonDetailFragment: SupportFragment<PersonDetailViewModel, PersonDetailF
 
     override fun layoutId(): Int = R.layout.person_detail_fragment
 
-    override fun onInject() {
-        component.inject(this)
+    override fun onAttachComponent() {
+        FeaturePersonDetailComponentFactory.getPersonDetailComponent(requireActivity() as AppCompatActivity)
+                .inject(this)
+    }
+
+    override fun onDetachComponent() {
+        FeaturePersonDetailComponentFactory.removePersonDetailComponent()
     }
 
     override fun onInitObservers() {
@@ -59,6 +59,5 @@ class PersonDetailFragment: SupportFragment<PersonDetailViewModel, PersonDetailF
         super.onViewCreated(view, savedInstanceState)
         viewModel.setEvent(PersonDetailContract.Event.FetchPersonDetail(activityDelegate.getPersonId()))
     }
-
 
 }

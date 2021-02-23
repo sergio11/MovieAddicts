@@ -8,7 +8,6 @@ import android.view.animation.AnimationUtils
 import sanchez.sanchez.sergio.test.core.ui.SupportActivity
 import sanchez.sanchez.sergio.feature_splash.R
 import sanchez.sanchez.sergio.feature_splash.databinding.ActivityFeatureSplashBinding
-import sanchez.sanchez.sergio.feature_splash.di.component.FeatureSplashComponent
 import sanchez.sanchez.sergio.feature_splash.di.factory.FeatureSplashComponentFactory
 
 /**
@@ -16,12 +15,14 @@ import sanchez.sanchez.sergio.feature_splash.di.factory.FeatureSplashComponentFa
  */
 class FeatureSplashActivity: SupportActivity<ActivityFeatureSplashBinding>() {
 
-    private val component: FeatureSplashComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureSplashComponentFactory.buildFeatureSplashComponent(this)
+    override fun layoutId(): Int = R.layout.activity_feature_splash
+
+    override fun onAttachComponent() {
+        FeatureSplashComponentFactory.getFeatureSplashComponent(this)
     }
 
-    override fun onInject() {
-        component.inject(this)
+    override fun onDetachComponent() {
+        FeatureSplashComponentFactory.removeFeatureSplashComponent()
     }
 
     override fun initializeUI() {
@@ -45,8 +46,6 @@ class FeatureSplashActivity: SupportActivity<ActivityFeatureSplashBinding>() {
                 stripes.startAnimation(it)
             }
         }
-
     }
 
-    override fun layoutId(): Int = R.layout.activity_feature_splash
 }

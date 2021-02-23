@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.test.core.ui.SupportFragment
 import sanchez.sanchez.sergio.feature_splash.R
 import sanchez.sanchez.sergio.feature_splash.databinding.FragmentSplashBinding
-import sanchez.sanchez.sergio.feature_splash.di.component.SplashComponent
 import sanchez.sanchez.sergio.feature_splash.di.factory.FeatureSplashComponentFactory
 
 /**
@@ -18,14 +17,15 @@ import sanchez.sanchez.sergio.feature_splash.di.factory.FeatureSplashComponentFa
  */
 class SplashFragment: SupportFragment<SplashViewModel, FragmentSplashBinding>(SplashViewModel::class.java) {
 
-    private val component: SplashComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureSplashComponentFactory.buildSplashComponent(requireActivity() as AppCompatActivity)
-    }
-
     override fun layoutId(): Int = R.layout.fragment_splash
 
-    override fun onInject() {
-        component.inject(this)
+    override fun onAttachComponent() {
+        FeatureSplashComponentFactory.getSplashComponent(requireActivity() as AppCompatActivity)
+                .inject(this)
+    }
+
+    override fun onDetachComponent() {
+        FeatureSplashComponentFactory.removeSplashComponent()
     }
 
     override fun onInitObservers() {

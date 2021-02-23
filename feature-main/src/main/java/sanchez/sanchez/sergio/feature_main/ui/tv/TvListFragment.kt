@@ -1,7 +1,6 @@
 package sanchez.sanchez.sergio.feature_main.ui.tv
 
 import androidx.appcompat.app.AppCompatActivity
-import sanchez.sanchez.sergio.feature_main.di.component.TvListComponent
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
@@ -12,12 +11,13 @@ import sanchez.sanchez.sergio.test.core.ui.SupportLCEFragment
  */
 class TvListFragment : SupportLCEFragment<TvListViewModel, Tv, TvListAdapter.TvViewHolder>(TvListViewModel::class.java), TvListAdapter.OnTvClickListener {
 
-    private val component: TvListComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
+    override fun onAttachComponent() {
         FeatureMainComponentFactory.getTvListComponent(requireActivity() as AppCompatActivity)
+                .inject(this)
     }
 
-    override fun onInject() {
-        component.inject(this)
+    override fun onDetachComponent() {
+        FeatureMainComponentFactory.removeTvListComponent()
     }
 
     override fun onBuildAdapter(): SupportAdapter<TvListAdapter.TvViewHolder, Tv> =
@@ -34,4 +34,6 @@ class TvListFragment : SupportLCEFragment<TvListViewModel, Tv, TvListAdapter.TvV
     override fun onTvClicked(tv: Tv) {
         showTvDetail(tv.id)
     }
+
+
 }

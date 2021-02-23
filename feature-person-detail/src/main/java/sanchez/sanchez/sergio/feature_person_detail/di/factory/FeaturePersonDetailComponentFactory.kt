@@ -20,7 +20,7 @@ object FeaturePersonDetailComponentFactory {
      * Build Feature Person Detail Component
      * @param activity
      */
-    fun buildFeaturePersonDetailComponent(activity: AppCompatActivity): FeaturePersonDetailComponent =
+    fun getFeaturePersonDetailComponent(activity: AppCompatActivity): FeaturePersonDetailComponent =
         featurePersonDetailComponent ?: DaggerFeaturePersonDetailComponent.builder()
             .applicationComponent(AppComponentFactory.getAppComponent(
                 activity.application as SupportApp
@@ -29,11 +29,26 @@ object FeaturePersonDetailComponentFactory {
             }
 
     /**
+     * Remove Feature Person Detail Component
+     */
+    fun removeFeaturePersonDetailComponent() {
+        featurePersonDetailComponent = null
+        personDetailComponent = null
+    }
+
+    /**
      * Build Person Detail Component
      * @param activity
      */
-    fun buildPersonDetailComponent(activity: AppCompatActivity): PersonDetailComponent =
-            personDetailComponent ?: buildFeaturePersonDetailComponent(activity).personDetailComponent().also {
+    fun getPersonDetailComponent(activity: AppCompatActivity): PersonDetailComponent =
+            personDetailComponent ?: getFeaturePersonDetailComponent(activity).personDetailComponent().also {
                 personDetailComponent = it
             }
+
+    /**
+     * Remove Person Detail Component
+     */
+    fun removePersonDetailComponent() {
+        personDetailComponent = null
+    }
 }

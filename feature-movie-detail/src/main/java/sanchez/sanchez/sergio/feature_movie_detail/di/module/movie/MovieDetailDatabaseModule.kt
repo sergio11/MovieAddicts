@@ -1,11 +1,12 @@
 package sanchez.sanchez.sergio.feature_movie_detail.di.module.movie
 
+
 import android.content.Context
 import dagger.Module
 import dagger.Provides
 import io.objectbox.Box
 import io.objectbox.BoxStore
-import sanchez.sanchez.sergio.feature_movie_detail.BuildConfig.BOX_STORE_NAME
+import sanchez.sanchez.sergio.feature_movie_detail.BuildConfig
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Keyword
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Review
@@ -16,6 +17,7 @@ import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.mapper.MovieRe
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.mapper.MovieVideoEntityMapper
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.*
 import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.test.core.persistence.db.ObjectBoxManager
 import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
 import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
 import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
@@ -26,18 +28,6 @@ import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.Supp
  */
 @Module
 class MovieDetailDatabaseModule {
-
-    /**
-     * Provide Box Store
-     * @param appContext
-     */
-    @Provides
-    @PerFragment
-    fun provideBoxStore(appContext: Context): BoxStore =
-        MyObjectBox.builder()
-            .androidContext(appContext)
-            .name(BOX_STORE_NAME)
-            .build()
 
     /**
      * Provide Movie Keyword Entity Mapper
@@ -81,13 +71,29 @@ class MovieDetailDatabaseModule {
     )
 
     /**
+     * Provide Box Store
+     * @param appContext
+     * @param objectBoxManager
+     */
+    @Provides
+    @PerFragment
+    fun provideBoxStore(appContext: Context, objectBoxManager: ObjectBoxManager): BoxStore =
+            objectBoxManager.getBoxStore(BuildConfig.BOX_STORE_NAME) ?:
+                MyObjectBox.builder()
+                    .androidContext(appContext)
+                    .name(BuildConfig.BOX_STORE_NAME)
+                    .build().also {
+                        objectBoxManager.registerBoxStore(BuildConfig.BOX_STORE_NAME, it)
+                    }
+
+    /**
      * Provide Movie Detail DAO
      * @param boxStore
      */
     @Provides
     @PerFragment
     fun provideMovieDetailDAO(boxStore: BoxStore): Box<MovieDetailEntity> =
-        boxStore.boxFor(MovieDetailEntity::class.java)
+            boxStore.boxFor(MovieDetailEntity::class.java)
 
     /**
      * Provide Object Box Configuration

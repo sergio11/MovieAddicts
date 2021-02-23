@@ -3,21 +3,21 @@ package sanchez.sanchez.sergio.feature_tv_detail.ui
 import android.view.MenuItem
 import sanchez.sanchez.sergio.feature_tv_detail.R
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.ActivityFeatureTvDetailBinding
-import sanchez.sanchez.sergio.feature_tv_detail.di.component.FeatureTvDetailComponent
 import sanchez.sanchez.sergio.feature_tv_detail.di.factory.FeatureTvDetailComponentFactory
 import sanchez.sanchez.sergio.test.core.ui.SupportActivity
 
 class FeatureTvDetailActivity : SupportActivity<ActivityFeatureTvDetailBinding>(),
     FeatureTvDetailActivityDelegate {
 
-    private val component: FeatureTvDetailComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureTvDetailComponentFactory.buildFeatureTvDetailComponent(this)
-    }
-
     override fun layoutId(): Int = R.layout.activity_feature_tv_detail
 
-    override fun onInject() {
-        component.inject(this)
+    override fun onAttachComponent() {
+        FeatureTvDetailComponentFactory.getFeatureTvDetailComponent(this)
+                .inject(this)
+    }
+
+    override fun onDetachComponent() {
+        FeatureTvDetailComponentFactory.removeFeatureTvDetailComponent()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

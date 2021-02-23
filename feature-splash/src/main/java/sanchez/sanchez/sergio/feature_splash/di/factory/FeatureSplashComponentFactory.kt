@@ -13,7 +13,7 @@ object FeatureSplashComponentFactory {
     private var featureSplashComponent: FeatureSplashComponent? = null
     private var splashComponent: SplashComponent? = null
 
-    fun buildFeatureSplashComponent(activity: AppCompatActivity): FeatureSplashComponent =
+    fun getFeatureSplashComponent(activity: AppCompatActivity): FeatureSplashComponent =
         featureSplashComponent ?: DaggerFeatureSplashComponent.builder()
             .applicationComponent(
                 AppComponentFactory.getAppComponent(
@@ -22,9 +22,18 @@ object FeatureSplashComponentFactory {
                 featureSplashComponent = it
             }
 
-    fun buildSplashComponent(activity: AppCompatActivity): SplashComponent =
-        splashComponent ?: buildFeatureSplashComponent(activity).splashComponent().also {
+    fun removeFeatureSplashComponent() {
+        featureSplashComponent = null
+    }
+
+    fun getSplashComponent(activity: AppCompatActivity): SplashComponent =
+        splashComponent ?: getFeatureSplashComponent(activity).splashComponent().also {
             splashComponent = it
         }
+
+    fun removeSplashComponent() {
+        featureSplashComponent = null
+        splashComponent = null
+    }
 
 }

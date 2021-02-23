@@ -18,7 +18,7 @@ abstract class SupportActivity<T: ViewDataBinding>: AppCompatActivity() {
     protected var navController: NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        onInject()
+        onAttachComponent()
         super.onCreate(savedInstanceState)
         // Create Binding
         binding = DataBindingUtil.setContentView(this, layoutId())
@@ -30,6 +30,11 @@ abstract class SupportActivity<T: ViewDataBinding>: AppCompatActivity() {
             }
         }
         initializeUI()
+    }
+
+    override fun onDestroy() {
+        onDetachComponent()
+        super.onDestroy()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -52,7 +57,12 @@ abstract class SupportActivity<T: ViewDataBinding>: AppCompatActivity() {
      * If you want to inject Dependency Injection
      * on your activity, you can override this.
      */
-    abstract fun onInject()
+    abstract fun onAttachComponent()
+
+    /**
+     * Using this method for remove component
+     */
+    abstract fun onDetachComponent()
 
     /**
      * Initialize UI

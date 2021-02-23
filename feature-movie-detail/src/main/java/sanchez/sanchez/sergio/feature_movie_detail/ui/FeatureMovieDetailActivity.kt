@@ -3,7 +3,6 @@ package sanchez.sanchez.sergio.feature_movie_detail.ui
 import android.view.MenuItem
 import sanchez.sanchez.sergio.feature_movie_detail.R
 import sanchez.sanchez.sergio.feature_movie_detail.databinding.ActivityFeatureMovieDetailBinding
-import sanchez.sanchez.sergio.feature_movie_detail.di.component.FeatureMovieDetailComponent
 import sanchez.sanchez.sergio.feature_movie_detail.di.factory.FeatureMovieDetailComponentFactory
 import sanchez.sanchez.sergio.test.core.ui.SupportActivity
 import java.lang.IllegalStateException
@@ -11,15 +10,16 @@ import java.lang.IllegalStateException
 class FeatureMovieDetailActivity : SupportActivity<ActivityFeatureMovieDetailBinding>(),
         FeatureMovieDetailActivityDelegate {
 
-    private val component: FeatureMovieDetailComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureMovieDetailComponentFactory.buildFeatureMovieDetailComponent(this)
-    }
-
-    override fun onInject() {
-        component.inject(this)
-    }
-
     override fun layoutId(): Int = R.layout.activity_feature_movie_detail
+
+    override fun onAttachComponent() {
+        FeatureMovieDetailComponentFactory.getFeatureMovieDetailComponent(this)
+                .inject(this)
+    }
+
+    override fun onDetachComponent() {
+        FeatureMovieDetailComponentFactory.removeFeatureMovieDetailComponent()
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) onBackPressed()

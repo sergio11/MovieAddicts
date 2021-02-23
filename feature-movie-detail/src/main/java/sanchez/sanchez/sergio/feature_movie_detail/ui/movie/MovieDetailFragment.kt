@@ -2,14 +2,12 @@ package sanchez.sanchez.sergio.feature_movie_detail.ui.movie
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_movie_detail.R
 import sanchez.sanchez.sergio.feature_movie_detail.databinding.MovieDetailFragmentBinding
-import sanchez.sanchez.sergio.feature_movie_detail.di.component.MovieDetailComponent
 import sanchez.sanchez.sergio.feature_movie_detail.di.factory.FeatureMovieDetailComponentFactory
 import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivity
 import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivityDelegate
@@ -19,10 +17,6 @@ import sanchez.sanchez.sergio.test.core.ui.SupportFragment
  * Movie Detail Fragment
  */
 class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFragmentBinding>(MovieDetailViewModel::class.java) {
-
-    private val component: MovieDetailComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureMovieDetailComponentFactory.buildMovieDetailComponent(requireActivity() as AppCompatActivity)
-    }
 
     private lateinit var activityDelegate: FeatureMovieDetailActivityDelegate
 
@@ -43,8 +37,13 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
 
     override fun layoutId(): Int = R.layout.movie_detail_fragment
 
-    override fun onInject() {
-        component.inject(this)
+    override fun onAttachComponent() {
+        FeatureMovieDetailComponentFactory.getMovieDetailComponent(requireActivity() as AppCompatActivity)
+                .inject(this)
+    }
+
+    override fun onDetachComponent() {
+        FeatureMovieDetailComponentFactory.removeMovieDetailComponent()
     }
 
     override fun onInitObservers() {

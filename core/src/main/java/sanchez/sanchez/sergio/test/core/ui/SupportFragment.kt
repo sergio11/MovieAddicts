@@ -31,7 +31,7 @@ abstract class SupportFragment<VM : ViewModel, VB: ViewDataBinding>(private val 
      * on Create
      */
     override fun onCreate(savedInstanceState: Bundle?) {
-        onInject()
+        onAttachComponent()
         super.onCreate(savedInstanceState)
         viewModel = initViewModel()
         onInitObservers()
@@ -46,17 +46,27 @@ abstract class SupportFragment<VM : ViewModel, VB: ViewDataBinding>(private val 
         return binding.root
     }
 
+    override fun onDestroy() {
+        onDetachComponent()
+        super.onDestroy()
+    }
+
+    /**
+     * If you want to inject Dependency Injection
+     * on your activity, you can override this.
+     */
+    abstract fun onAttachComponent()
+
+    /**
+     * Using this method for remove component
+     */
+    abstract fun onDetachComponent()
 
     /**
      * Layout Id
      */
     @LayoutRes
     abstract fun layoutId(): Int
-
-    /**
-     * On Inject
-     */
-    abstract fun onInject()
 
     /**
      * On Init Observers

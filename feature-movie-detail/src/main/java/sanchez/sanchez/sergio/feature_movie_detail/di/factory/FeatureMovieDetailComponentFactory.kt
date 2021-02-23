@@ -14,10 +14,10 @@ object FeatureMovieDetailComponentFactory {
     private var movieDetailComponent: MovieDetailComponent? = null
 
     /**
-     * Build Feature Movie Detail Component
+     * Get Feature Movie Detail Component
      * @param activity
      */
-    fun buildFeatureMovieDetailComponent(activity: AppCompatActivity): FeatureMovieDetailComponent =
+    fun getFeatureMovieDetailComponent(activity: AppCompatActivity): FeatureMovieDetailComponent =
         featureMovieDetailComponent ?: DaggerFeatureMovieDetailComponent.builder()
             .applicationComponent(AppComponentFactory.getAppComponent(
                 activity.application as SupportApp
@@ -26,11 +26,23 @@ object FeatureMovieDetailComponentFactory {
             }
 
     /**
-     * Build Movie Detail Component
+     * Remove Feature Movie Detail Component
+     */
+    fun removeFeatureMovieDetailComponent() {
+        featureMovieDetailComponent = null
+        movieDetailComponent = null
+    }
+
+    /**
+     * Get Movie Detail Component
      * @param activity
      */
-    fun buildMovieDetailComponent(activity: AppCompatActivity): MovieDetailComponent =
-            movieDetailComponent ?: buildFeatureMovieDetailComponent(activity).movieDetailComponent().also {
+    fun getMovieDetailComponent(activity: AppCompatActivity): MovieDetailComponent =
+            movieDetailComponent ?: getFeatureMovieDetailComponent(activity).movieDetailComponent().also {
                 movieDetailComponent = it
             }
+
+    fun removeMovieDetailComponent() {
+        movieDetailComponent = null
+    }
 }

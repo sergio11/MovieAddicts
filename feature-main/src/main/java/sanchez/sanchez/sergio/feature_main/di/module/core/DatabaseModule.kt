@@ -23,7 +23,7 @@ class DatabaseModule {
     @PerActivity
     fun provideBoxStore(appContext: Context): BoxStore =
         MyObjectBox.builder()
-            .androidContext(appContext)
-            .name(BOX_STORE_NAME)
-            .build()
+                .androidContext(appContext)
+                .name(BOX_STORE_NAME)
+                .build()
 }

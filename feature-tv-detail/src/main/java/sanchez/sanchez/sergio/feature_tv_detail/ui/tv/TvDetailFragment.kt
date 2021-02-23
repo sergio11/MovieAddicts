@@ -8,7 +8,6 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_tv_detail.R
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.TvDetailFragmentBinding
-import sanchez.sanchez.sergio.feature_tv_detail.di.component.TvDetailComponent
 import sanchez.sanchez.sergio.feature_tv_detail.di.factory.FeatureTvDetailComponentFactory
 import sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivity
 import sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivityDelegate
@@ -19,10 +18,6 @@ import java.lang.IllegalStateException
  * Tv Detail Fragment
  */
 class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBinding>(TvDetailViewModel::class.java) {
-
-    private val component: TvDetailComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureTvDetailComponentFactory.buildTvDetailComponent(requireActivity() as AppCompatActivity)
-    }
 
     private val tvVideoListAdapter by lazy {
         TvVideoListAdapter(requireContext(), mutableListOf())
@@ -43,8 +38,13 @@ class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBind
 
     override fun layoutId(): Int = R.layout.tv_detail_fragment
 
-    override fun onInject() {
-        component.inject(this)
+    override fun onAttachComponent() {
+        FeatureTvDetailComponentFactory.getTvDetailComponent(requireActivity() as AppCompatActivity)
+                .inject(this)
+    }
+
+    override fun onDetachComponent() {
+        FeatureTvDetailComponentFactory.removeTvDetailComponent()
     }
 
     override fun onInitObservers() {

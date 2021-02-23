@@ -14,12 +14,13 @@ import sanchez.sanchez.sergio.test.core.ui.SupportLCEFragment
 class MovieListFragment : SupportLCEFragment<MovieListViewModel, Movie, MovieListAdapter.MovieViewHolder>(MovieListViewModel::class.java),
     MovieListAdapter.OnMovieClickListener {
 
-    private val component: MovieListComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
-        FeatureMainComponentFactory.buildMovieListComponent(requireActivity() as AppCompatActivity)
+    override fun onAttachComponent() {
+        FeatureMainComponentFactory.getMovieListComponent(requireActivity() as AppCompatActivity)
+                .inject(this)
     }
 
-    override fun onInject() {
-        component.inject(this)
+    override fun onDetachComponent() {
+        FeatureMainComponentFactory.removeMovieListComponent()
     }
 
     override fun onBuildAdapter(): SupportAdapter<MovieListAdapter.MovieViewHolder, Movie> =
@@ -33,8 +34,5 @@ class MovieListFragment : SupportLCEFragment<MovieListViewModel, Movie, MovieLis
         Log.d("MOVIES_L", "onMovieClicked CALLED (${movie.id})")
         showMovieDetail(movie.id)
     }
-
-
-
 
 }
