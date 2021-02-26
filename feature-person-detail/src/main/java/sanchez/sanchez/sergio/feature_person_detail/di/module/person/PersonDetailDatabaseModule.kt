@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.Provides
 import io.objectbox.Box
 import io.objectbox.BoxStore
+import sanchez.sanchez.sergio.feature_person_detail.BuildConfig
 import sanchez.sanchez.sergio.feature_person_detail.BuildConfig.BOX_STORE_NAME
 import sanchez.sanchez.sergio.feature_person_detail.domain.model.PersonDetail
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.mapper.PersonDetailEntityMapper
@@ -12,6 +13,7 @@ import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.MyObjec
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.PersonDetailEntity
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.PersonDetailEntity_
 import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.test.core.persistence.db.ObjectBoxManager
 import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
 import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
 import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
@@ -26,14 +28,18 @@ class PersonDetailDatabaseModule {
     /**
      * Provide Box Store
      * @param appContext
+     * @param objectBoxManager
      */
     @Provides
     @PerFragment
-    fun provideBoxStore(appContext: Context): BoxStore =
-        MyObjectBox.builder()
-            .androidContext(appContext)
-            .name(BOX_STORE_NAME)
-            .build()
+    fun provideBoxStore(appContext: Context, objectBoxManager: ObjectBoxManager): BoxStore =
+            objectBoxManager.getBoxStore(BOX_STORE_NAME) ?:
+            MyObjectBox.builder()
+                    .androidContext(appContext)
+                    .name(BOX_STORE_NAME)
+                    .build().also {
+                        objectBoxManager.registerBoxStore(BOX_STORE_NAME, it)
+                    }
 
     /**
      * Provide Person Detail Entity Mapper
