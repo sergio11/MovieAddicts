@@ -4,13 +4,18 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
+import sanchez.sanchez.sergio.feature_main.ui.core.INavigatorManager
 import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
 import sanchez.sanchez.sergio.test.core.ui.SupportLCEFragment
+import javax.inject.Inject
 
 /**
  * People List Fragment
  */
 class PeopleListFragment : SupportLCEFragment<PersonListViewModel, Person, PeopleListAdapter.PersonViewHolder>(PersonListViewModel::class.java), PeopleListAdapter.OnPersonClickListener {
+
+    @Inject
+    lateinit var navigationManager: INavigatorManager
 
     override fun onAttachComponent() {
         FeatureMainComponentFactory.getPeopleListComponent(requireActivity() as AppCompatActivity)
@@ -34,7 +39,7 @@ class PeopleListFragment : SupportLCEFragment<PersonListViewModel, Person, Peopl
      * @param itemPersonProfileImageView
      */
     override fun onPersonClicked(person: Person, itemPersonProfileImageView: ImageView) {
-        showPersonDetail(person.id, itemPersonProfileImageView)
+        navigationManager.showPersonDetail(person.id, itemPersonProfileImageView)
     }
 
 }
