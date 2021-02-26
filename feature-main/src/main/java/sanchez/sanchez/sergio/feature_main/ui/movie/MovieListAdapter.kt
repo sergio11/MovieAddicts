@@ -2,6 +2,7 @@ package sanchez.sanchez.sergio.feature_main.ui.movie
 
 import android.content.Context
 import android.view.ViewGroup
+import android.widget.ImageView
 import sanchez.sanchez.sergio.feature_main.databinding.MovieItemLayoutBinding
 import sanchez.sanchez.sergio.feature_main.databinding.MovieItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
@@ -32,8 +33,9 @@ class MovieListAdapter(
         /**
          * on Movie Clicked
          * @param movie
+         * @param itemMovieImageView
          */
-        fun onMovieClicked(movie: Movie)
+        fun onMovieClicked(movie: Movie, itemMovieImageView: ImageView)
     }
 
     /**

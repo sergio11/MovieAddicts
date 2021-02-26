@@ -16,18 +16,19 @@
       android:layout_height="match_parent"
       android:background="@color/colorAppBackground">
 
-    <TextView
-        android:id="@+id/detailHeaderTitle"
-        style="@style/TextAppearance.App.Headline4"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuideline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@{movie.title}"
-        tools:text="Movie Title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/detailHeaderRelease"/>
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
 
     <TextView
         android:id="@+id/detailHeaderRelease"
@@ -37,26 +38,41 @@
         android:layout_marginTop="@dimen/common_margin"
         android:gravity="center"
         app:bindReleaseDate="@{movie}"
-        tools:text="Release Date :"
-        app:layout_constraintTop_toBottomOf="@id/detailHeaderTitle"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/detailHeaderStar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/detailHeaderStar"/>
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+        app:layout_constraintTop_toBottomOf="@id/horizontalGuideline"
+        tools:text="Release Date :" />
 
     <RatingBar
         android:id="@+id/detailHeaderStar"
         style="?android:ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:progressTint="@color/colorPrimaryDark"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/common_margin"
+        android:progressTint="@color/colorPrimaryDark"
         android:rating="@{(float)movie.voteAverage / 2}"
-        app:layout_constraintTop_toBottomOf="@id/detailHeaderRelease"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/detailHeaderTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+        app:layout_constraintTop_toBottomOf="@id/detailHeaderRelease"
         tools:rating="3.5f" />
+
+    <TextView
+        android:id="@+id/detailHeaderTitle"
+        style="@style/TextAppearance.App.Headline4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/common_big_margin"
+        android:text="@{movie.title}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailHeaderStar"
+        tools:text="Movie Title" />
+
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

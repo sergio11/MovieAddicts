@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="@{() -> movieListener.onMovieClicked(movie)}"
+            android:onClick="@{() -> movieListener.onMovieClicked(movie, moviePoster)}"
             android:foreground="?attr/selectableItemBackground"
             android:background="@color/colorPrimaryDark">
 
@@ -31,6 +31,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
+                android:transitionName="@string/movie_detail_transition_name"
                 app:loadImage="@{movie.posterPath}"
                 app:layout_constraintBottom_toTopOf="@id/movieTitle"
                 app:layout_constraintStart_toStartOf="parent"

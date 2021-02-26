@@ -17,14 +17,20 @@ class NavigatorManagerImpl constructor(
     /**
      * Show Movie Detail
      * @param id
+     * @param transitionImageView
      */
-    override fun showMovieDetail(id: Long) {
-        activity.startActivity(
-                Intent("sanchez.sanchez.sergio.intent.action.SHOW_MOVIE_DETAIL").apply {
-                    putExtra("MOVIE_ID", id)
-                    setPackage(activity.packageName)
-                }
-        )
+    override fun showMovieDetail(id: Long, transitionImageView: View) {
+        ViewCompat.getTransitionName(transitionImageView)?.let { transitionName ->
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,
+                    transitionImageView, transitionName)
+            activity.startActivity(
+                    Intent("sanchez.sanchez.sergio.intent.action.SHOW_MOVIE_DETAIL").apply {
+                        putExtra("MOVIE_ID", id)
+                        setPackage(activity.packageName)
+                    },
+                    options.toBundle()
+            )
+        }
     }
 
     /**

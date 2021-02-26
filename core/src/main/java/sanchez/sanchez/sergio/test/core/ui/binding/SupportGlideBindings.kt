@@ -23,7 +23,7 @@ object SupportGlideBindings {
      */
     @JvmStatic
     @BindingAdapter("loadImage")
-    fun bindLoadImage(view: ImageView, url: String) {
+    fun bindLoadImage(view: ImageView, url: String?) {
         Glide.with(view.context)
             .load(url)
             .transition(

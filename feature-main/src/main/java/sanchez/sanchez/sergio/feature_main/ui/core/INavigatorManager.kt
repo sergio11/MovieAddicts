@@ -10,8 +10,9 @@ interface INavigatorManager {
     /**
      * Show Movie Detail
      * @param id
+     * @param transitionImageView
      */
-    fun showMovieDetail(id: Long)
+    fun showMovieDetail(id: Long, transitionImageView: View)
 
     /**
      * Show Person Detail

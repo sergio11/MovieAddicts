@@ -1,8 +1,8 @@
 package sanchez.sanchez.sergio.feature_main.ui.movie
 
 import android.util.Log
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import sanchez.sanchez.sergio.feature_main.di.component.MovieListComponent
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.feature_main.ui.core.INavigatorManager
@@ -15,7 +15,6 @@ import javax.inject.Inject
  */
 class MovieListFragment : SupportLCEFragment<MovieListViewModel, Movie, MovieListAdapter.MovieViewHolder>(MovieListViewModel::class.java),
     MovieListAdapter.OnMovieClickListener {
-
 
     @Inject
     lateinit var navigationManager: INavigatorManager
@@ -35,10 +34,10 @@ class MovieListFragment : SupportLCEFragment<MovieListViewModel, Movie, MovieLis
     /**
      * Movie Clicked
      * @param movie
+     * @param itemMovieImageView
      */
-    override fun onMovieClicked(movie: Movie) {
-        Log.d("MOVIES_L", "onMovieClicked CALLED (${movie.id})")
-        navigationManager.showMovieDetail(movie.id)
+    override fun onMovieClicked(movie: Movie, itemMovieImageView: ImageView) {
+        navigationManager.showMovieDetail(movie.id, itemMovieImageView)
     }
 
 }

@@ -15,6 +15,14 @@ fun View.visible() {
     visibility = View.VISIBLE
 }
 
+fun View.gone() {
+    visibility = View.GONE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
 fun View.requestGlideListener(): RequestListener<Drawable> {
     return object : RequestListener<Drawable> {
         override fun onLoadFailed(

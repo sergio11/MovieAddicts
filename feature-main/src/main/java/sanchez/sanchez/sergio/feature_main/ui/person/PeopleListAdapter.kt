@@ -40,7 +40,7 @@ class PeopleListAdapter(
      * Person View Holder
      * @param binding
      */
-    inner class PersonViewHolder(val binding: PersonItemLayoutBinding): SupportViewHolder<Person>(binding.root) {
+    inner class PersonViewHolder(private val binding: PersonItemLayoutBinding): SupportViewHolder<Person>(binding.root) {
         override fun bind(model: Person) {
             with(binding) {
                 person = model
