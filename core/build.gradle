@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    implementation platform('com.google.firebase:firebase-bom:26.5.0')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api "androidx.core:core-ktx:$coreKtxVersion"
     api "androidx.appcompat:appcompat:$appCompatVersion"

@@ -11,11 +11,16 @@ import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportFragment
 import sanchez.sanchez.sergio.feature_splash.R
 import sanchez.sanchez.sergio.feature_splash.databinding.FragmentSplashBinding
 import sanchez.sanchez.sergio.feature_splash.di.factory.FeatureSplashComponentFactory
+import sanchez.sanchez.sergio.feature_splash.ui.core.INavigatorManager
+import javax.inject.Inject
 
 /**
  * Splash Fragment
  */
 class SplashFragment: SupportFragment<SplashViewModel, FragmentSplashBinding>(SplashViewModel::class.java) {
+
+    @Inject
+    lateinit var navigationManager: INavigatorManager
 
     override fun layoutId(): Int = R.layout.fragment_splash
 
@@ -32,7 +37,9 @@ class SplashFragment: SupportFragment<SplashViewModel, FragmentSplashBinding>(Sp
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
                 if(state.sessionState is SplashContract.SessionState.OnLoaded)
-                    showHome()
+                    navigationManager.showHome()
+                else if(state.sessionState is SplashContract.SessionState.OnNotFound)
+                    navigationManager.showLogin()
             }
         }
     }

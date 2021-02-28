@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/feature-login" />
             <option value="$PROJECT_DIR$/feature-main" />
             <option value="$PROJECT_DIR$/feature-movie-detail" />
             <option value="$PROJECT_DIR$/feature-person-detail" />
