@@ -2,7 +2,7 @@ package sanchez.sanchez.sergio.feature_main.domain.usecase
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.feature_main.persistence.api.people.IPeopleRepository
-import sanchez.sanchez.sergio.test.core.domain.model.PageData
+import sanchez.sanchez.sergio.movie_addicts.core.domain.model.PageData
 
 /**
  * Fetch Popular People Interact

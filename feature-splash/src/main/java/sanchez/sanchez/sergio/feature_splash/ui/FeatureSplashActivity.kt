@@ -5,7 +5,7 @@ import android.graphics.drawable.AnimationDrawable
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
-import sanchez.sanchez.sergio.test.core.ui.SupportActivity
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportActivity
 import sanchez.sanchez.sergio.feature_splash.R
 import sanchez.sanchez.sergio.feature_splash.databinding.ActivityFeatureSplashBinding
 import sanchez.sanchez.sergio.feature_splash.di.factory.FeatureSplashComponentFactory

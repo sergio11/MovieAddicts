@@ -7,7 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
-import sanchez.sanchez.sergio.test.core.ui.SupportFragment
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportFragment
 import sanchez.sanchez.sergio.feature_splash.R
 import sanchez.sanchez.sergio.feature_splash.databinding.FragmentSplashBinding
 import sanchez.sanchez.sergio.feature_splash.di.factory.FeatureSplashComponentFactory

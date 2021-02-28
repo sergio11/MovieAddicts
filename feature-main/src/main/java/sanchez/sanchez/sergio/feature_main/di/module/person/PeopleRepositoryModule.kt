@@ -6,8 +6,8 @@ import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.feature_main.persistence.api.people.IPeopleRepository
 import sanchez.sanchez.sergio.feature_main.persistence.api.people.PeopleRepositoryImpl
 import sanchez.sanchez.sergio.feature_main.persistence.network.repository.people.IPeopleNetworkRepository
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
 
 /**
  * People Repository Module

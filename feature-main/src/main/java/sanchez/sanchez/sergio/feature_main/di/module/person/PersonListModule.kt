@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import sanchez.sanchez.sergio.feature_main.domain.usecase.FetchPopularPeopleInteract
 import sanchez.sanchez.sergio.feature_main.persistence.api.people.IPeopleRepository
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 @Module(includes = [ PeopleRepositoryModule::class ])
 class PersonListModule {

@@ -2,11 +2,11 @@ package sanchez.sanchez.sergio.feature_main.persistence.network.repository.movie
 
 import androidx.annotation.WorkerThread
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
-import sanchez.sanchez.sergio.test.core.domain.model.PageData
+import sanchez.sanchez.sergio.movie_addicts.core.domain.model.PageData
 import sanchez.sanchez.sergio.feature_main.persistence.network.mapper.MovieNetworkMapper
 import sanchez.sanchez.sergio.feature_main.persistence.network.service.DiscoverMoviesService
-import sanchez.sanchez.sergio.test.core.persistence.network.exception.NetworkNoResultException
-import sanchez.sanchez.sergio.test.core.persistence.network.repository.SupportNetworkRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.exception.NetworkNoResultException
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.repository.SupportNetworkRepository
 
 /**
  * Discover Movies Repository

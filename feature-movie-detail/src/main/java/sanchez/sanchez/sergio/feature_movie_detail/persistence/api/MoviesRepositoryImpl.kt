@@ -3,8 +3,8 @@ package sanchez.sanchez.sergio.feature_movie_detail.persistence.api
 import android.util.Log
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repository.IMoviesNetworkRepository
-import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.api.RepoErrorException
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
 
 /**
  * Movies Repository Impl

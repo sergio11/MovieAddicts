@@ -11,7 +11,7 @@ import sanchez.sanchez.sergio.feature_tv_detail.databinding.TvDetailFragmentBind
 import sanchez.sanchez.sergio.feature_tv_detail.di.factory.FeatureTvDetailComponentFactory
 import sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivity
 import sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivityDelegate
-import sanchez.sanchez.sergio.test.core.ui.SupportFragment
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportFragment
 import java.lang.IllegalStateException
 
 /**

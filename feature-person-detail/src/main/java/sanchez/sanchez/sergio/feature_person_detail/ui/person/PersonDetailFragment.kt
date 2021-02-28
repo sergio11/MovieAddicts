@@ -11,7 +11,7 @@ import sanchez.sanchez.sergio.feature_person_detail.databinding.PersonDetailFrag
 import sanchez.sanchez.sergio.feature_person_detail.di.factory.FeaturePersonDetailComponentFactory
 import sanchez.sanchez.sergio.feature_person_detail.ui.FeaturePersonDetailActivity
 import sanchez.sanchez.sergio.feature_person_detail.ui.FeaturePersonDetailActivityDelegate
-import sanchez.sanchez.sergio.test.core.ui.SupportFragment
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportFragment
 import java.lang.IllegalStateException
 
 /**

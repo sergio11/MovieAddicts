@@ -16,12 +16,12 @@ import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.mapper.MovieKe
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.mapper.MovieReviewEntityMapper
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.mapper.MovieVideoEntityMapper
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.*
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
-import sanchez.sanchez.sergio.test.core.persistence.db.ObjectBoxManager
-import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.ObjectBoxManager
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
 
 /**
  * Movie Detail Database Module

@@ -2,8 +2,8 @@ package sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model
 
 import io.objectbox.annotation.*
 import io.objectbox.relation.ToMany
-import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConverter
-import sanchez.sanchez.sergio.test.core.persistence.db.model.IObjectBoxEntity
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.converter.StringListConverter
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.model.IObjectBoxEntity
 
 /**
  * Movie Detail Entity

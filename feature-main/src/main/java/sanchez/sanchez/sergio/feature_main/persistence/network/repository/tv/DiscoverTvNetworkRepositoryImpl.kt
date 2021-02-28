@@ -3,9 +3,9 @@ package sanchez.sanchez.sergio.feature_main.persistence.network.repository.tv
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.persistence.network.mapper.TvNetworkMapper
 import sanchez.sanchez.sergio.feature_main.persistence.network.service.DiscoverTvService
-import sanchez.sanchez.sergio.test.core.domain.model.PageData
-import sanchez.sanchez.sergio.test.core.persistence.network.exception.NetworkNoResultException
-import sanchez.sanchez.sergio.test.core.persistence.network.repository.SupportNetworkRepository
+import sanchez.sanchez.sergio.movie_addicts.core.domain.model.PageData
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.exception.NetworkNoResultException
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.repository.SupportNetworkRepository
 
 /**
  * Discover Tv Network Repository Impl

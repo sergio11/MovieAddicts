@@ -6,7 +6,7 @@ import androidx.navigation.ui.NavigationUI
 import sanchez.sanchez.sergio.feature_main.R
 import sanchez.sanchez.sergio.feature_main.databinding.ActivityFeatureMainBinding
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
-import sanchez.sanchez.sergio.test.core.ui.SupportActivity
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportActivity
 import timber.log.Timber
 
 class FeatureMainActivity : SupportActivity<ActivityFeatureMainBinding>() {

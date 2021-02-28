@@ -2,9 +2,9 @@ package sanchez.sanchez.sergio.feature_main.di.factory
 
 import androidx.appcompat.app.AppCompatActivity
 import sanchez.sanchez.sergio.feature_main.di.component.*
-import sanchez.sanchez.sergio.test.core.SupportApp
-import sanchez.sanchez.sergio.test.core.di.factory.AppComponentFactory
-import sanchez.sanchez.sergio.test.core.di.module.ActivityModule
+import sanchez.sanchez.sergio.movie_addicts.core.SupportApp
+import sanchez.sanchez.sergio.movie_addicts.core.di.factory.AppComponentFactory
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ActivityModule
 
 object FeatureMainComponentFactory {
 

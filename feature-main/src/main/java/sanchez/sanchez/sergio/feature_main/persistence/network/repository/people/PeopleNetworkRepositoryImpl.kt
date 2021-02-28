@@ -4,9 +4,9 @@ import androidx.annotation.WorkerThread
 import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.feature_main.persistence.network.mapper.PersonNetworkMapper
 import sanchez.sanchez.sergio.feature_main.persistence.network.service.PeopleService
-import sanchez.sanchez.sergio.test.core.domain.model.PageData
-import sanchez.sanchez.sergio.test.core.persistence.network.exception.NetworkNoResultException
-import sanchez.sanchez.sergio.test.core.persistence.network.repository.SupportNetworkRepository
+import sanchez.sanchez.sergio.movie_addicts.core.domain.model.PageData
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.exception.NetworkNoResultException
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.repository.SupportNetworkRepository
 
 /**
  * People Network Repository Impl

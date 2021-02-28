@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import sanchez.sanchez.sergio.feature_movie_detail.domain.usecase.GetMovieDetailInteract
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.api.IMoviesRepository
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 /**
  * Movie Detail Module

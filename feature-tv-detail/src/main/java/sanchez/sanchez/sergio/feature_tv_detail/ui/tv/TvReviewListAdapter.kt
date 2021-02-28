@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.TvReviewItemLayoutBinding
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.TvReviewItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_tv_detail.domain.model.Review
-import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportAdapter
 
 /**
  * Tv Review List Adapter

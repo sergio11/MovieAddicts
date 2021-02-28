@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import sanchez.sanchez.sergio.feature_main.di.factory.FeatureMainComponentFactory
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.ui.core.INavigatorManager
-import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
-import sanchez.sanchez.sergio.test.core.ui.SupportLCEFragment
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportAdapter
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportLCEFragment
 import javax.inject.Inject
 
 /**

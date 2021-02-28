@@ -13,8 +13,8 @@ import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Keyword
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Review
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Video
-import sanchez.sanchez.sergio.test.core.extension.requestGlideListener
-import sanchez.sanchez.sergio.test.core.extension.visible
+import sanchez.sanchez.sergio.movie_addicts.core.extension.requestGlideListener
+import sanchez.sanchez.sergio.movie_addicts.core.extension.visible
 
 /**
  * Movie Detail Binding

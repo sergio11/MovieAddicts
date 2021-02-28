@@ -5,4 +5,4 @@ include ':feature-movie-detail'
 include ':feature-main'
 include ':core'
 include ':app'
-rootProject.name = "test"
+rootProject.name = "movie_addicts"

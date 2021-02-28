@@ -10,7 +10,7 @@ import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.mapper.Mo
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repository.IMoviesNetworkRepository
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repository.MoviesNetworkRepositoryImpl
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.service.MoviesService
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 /**
  * Movie Detail Network Module

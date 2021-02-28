@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import sanchez.sanchez.sergio.feature_main.domain.usecase.DiscoverTvsInteract
 import sanchez.sanchez.sergio.feature_main.persistence.api.tv.IDiscoverTvRepository
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 @Module(includes = [ TvRepositoryModule::class ])
 class TvListModule {

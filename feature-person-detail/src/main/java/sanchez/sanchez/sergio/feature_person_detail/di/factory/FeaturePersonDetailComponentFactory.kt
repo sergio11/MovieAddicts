@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import sanchez.sanchez.sergio.feature_person_detail.di.component.DaggerFeaturePersonDetailComponent
 import sanchez.sanchez.sergio.feature_person_detail.di.component.FeaturePersonDetailComponent
 import sanchez.sanchez.sergio.feature_person_detail.di.component.PersonDetailComponent
-import sanchez.sanchez.sergio.test.core.SupportApp
-import sanchez.sanchez.sergio.test.core.di.factory.AppComponentFactory
-import sanchez.sanchez.sergio.test.core.di.module.ActivityModule
+import sanchez.sanchez.sergio.movie_addicts.core.SupportApp
+import sanchez.sanchez.sergio.movie_addicts.core.di.factory.AppComponentFactory
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ActivityModule
 
 /**
  * Feature Person Detail Component Factory

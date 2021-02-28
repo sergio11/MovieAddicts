@@ -1,8 +1,8 @@
 package sanchez.sanchez.sergio.feature_splash.ui.splash
 
-import sanchez.sanchez.sergio.test.core.ui.UiEffect
-import sanchez.sanchez.sergio.test.core.ui.UiEvent
-import sanchez.sanchez.sergio.test.core.ui.UiState
+import sanchez.sanchez.sergio.movie_addicts.core.ui.UiEffect
+import sanchez.sanchez.sergio.movie_addicts.core.ui.UiEvent
+import sanchez.sanchez.sergio.movie_addicts.core.ui.UiState
 import java.lang.Exception
 
 class SplashContract {

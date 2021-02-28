@@ -15,9 +15,9 @@ import sanchez.sanchez.sergio.feature_movie_detail.databinding.MovieDetailFragme
 import sanchez.sanchez.sergio.feature_movie_detail.di.factory.FeatureMovieDetailComponentFactory
 import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivity
 import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivityDelegate
-import sanchez.sanchez.sergio.test.core.extension.gone
-import sanchez.sanchez.sergio.test.core.extension.visible
-import sanchez.sanchez.sergio.test.core.ui.SupportFragment
+import sanchez.sanchez.sergio.movie_addicts.core.extension.gone
+import sanchez.sanchez.sergio.movie_addicts.core.extension.visible
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportFragment
 import kotlin.math.abs
 
 /**

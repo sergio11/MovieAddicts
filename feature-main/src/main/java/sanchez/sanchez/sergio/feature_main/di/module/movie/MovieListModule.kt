@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import sanchez.sanchez.sergio.feature_main.domain.usecase.DiscoverMoviesInteract
 import sanchez.sanchez.sergio.feature_main.persistence.api.movies.IDiscoverMoviesRepository
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 /**
  * Movie List Module

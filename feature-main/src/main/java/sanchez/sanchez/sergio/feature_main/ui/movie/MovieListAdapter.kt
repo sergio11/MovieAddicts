@@ -6,7 +6,7 @@ import android.widget.ImageView
 import sanchez.sanchez.sergio.feature_main.databinding.MovieItemLayoutBinding
 import sanchez.sanchez.sergio.feature_main.databinding.MovieItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Movie
-import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportAdapter
 
 /**
  * Movie List Adapter

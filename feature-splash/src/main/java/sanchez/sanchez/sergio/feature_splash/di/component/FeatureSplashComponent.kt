@@ -1,10 +1,10 @@
 package sanchez.sanchez.sergio.feature_splash.di.component
 
 import dagger.Component
-import sanchez.sanchez.sergio.test.core.di.component.ApplicationComponent
-import sanchez.sanchez.sergio.test.core.di.module.ActivityModule
-import sanchez.sanchez.sergio.test.core.di.module.ViewModelModule
-import sanchez.sanchez.sergio.test.core.di.scope.PerActivity
+import sanchez.sanchez.sergio.movie_addicts.core.di.component.ApplicationComponent
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ActivityModule
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ViewModelModule
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerActivity
 import sanchez.sanchez.sergio.feature_splash.di.module.FeatureSplashModule
 import sanchez.sanchez.sergio.feature_splash.ui.FeatureSplashActivity
 

@@ -4,8 +4,8 @@ import dagger.Subcomponent
 import sanchez.sanchez.sergio.feature_movie_detail.di.module.movie.MovieDetailModule
 import sanchez.sanchez.sergio.feature_movie_detail.di.module.movie.MovieDetailViewModelModule
 import sanchez.sanchez.sergio.feature_movie_detail.ui.movie.MovieDetailFragment
-import sanchez.sanchez.sergio.test.core.di.component.FragmentComponent
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.component.FragmentComponent
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 /**
  * Movie Detail Component

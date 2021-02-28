@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import sanchez.sanchez.sergio.feature_main.ui.core.INavigatorManager
 import sanchez.sanchez.sergio.feature_main.ui.core.NavigatorManagerImpl
-import sanchez.sanchez.sergio.test.core.di.scope.PerActivity
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerActivity
 
 /**
  * Navigation Module

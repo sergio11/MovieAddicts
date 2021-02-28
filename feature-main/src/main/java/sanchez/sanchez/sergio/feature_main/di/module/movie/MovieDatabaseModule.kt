@@ -8,11 +8,11 @@ import sanchez.sanchez.sergio.feature_main.domain.model.Movie
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.MovieEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.movies.MovieEntity
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.movies.MovieEntity_
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
-import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
 
 /**
  * Movie Database Module

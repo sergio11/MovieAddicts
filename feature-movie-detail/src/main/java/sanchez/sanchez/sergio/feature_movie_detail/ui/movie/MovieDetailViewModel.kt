@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_movie_detail.domain.usecase.GetMovieDetailInteract
-import sanchez.sanchez.sergio.test.core.ui.SupportViewModel
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportViewModel
 import javax.inject.Inject
 
 /**

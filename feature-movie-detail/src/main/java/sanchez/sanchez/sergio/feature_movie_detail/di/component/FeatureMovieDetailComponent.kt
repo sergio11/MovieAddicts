@@ -3,10 +3,10 @@ package sanchez.sanchez.sergio.feature_movie_detail.di.component
 import dagger.Component
 import sanchez.sanchez.sergio.feature_movie_detail.di.module.FeatureMovieDetailModule
 import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivity
-import sanchez.sanchez.sergio.test.core.di.component.ApplicationComponent
-import sanchez.sanchez.sergio.test.core.di.module.ActivityModule
-import sanchez.sanchez.sergio.test.core.di.module.ViewModelModule
-import sanchez.sanchez.sergio.test.core.di.scope.PerActivity
+import sanchez.sanchez.sergio.movie_addicts.core.di.component.ApplicationComponent
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ActivityModule
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ViewModelModule
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerActivity
 
 /**
  * Feature Movie Detail Component

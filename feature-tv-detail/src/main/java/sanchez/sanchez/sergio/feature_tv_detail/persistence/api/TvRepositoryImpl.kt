@@ -3,8 +3,8 @@ package sanchez.sanchez.sergio.feature_tv_detail.persistence.api
 import android.util.Log
 import sanchez.sanchez.sergio.feature_tv_detail.domain.model.TvDetail
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.network.repository.ITvNetworkRepository
-import sanchez.sanchez.sergio.test.core.persistence.api.RepoErrorException
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.api.RepoErrorException
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
 
 /**
  * Tv Repository Impl

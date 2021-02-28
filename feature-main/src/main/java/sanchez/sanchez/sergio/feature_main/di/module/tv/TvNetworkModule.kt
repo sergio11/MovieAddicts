@@ -7,7 +7,7 @@ import sanchez.sanchez.sergio.feature_main.persistence.network.mapper.TvNetworkM
 import sanchez.sanchez.sergio.feature_main.persistence.network.repository.tv.DiscoverTvNetworkRepositoryImpl
 import sanchez.sanchez.sergio.feature_main.persistence.network.repository.tv.IDiscoverTvNetworkRepository
 import sanchez.sanchez.sergio.feature_main.persistence.network.service.DiscoverTvService
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 /**
  * Tv Network Module

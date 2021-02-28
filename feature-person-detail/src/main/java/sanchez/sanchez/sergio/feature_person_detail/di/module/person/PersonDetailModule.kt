@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import sanchez.sanchez.sergio.feature_person_detail.domain.usecase.GetPersonDetailInteract
 import sanchez.sanchez.sergio.feature_person_detail.persistence.api.IPeopleRepository
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 /**
  * Person Detail Module

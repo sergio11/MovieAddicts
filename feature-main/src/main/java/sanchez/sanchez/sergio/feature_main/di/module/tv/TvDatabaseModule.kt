@@ -8,11 +8,11 @@ import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.TvEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.tv.TvEntity
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.tv.TvEntity_
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
-import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
 
 /**
  * Tv Database Module

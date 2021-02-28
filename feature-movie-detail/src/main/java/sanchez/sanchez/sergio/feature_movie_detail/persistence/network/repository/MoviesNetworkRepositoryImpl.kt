@@ -13,7 +13,7 @@ import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.mapper.Mo
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.mapper.MovieReviewNetworkMapper
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.mapper.MovieVideoNetworkMapper
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.service.MoviesService
-import sanchez.sanchez.sergio.test.core.persistence.network.repository.SupportNetworkRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.repository.SupportNetworkRepository
 import java.lang.Exception
 
 /**

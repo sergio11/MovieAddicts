@@ -3,7 +3,7 @@ package sanchez.sanchez.sergio.feature_person_detail.persistence.network.reposit
 import sanchez.sanchez.sergio.feature_person_detail.domain.model.PersonDetail
 import sanchez.sanchez.sergio.feature_person_detail.persistence.network.mapper.PersonDetailNetworkMapper
 import sanchez.sanchez.sergio.feature_person_detail.persistence.network.service.PeopleService
-import sanchez.sanchez.sergio.test.core.persistence.network.repository.SupportNetworkRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.repository.SupportNetworkRepository
 
 /**
  * People Network Repository Impl

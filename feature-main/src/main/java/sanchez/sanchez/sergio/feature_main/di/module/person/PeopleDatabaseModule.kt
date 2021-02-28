@@ -8,11 +8,11 @@ import sanchez.sanchez.sergio.feature_main.domain.model.Person
 import sanchez.sanchez.sergio.feature_main.persistence.db.mapper.PersonEntityMapper
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.people.PersonEntity
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.people.PersonEntity_
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
-import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
 
 /**
  * People Database Module

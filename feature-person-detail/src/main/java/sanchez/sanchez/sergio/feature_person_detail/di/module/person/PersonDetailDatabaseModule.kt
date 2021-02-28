@@ -5,19 +5,18 @@ import dagger.Module
 import dagger.Provides
 import io.objectbox.Box
 import io.objectbox.BoxStore
-import sanchez.sanchez.sergio.feature_person_detail.BuildConfig
 import sanchez.sanchez.sergio.feature_person_detail.BuildConfig.BOX_STORE_NAME
 import sanchez.sanchez.sergio.feature_person_detail.domain.model.PersonDetail
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.mapper.PersonDetailEntityMapper
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.MyObjectBox
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.PersonDetailEntity
 import sanchez.sanchez.sergio.feature_person_detail.persistence.db.model.PersonDetailEntity_
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
-import sanchez.sanchez.sergio.test.core.persistence.db.ObjectBoxManager
-import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.ObjectBoxManager
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.ObjectBoxRepositoryConfiguration
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.objectbox.SupportObjectBoxRepositoryImpl
 
 /**
  * Person Detail Database Module

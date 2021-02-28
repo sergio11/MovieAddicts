@@ -4,7 +4,7 @@ import android.view.MenuItem
 import sanchez.sanchez.sergio.feature_tv_detail.R
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.ActivityFeatureTvDetailBinding
 import sanchez.sanchez.sergio.feature_tv_detail.di.factory.FeatureTvDetailComponentFactory
-import sanchez.sanchez.sergio.test.core.ui.SupportActivity
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportActivity
 
 class FeatureTvDetailActivity : SupportActivity<ActivityFeatureTvDetailBinding>(),
     FeatureTvDetailActivityDelegate {

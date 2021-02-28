@@ -6,8 +6,8 @@ import sanchez.sanchez.sergio.feature_tv_detail.domain.model.TvDetail
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.api.ITvRepository
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.api.TvRepositoryImpl
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.network.repository.ITvNetworkRepository
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
 
 /**
  * Tv Detail Repository Module

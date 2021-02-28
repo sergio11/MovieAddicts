@@ -7,7 +7,7 @@ import sanchez.sanchez.sergio.feature_main.persistence.network.mapper.MovieNetwo
 import sanchez.sanchez.sergio.feature_main.persistence.network.repository.movies.DiscoverMoviesNetworkRepositoryImpl
 import sanchez.sanchez.sergio.feature_main.persistence.network.repository.movies.IDiscoverMoviesNetworkRepository
 import sanchez.sanchez.sergio.feature_main.persistence.network.service.DiscoverMoviesService
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 /**
  * Movies Network Module

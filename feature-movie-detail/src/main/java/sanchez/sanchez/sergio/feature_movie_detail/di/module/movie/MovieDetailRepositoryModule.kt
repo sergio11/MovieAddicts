@@ -6,8 +6,8 @@ import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.api.IMoviesRepository
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.api.MoviesRepositoryImpl
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repository.IMoviesNetworkRepository
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
-import sanchez.sanchez.sergio.test.core.persistence.db.repository.IDBRepository
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRepository
 
 /**
  * Movie Detail Repository Module

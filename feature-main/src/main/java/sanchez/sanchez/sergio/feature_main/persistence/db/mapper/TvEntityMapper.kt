@@ -2,7 +2,7 @@ package sanchez.sanchez.sergio.feature_main.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.tv.TvEntity
-import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.mapper.IEntityToModelMapper
 import java.util.*
 
 /**

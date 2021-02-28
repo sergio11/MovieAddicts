@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import sanchez.sanchez.sergio.feature_main.databinding.TvItemLayoutBinding
 import sanchez.sanchez.sergio.feature_main.databinding.TvItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_main.domain.model.Tv
-import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportAdapter
 
 /**
  * Tv List Adapter

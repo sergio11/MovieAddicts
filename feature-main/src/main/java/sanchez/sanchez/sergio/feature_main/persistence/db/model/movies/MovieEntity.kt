@@ -1,7 +1,7 @@
 package sanchez.sanchez.sergio.feature_main.persistence.db.model.movies
 
 import io.objectbox.annotation.*
-import sanchez.sanchez.sergio.test.core.persistence.db.model.IObjectBoxEntity
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.model.IObjectBoxEntity
 
 @Entity
 class MovieEntity(

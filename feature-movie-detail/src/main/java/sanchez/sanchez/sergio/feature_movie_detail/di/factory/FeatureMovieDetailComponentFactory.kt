@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import sanchez.sanchez.sergio.feature_movie_detail.di.component.DaggerFeatureMovieDetailComponent
 import sanchez.sanchez.sergio.feature_movie_detail.di.component.FeatureMovieDetailComponent
 import sanchez.sanchez.sergio.feature_movie_detail.di.component.MovieDetailComponent
-import sanchez.sanchez.sergio.test.core.SupportApp
-import sanchez.sanchez.sergio.test.core.di.factory.AppComponentFactory
-import sanchez.sanchez.sergio.test.core.di.module.ActivityModule
+import sanchez.sanchez.sergio.movie_addicts.core.SupportApp
+import sanchez.sanchez.sergio.movie_addicts.core.di.factory.AppComponentFactory
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ActivityModule
 
 object FeatureMovieDetailComponentFactory {
 

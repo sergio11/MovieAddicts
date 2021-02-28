@@ -2,7 +2,7 @@ package sanchez.sanchez.sergio.feature_movie_detail.persistence.db.mapper
 
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Review
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.ReviewEntity
-import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.mapper.IEntityToModelMapper
 
 /**
  * Movie Review Entity Mapper

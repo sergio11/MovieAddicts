@@ -9,7 +9,7 @@ android {
     buildToolsVersion btVersion
 
     defaultConfig {
-        applicationId "sanchez.sanchez.sergio.test"
+        applicationId "sanchez.sanchez.sergio.movie_addicts"
         minSdkVersion msVersion
         targetSdkVersion tsVersion
         versionCode 1

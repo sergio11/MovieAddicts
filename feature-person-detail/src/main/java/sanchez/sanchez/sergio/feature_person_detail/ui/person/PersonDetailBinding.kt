@@ -9,7 +9,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import sanchez.sanchez.sergio.feature_person_detail.R
 import sanchez.sanchez.sergio.feature_person_detail.domain.model.PersonDetail
-import sanchez.sanchez.sergio.test.core.extension.visible
+import sanchez.sanchez.sergio.movie_addicts.core.extension.visible
 
 /**
  * Person Detail Binding

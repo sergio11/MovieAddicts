@@ -4,7 +4,7 @@ import android.view.MenuItem
 import sanchez.sanchez.sergio.feature_movie_detail.R
 import sanchez.sanchez.sergio.feature_movie_detail.databinding.ActivityFeatureMovieDetailBinding
 import sanchez.sanchez.sergio.feature_movie_detail.di.factory.FeatureMovieDetailComponentFactory
-import sanchez.sanchez.sergio.test.core.ui.SupportActivity
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportActivity
 import java.lang.IllegalStateException
 
 class FeatureMovieDetailActivity : SupportActivity<ActivityFeatureMovieDetailBinding>(),

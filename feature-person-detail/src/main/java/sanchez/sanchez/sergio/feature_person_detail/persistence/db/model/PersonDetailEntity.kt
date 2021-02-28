@@ -1,8 +1,8 @@
 package sanchez.sanchez.sergio.feature_person_detail.persistence.db.model
 
 import io.objectbox.annotation.*
-import sanchez.sanchez.sergio.test.core.persistence.db.model.IObjectBoxEntity
-import sanchez.sanchez.sergio.test.core.persistence.db.converter.StringListConverter
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.model.IObjectBoxEntity
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.converter.StringListConverter
 
 /**
  * Person Detail Entity

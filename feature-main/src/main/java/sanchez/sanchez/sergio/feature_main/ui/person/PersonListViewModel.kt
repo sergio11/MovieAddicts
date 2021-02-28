@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import sanchez.sanchez.sergio.feature_main.domain.usecase.FetchPopularPeopleInteract
-import sanchez.sanchez.sergio.test.core.ui.LCEContract
-import sanchez.sanchez.sergio.test.core.ui.SupportLCEViewModel
+import sanchez.sanchez.sergio.movie_addicts.core.ui.LCEContract
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportLCEViewModel
 import javax.inject.Inject
 
 /**

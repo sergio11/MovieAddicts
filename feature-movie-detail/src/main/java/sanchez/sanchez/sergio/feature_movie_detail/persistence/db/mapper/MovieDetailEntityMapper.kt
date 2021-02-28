@@ -8,7 +8,7 @@ import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.KeywordE
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.MovieDetailEntity
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.ReviewEntity
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.db.model.VideoEntity
-import sanchez.sanchez.sergio.test.core.persistence.db.mapper.IEntityToModelMapper
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.mapper.IEntityToModelMapper
 import java.util.*
 
 /**

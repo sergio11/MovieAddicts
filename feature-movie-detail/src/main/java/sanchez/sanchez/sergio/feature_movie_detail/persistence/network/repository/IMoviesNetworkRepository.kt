@@ -1,7 +1,7 @@
 package sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repository
 
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
-import sanchez.sanchez.sergio.test.core.persistence.network.exception.NetworkException
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.exception.NetworkException
 import kotlin.jvm.Throws
 
 /**

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import sanchez.sanchez.sergio.feature_movie_detail.databinding.MovieReviewItemLayoutBinding
 import sanchez.sanchez.sergio.feature_movie_detail.databinding.MovieReviewItemLayoutBindingImpl
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Review
-import sanchez.sanchez.sergio.test.core.ui.SupportAdapter
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportAdapter
 
 /**
  * Movie Review List Adapter

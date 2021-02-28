@@ -1,12 +1,12 @@
 package sanchez.sanchez.sergio.feature_splash.di.factory
 
 import androidx.appcompat.app.AppCompatActivity
-import sanchez.sanchez.sergio.test.core.SupportApp
-import sanchez.sanchez.sergio.test.core.di.factory.AppComponentFactory
+import sanchez.sanchez.sergio.movie_addicts.core.SupportApp
+import sanchez.sanchez.sergio.movie_addicts.core.di.factory.AppComponentFactory
 import sanchez.sanchez.sergio.feature_splash.di.component.DaggerFeatureSplashComponent
 import sanchez.sanchez.sergio.feature_splash.di.component.FeatureSplashComponent
 import sanchez.sanchez.sergio.feature_splash.di.component.SplashComponent
-import sanchez.sanchez.sergio.test.core.di.module.ActivityModule
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ActivityModule
 
 object FeatureSplashComponentFactory {
 

@@ -4,7 +4,7 @@ import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
 import io.objectbox.annotation.NameInDb
 import io.objectbox.annotation.Unique
-import sanchez.sanchez.sergio.test.core.persistence.db.model.IObjectBoxEntity
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.model.IObjectBoxEntity
 
 /**
  * Person Entity

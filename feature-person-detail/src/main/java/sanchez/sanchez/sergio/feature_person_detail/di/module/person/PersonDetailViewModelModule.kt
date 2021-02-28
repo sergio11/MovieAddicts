@@ -5,8 +5,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import sanchez.sanchez.sergio.feature_person_detail.ui.person.PersonDetailViewModel
-import sanchez.sanchez.sergio.test.core.di.module.ViewModelModule
-import sanchez.sanchez.sergio.test.core.di.module.viewmodel.ViewModelKey
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.ViewModelModule
+import sanchez.sanchez.sergio.movie_addicts.core.di.module.viewmodel.ViewModelKey
 
 /**
  * Person Detail View Model Module

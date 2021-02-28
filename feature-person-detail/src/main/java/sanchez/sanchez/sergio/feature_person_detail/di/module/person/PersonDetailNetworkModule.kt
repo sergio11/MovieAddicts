@@ -7,7 +7,7 @@ import sanchez.sanchez.sergio.feature_person_detail.persistence.network.mapper.P
 import sanchez.sanchez.sergio.feature_person_detail.persistence.network.repository.IPeopleNetworkRepository
 import sanchez.sanchez.sergio.feature_person_detail.persistence.network.repository.PeopleNetworkRepositoryImpl
 import sanchez.sanchez.sergio.feature_person_detail.persistence.network.service.PeopleService
-import sanchez.sanchez.sergio.test.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 
 /**
  * Person Detail Network Module

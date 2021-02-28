@@ -6,8 +6,8 @@ import dagger.Provides
 import io.objectbox.BoxStore
 import sanchez.sanchez.sergio.feature_main.BuildConfig.BOX_STORE_NAME
 import sanchez.sanchez.sergio.feature_main.persistence.db.model.MyObjectBox
-import sanchez.sanchez.sergio.test.core.di.scope.PerActivity
-import sanchez.sanchez.sergio.test.core.persistence.db.ObjectBoxManager
+import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerActivity
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.ObjectBoxManager
 
 /**
  * Database Module

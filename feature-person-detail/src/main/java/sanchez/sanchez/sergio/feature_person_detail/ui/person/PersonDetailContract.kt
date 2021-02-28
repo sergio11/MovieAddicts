@@ -1,9 +1,9 @@
 package sanchez.sanchez.sergio.feature_person_detail.ui.person
 
 import sanchez.sanchez.sergio.feature_person_detail.domain.model.PersonDetail
-import sanchez.sanchez.sergio.test.core.ui.UiEffect
-import sanchez.sanchez.sergio.test.core.ui.UiEvent
-import sanchez.sanchez.sergio.test.core.ui.UiState
+import sanchez.sanchez.sergio.movie_addicts.core.ui.UiEffect
+import sanchez.sanchez.sergio.movie_addicts.core.ui.UiEvent
+import sanchez.sanchez.sergio.movie_addicts.core.ui.UiState
 import java.lang.Exception
 
 /**

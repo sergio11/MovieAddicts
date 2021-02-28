@@ -2,7 +2,7 @@ package sanchez.sanchez.sergio.feature_splash.ui.splash
 
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import sanchez.sanchez.sergio.test.core.ui.SupportViewModel
+import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportViewModel
 import javax.inject.Inject
 
 /**

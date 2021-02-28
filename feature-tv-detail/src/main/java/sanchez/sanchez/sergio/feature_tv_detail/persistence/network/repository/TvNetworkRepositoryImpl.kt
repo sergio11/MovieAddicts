@@ -12,7 +12,7 @@ import sanchez.sanchez.sergio.feature_tv_detail.persistence.network.mapper.TvKey
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.network.mapper.TvReviewNetworkMapper
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.network.mapper.TvVideoNetworkMapper
 import sanchez.sanchez.sergio.feature_tv_detail.persistence.network.service.TvService
-import sanchez.sanchez.sergio.test.core.persistence.network.repository.SupportNetworkRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.repository.SupportNetworkRepository
 import java.lang.Exception
 
 
