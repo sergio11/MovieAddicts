@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="sanchez.sanchez.sergio.movie_addicts.feature_login.ui.login.LoginContract.LoginState" />
+        <import type="sanchez.sanchez.sergio.movie_addicts.feature_login.ui.login.LoginContract.LoginState.OnIdle" />
+        <import type="sanchez.sanchez.sergio.movie_addicts.feature_login.ui.login.LoginContract.LoginState.OnSuccess" />
+        <import type="sanchez.sanchez.sergio.movie_addicts.feature_login.ui.login.LoginContract.LoginState.OnProgress" />
+
+        <variable
+            name="uiState"
+            type="LoginState" />
 
     </data>
 
@@ -10,6 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark">
+
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/loginFacebookBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

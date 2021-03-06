@@ -5,17 +5,21 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion csVersion
+    buildToolsVersion btVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 30
+        minSdkVersion msVersion
+        targetSdkVersion tsVersion
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        resValue "string", "facebook_app_id", "\"${getProperty("local.properties", "facebook_app_id")}\""
+        resValue "string", "fb_login_protocol_scheme", "\"${getProperty("local.properties", "fb_login_protocol_scheme")}\""
+
     }
 
     buildTypes {
@@ -46,6 +50,9 @@ dependencies {
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
+    // Facebook SDK
+    implementation 'com.facebook.android:facebook-login:8.1.0'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -53,4 +60,20 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+def getProperty(String filename, String propName) {
+    def propsFile = rootProject.file(filename)
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        if (props[propName] != null) {
+            println("Property " + propName + " in file " + filename + " with value " + props[propName])
+            return props[propName]
+        } else {
+            println("No such property " + propName + " in file " + filename)
+        }
+    } else {
+        println(filename + " does not exist!")
+    }
 }

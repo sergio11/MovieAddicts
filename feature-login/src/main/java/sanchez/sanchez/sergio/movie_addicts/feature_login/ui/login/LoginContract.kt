@@ -14,7 +14,7 @@ class LoginContract {
      * UI Events
      */
     sealed class Event : UiEvent {
-        data class FetchMovieDetail(val id: Long): Event()
+        data class SignInWithCredential(val accessToken: String): Event()
     }
 
     /**
@@ -33,7 +33,7 @@ class LoginContract {
 
     sealed class LoginState {
         object OnIdle: LoginState()
-        object OnLoading : LoginState()
-        object OnLoaded: LoginState()
+        object OnSuccess : LoginState()
+        object OnProgress: LoginState()
     }
 }

@@ -4,13 +4,14 @@ import dagger.Subcomponent
 import sanchez.sanchez.sergio.movie_addicts.core.di.component.FragmentComponent
 import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
 import sanchez.sanchez.sergio.movie_addicts.feature_login.di.module.LoginViewModelModule
+import sanchez.sanchez.sergio.movie_addicts.feature_login.di.module.login.LoginModule
 import sanchez.sanchez.sergio.movie_addicts.feature_login.ui.login.LoginFragment
 
 /**
  * Login Component
  */
 @PerFragment
-@Subcomponent(modules = [ LoginViewModelModule::class ])
+@Subcomponent(modules = [ LoginViewModelModule::class, LoginModule::class ])
 interface LoginComponent: FragmentComponent {
 
     /**
