@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -17,20 +17,101 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark">
+        android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/verticalStartGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/verticalEndGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontalTopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontalBottomGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".9" />
+
+        <com.flaviofaria.kenburnsview.KenBurnsView
+            android:id="@+id/screenBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/app_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/containerBlurView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/container_background"
+            app:layout_constraintStart_toStartOf="@id/screenBackground"
+            app:layout_constraintEnd_toEndOf="@id/screenBackground"
+            app:layout_constraintTop_toTopOf="@id/screenBackground"
+            app:layout_constraintBottom_toBottomOf="@id/screenBackground" />
+
+        <ImageView
+            android:id="@+id/appIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_film"
+            android:layout_marginStart="@dimen/common_margin"
+            android:layout_marginEnd="@dimen/common_margin"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintTop_toBottomOf="@id/horizontalTopGuideline"
+            app:layout_constraintEnd_toStartOf="@id/verticalEndGuideline"
+            app:layout_constraintStart_toEndOf="@id/verticalStartGuideline"
+            app:layout_constraintBottom_toTopOf="@id/appTitle"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/appTitle"
+            style="@style/TextAppearance.MaterialComponents.Headline2"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:layout_marginEnd="@dimen/common_margin"
+            app:layout_constraintTop_toBottomOf="@id/appIcon"
+            app:layout_constraintEnd_toStartOf="@id/verticalEndGuideline"
+            app:layout_constraintStart_toEndOf="@id/verticalStartGuideline"
+            app:layout_constraintBottom_toTopOf="@id/loginFacebookBtn"
+            android:text="@string/app_name"
+            />
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/loginFacebookBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            android:layout_marginBottom="@dimen/common_big_margin"
+            app:layout_constraintTop_toBottomOf="@id/appTitle"
+            app:layout_constraintBottom_toTopOf="@id/horizontalBottomGuideline"
+            app:layout_constraintEnd_toStartOf="@id/verticalEndGuideline"
+            app:layout_constraintStart_toEndOf="@id/verticalStartGuideline" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

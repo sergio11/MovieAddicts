@@ -11,6 +11,7 @@ import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import eightbitlab.com.blurview.RenderScriptBlur
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportFragment
 import sanchez.sanchez.sergio.movie_addicts.feature_login.R
@@ -57,9 +58,26 @@ class LoginFragment: SupportFragment<LoginViewModel, LoginFragmentBinding>(Login
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.screenBackground.resume()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.screenBackground.pause()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
+
+            containerBlurView.setupWith(container)
+                .setFrameClearDrawable(container.background)
+                .setBlurAlgorithm(RenderScriptBlur(requireContext()))
+                .setBlurRadius(8.0f)
+                .setHasFixedTransformationMatrix(true)
+
             loginFacebookBtn.apply {
                 fragment = this@LoginFragment
                 setPermissions("email", "public_profile")

@@ -58,5 +58,10 @@ ext {
     roomVersion = '2.3.0-alpha02'
     objectboxVersion = '2.8.1'
 
+
+    facebookLoginSdkVersion = '8.1.0'
+    kenburnsViewVersion = '1.0.7'
+    blurViewVersion = '1.6.2'
+
 }
 

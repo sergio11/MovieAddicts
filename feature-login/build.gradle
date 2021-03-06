@@ -51,7 +51,10 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     // Facebook SDK
-    implementation 'com.facebook.android:facebook-login:8.1.0'
+    implementation "com.facebook.android:facebook-login:$facebookLoginSdkVersion"
+
+    implementation "com.flaviofaria:kenburnsview:$kenburnsViewVersion"
+    implementation "com.eightbitlab:blurview:$blurViewVersion"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
