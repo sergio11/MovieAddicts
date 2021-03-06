@@ -97,16 +97,26 @@
             app:layout_constraintTop_toBottomOf="@id/appIcon"
             app:layout_constraintEnd_toStartOf="@id/verticalEndGuideline"
             app:layout_constraintStart_toEndOf="@id/verticalStartGuideline"
-            app:layout_constraintBottom_toTopOf="@id/loginFacebookBtn"
+            app:layout_constraintBottom_toTopOf="@id/loginGoogleBtn"
             android:text="@string/app_name"
             />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/loginGoogleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/appTitle"
+            app:layout_constraintBottom_toTopOf="@id/loginFacebookBtn"
+            app:layout_constraintEnd_toStartOf="@id/verticalEndGuideline"
+            app:layout_constraintStart_toEndOf="@id/verticalStartGuideline"/>
+
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/loginFacebookBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/common_big_margin"
-            app:layout_constraintTop_toBottomOf="@id/appTitle"
+            app:layout_constraintTop_toBottomOf="@id/loginGoogleBtn"
             app:layout_constraintBottom_toTopOf="@id/horizontalBottomGuideline"
             app:layout_constraintEnd_toStartOf="@id/verticalEndGuideline"
             app:layout_constraintStart_toEndOf="@id/verticalStartGuideline" />

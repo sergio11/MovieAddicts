@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.movie_addicts.feature_login.di.module
+package sanchez.sanchez.sergio.movie_addicts.feature_login.di.module.auth
 
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager

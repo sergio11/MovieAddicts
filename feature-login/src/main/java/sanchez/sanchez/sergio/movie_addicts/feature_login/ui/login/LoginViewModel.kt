@@ -3,8 +3,8 @@ package sanchez.sanchez.sergio.movie_addicts.feature_login.ui.login
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import sanchez.sanchez.sergio.movie_addicts.core.domain.model.AuthTypeEnum
 import sanchez.sanchez.sergio.movie_addicts.core.domain.model.AuthUser
-import sanchez.sanchez.sergio.movie_addicts.core.ui.LCEContract
 import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportViewModel
 import sanchez.sanchez.sergio.movie_addicts.feature_login.domain.usecase.SignInWithCredentialInteract
 import javax.inject.Inject
@@ -24,8 +24,8 @@ class LoginViewModel @Inject constructor(
 
     override fun handleEvent(event: LoginContract.Event) {
         when(event) {
-            is LoginContract.Event.SignInWithCredential ->
-                signInWithCredential(event.accessToken)
+            is LoginContract.Event.SignInWithToken ->
+                signInWithCredential(event.accessToken, event.authType)
         }
     }
 
@@ -33,11 +33,11 @@ class LoginViewModel @Inject constructor(
      * Private Methods
      */
 
-    private fun signInWithCredential(accessToken: String) = viewModelScope.launch {
+    private fun signInWithCredential(accessToken: String, authType: AuthTypeEnum) = viewModelScope.launch {
         Log.d("LOGIN_FRA", "signInWithCredential ($accessToken) CALLED")
         setState { copy(loginState = LoginContract.LoginState.OnProgress) }
         signInWithCredentialInteract.execute(
-            params = SignInWithCredentialInteract.Params(accessToken),
+            params = SignInWithCredentialInteract.Params(accessToken, authType),
             onSuccess = fun(authUser: AuthUser) {
                 Log.d("LOGIN_FRA", "authUser (${authUser.displayName}) CALLED")
                 setState {

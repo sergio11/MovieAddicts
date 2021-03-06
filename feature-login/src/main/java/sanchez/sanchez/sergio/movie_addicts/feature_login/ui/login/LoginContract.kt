@@ -1,5 +1,6 @@
 package sanchez.sanchez.sergio.movie_addicts.feature_login.ui.login
 
+import sanchez.sanchez.sergio.movie_addicts.core.domain.model.AuthTypeEnum
 import sanchez.sanchez.sergio.movie_addicts.core.ui.UiEffect
 import sanchez.sanchez.sergio.movie_addicts.core.ui.UiEvent
 import sanchez.sanchez.sergio.movie_addicts.core.ui.UiState
@@ -14,7 +15,7 @@ class LoginContract {
      * UI Events
      */
     sealed class Event : UiEvent {
-        data class SignInWithCredential(val accessToken: String): Event()
+        data class SignInWithToken(val accessToken: String, val authType: AuthTypeEnum): Event()
     }
 
     /**

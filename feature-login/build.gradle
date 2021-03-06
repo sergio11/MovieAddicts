@@ -19,7 +19,7 @@ android {
 
         resValue "string", "facebook_app_id", "\"${getProperty("local.properties", "facebook_app_id")}\""
         resValue "string", "fb_login_protocol_scheme", "\"${getProperty("local.properties", "fb_login_protocol_scheme")}\""
-
+        resValue "string", "google_client_id", "\"${getProperty("local.properties", "google_client_id")}\""
     }
 
     buildTypes {
@@ -52,6 +52,8 @@ dependencies {
 
     // Facebook SDK
     implementation "com.facebook.android:facebook-login:$facebookLoginSdkVersion"
+
+    implementation "com.google.android.gms:play-services-auth:$playServicesAuthVersion"
 
     implementation "com.flaviofaria:kenburnsview:$kenburnsViewVersion"
     implementation "com.eightbitlab:blurview:$blurViewVersion"
