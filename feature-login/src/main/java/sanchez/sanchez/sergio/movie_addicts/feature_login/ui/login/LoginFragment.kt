@@ -17,6 +17,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.snackbar.Snackbar
 import eightbitlab.com.blurview.RenderScriptBlur
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.movie_addicts.core.domain.model.AuthTypeEnum
@@ -70,6 +71,10 @@ class LoginFragment: SupportFragment<LoginViewModel, LoginFragmentBinding>(Login
                     if(it.loginState is LoginContract.LoginState.OnSuccess)
                         navigatorManager.showHome()
                 }
+            }
+            viewModel.effect.collect {
+                if(it is LoginContract.Effect.OnShowError)
+                    Snackbar.make(requireView(), it.ex.message ?: "An error occurred, please try again", Snackbar.LENGTH_LONG).show()
             }
         }
     }

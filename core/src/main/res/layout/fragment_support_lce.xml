@@ -9,7 +9,7 @@
         <import type="sanchez.sanchez.sergio.movie_addicts.core.ui.LCEContract.LCEState.OnIdle" />
         <import type="sanchez.sanchez.sergio.movie_addicts.core.ui.LCEContract.LCEState.OnLoading" />
         <import type="sanchez.sanchez.sergio.movie_addicts.core.ui.LCEContract.LCEState.OnLoaded" />
-
+        <import type="sanchez.sanchez.sergio.movie_addicts.core.ui.LCEContract.LCEState.OnError" />
         <variable
             name="uiState"
             type="LCEState" />
@@ -17,6 +17,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAppBackground">
@@ -31,14 +32,50 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:visibility="@{ uiState instanceof OnLoaded ? View.VISIBLE : View.GONE }"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="2"/>
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    app:bindVisibilityByState="@{uiState}"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"/>
+
+
+
+                <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="@{ uiState instanceof OnError ? View.VISIBLE : View.GONE}"
+                    android:gravity="center"
+                    android:padding="@dimen/common_padding"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/ic_error_occurred"
+                        android:layout_marginBottom="@dimen/common_margin"
+                        app:tint="@color/colorPrimaryDark"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        style="@style/TextAppearance.App.Headline4"
+                        android:layout_width="match_parent"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="@string/common_error"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

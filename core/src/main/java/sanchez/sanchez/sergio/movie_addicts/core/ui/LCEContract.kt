@@ -17,6 +17,7 @@ class LCEContract {
     sealed class LCEState {
         object OnIdle: LCEState()
         object OnLoading : LCEState()
+        object OnError: LCEState()
         data class OnLoaded<T>(val pageData: PageData<T>) : LCEState()
     }
 

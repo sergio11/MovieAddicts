@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_person_detail.R
 import sanchez.sanchez.sergio.feature_person_detail.databinding.PersonDetailFragmentBinding
@@ -51,6 +52,10 @@ class PersonDetailFragment: SupportFragment<PersonDetailViewModel, PersonDetailF
                     else
                         null
                 }
+            }
+            viewModel.effect.collect {
+                if(it is PersonDetailContract.Effect.OnShowError)
+                    Snackbar.make(requireView(), it.ex.message ?: "An error occurred, please try again", Snackbar.LENGTH_LONG).show()
             }
         }
     }

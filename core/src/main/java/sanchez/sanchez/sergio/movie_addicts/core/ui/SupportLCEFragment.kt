@@ -2,11 +2,15 @@ package sanchez.sanchez.sergio.movie_addicts.core.ui
 
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import sanchez.sanchez.sergio.R
 import sanchez.sanchez.sergio.databinding.FragmentSupportLceBinding
 
@@ -25,6 +29,7 @@ abstract class SupportLCEFragment<VM : SupportLCEViewModel, E, VH: SupportAdapte
      * On Init Observers
      */
     override fun onInitObservers() {
+        Log.d("PERSON_L", "onInitObservers CALLED")
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect {
                 with(binding) {
@@ -34,6 +39,15 @@ abstract class SupportLCEFragment<VM : SupportLCEViewModel, E, VH: SupportAdapte
                         supportAdapter?.addData(it.pageData.data)
                     }
                 }
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.effect.collect {
+                if(it is LCEContract.Effect.OnShowError)
+                    Snackbar.make(requireContext(), binding.swipeRefreshLayout,
+                            getString(R.string.common_error),
+                            Snackbar.LENGTH_SHORT).show()
             }
         }
     }

@@ -31,6 +31,7 @@ class PersonListViewModel @Inject constructor(
                         }
                     },
                     onError = fun(ex) {
+                        setState { copy(lceState = LCEContract.LCEState.OnError) }
                         Log.d("PERSON_L", "onError ${ex.message} CALLED")
                         setEffect { LCEContract.Effect.OnShowError(ex) }
                     }

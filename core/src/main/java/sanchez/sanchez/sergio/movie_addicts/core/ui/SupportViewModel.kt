@@ -72,6 +72,7 @@ abstract class SupportViewModel<Event : UiEvent, State : UiState, Effect : UiEff
      */
     protected fun setEffect(builder: () -> Effect) {
         val effectValue = builder()
+        Log.d("PERSON_L", "setEffect  CALLED")
         viewModelScope.launch { _effect.send(effectValue) }
     }
 }

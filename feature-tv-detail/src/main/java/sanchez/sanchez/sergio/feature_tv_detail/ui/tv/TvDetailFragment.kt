@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_tv_detail.R
 import sanchez.sanchez.sergio.feature_tv_detail.databinding.TvDetailFragmentBinding
@@ -59,6 +60,10 @@ class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBind
                     tvVideoAdapter = tvVideoListAdapter
                     tvReviewAdapter = tvReviewListAdapter
                 }
+            }
+            viewModel.effect.collect {
+                if(it is TvDetailContract.Effect.OnShowError)
+                    Snackbar.make(requireView(), it.ex.message ?: "An error occurred, please try again", Snackbar.LENGTH_LONG).show()
             }
         }
     }

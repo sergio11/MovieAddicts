@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_movie_detail.R
 import sanchez.sanchez.sergio.feature_movie_detail.databinding.MovieDetailFragmentBinding
@@ -17,6 +18,7 @@ import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivity
 import sanchez.sanchez.sergio.feature_movie_detail.ui.FeatureMovieDetailActivityDelegate
 import sanchez.sanchez.sergio.movie_addicts.core.extension.gone
 import sanchez.sanchez.sergio.movie_addicts.core.extension.visible
+import sanchez.sanchez.sergio.movie_addicts.core.ui.LCEContract
 import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportFragment
 import kotlin.math.abs
 
@@ -66,6 +68,11 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
                     else
                         null
                 }
+            }
+
+            viewModel.effect.collect {
+                if(it is MovieDetailContract.Effect.OnShowError)
+                    Snackbar.make(requireView(), it.ex.message ?: "An error occurred, please try again", Snackbar.LENGTH_LONG).show()
             }
         }
     }

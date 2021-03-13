@@ -32,6 +32,7 @@ class TvListViewModel @Inject constructor(
                         }
                     },
                     onError = fun(ex) {
+                        setState { copy(lceState = LCEContract.LCEState.OnError) }
                         Log.d("TVS_L", "onError ${ex.message} CALLED")
                         setEffect { LCEContract.Effect.OnShowError(ex) }
                     }

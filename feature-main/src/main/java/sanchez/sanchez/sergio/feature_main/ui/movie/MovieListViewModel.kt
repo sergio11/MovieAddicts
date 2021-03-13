@@ -32,6 +32,7 @@ class MovieListViewModel @Inject constructor(
                     },
                     onError = fun(ex) {
                         ex.printStackTrace()
+                        setState { copy(lceState = LCEContract.LCEState.OnError) }
                         Log.d("MOVIES_L", "onError ${ex.message} CALLED")
                         setEffect { LCEContract.Effect.OnShowError(ex) }
                     }
