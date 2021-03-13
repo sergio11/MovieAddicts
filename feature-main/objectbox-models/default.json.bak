@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:1824046330171199261",
-      "lastPropertyId": "13:4896935618712586339",
+      "lastPropertyId": "14:7319036511825853464",
       "name": "TvEntity",
       "properties": [
         {
@@ -78,13 +78,19 @@
           "id": "13:4896935618712586339",
           "name": "original_name",
           "type": 9
+        },
+        {
+          "id": "14:7319036511825853464",
+          "name": "saved_at_in_millis",
+          "type": 6,
+          "flags": 4
         }
       ],
       "relations": []
     },
     {
       "id": "2:9150833573219038036",
-      "lastPropertyId": "6:1597125798758069141",
+      "lastPropertyId": "7:2590841859021080214",
       "name": "PersonEntity",
       "properties": [
         {
@@ -121,13 +127,19 @@
           "name": "adult",
           "type": 1,
           "flags": 4
+        },
+        {
+          "id": "7:2590841859021080214",
+          "name": "saved_at_in_millis",
+          "type": 6,
+          "flags": 4
         }
       ],
       "relations": []
     },
     {
       "id": "3:2368198065260171240",
-      "lastPropertyId": "14:8454513870841824105",
+      "lastPropertyId": "15:1837234197636620884",
       "name": "MovieEntity",
       "properties": [
         {
@@ -206,6 +218,12 @@
           "id": "14:8454513870841824105",
           "name": "vote_average",
           "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "15:1837234197636620884",
+          "name": "saved_at_in_millis",
+          "type": 6,
           "flags": 4
         }
       ],

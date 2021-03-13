@@ -1,7 +1,9 @@
 package sanchez.sanchez.sergio.feature_main.domain.model
 
+import sanchez.sanchez.sergio.movie_addicts.core.utils.Identificable
+
 data class Movie(
-  val id: Long,
+  override val id: Long,
   val posterPath: String?,
   val adult: Boolean,
   val overview: String,
@@ -15,4 +17,4 @@ data class Movie(
   val video: Boolean,
   val voteAverage: Double,
   var isFavorite: Boolean = false
-)
+): Identificable

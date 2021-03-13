@@ -32,5 +32,7 @@ class MovieEntity(
     @NameInDb("vote_average")
     val voteAverage: Double,
     @NameInDb("saved_at_in_millis")
-    override val savedAtInMillis: Long
+    override val savedAtInMillis: Long,
+    @NameInDb("is_favorite")
+    val isFavorite: Boolean
 ): IObjectBoxEntity

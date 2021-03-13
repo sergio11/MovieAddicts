@@ -1,7 +1,9 @@
 package sanchez.sanchez.sergio.feature_main.domain.model
 
+import sanchez.sanchez.sergio.movie_addicts.core.utils.Identificable
+
 data class Tv(
-    val id: Long,
+    override val id: Long,
     val posterPath: String,
     val popularity: Double,
     val backdropPath: String? = null,
@@ -13,4 +15,4 @@ data class Tv(
     val voteCount: Long,
     val name: String,
     val originalName: String
-)
+): Identificable

@@ -1,7 +1,9 @@
 package sanchez.sanchez.sergio.feature_person_detail.domain.model
 
+import sanchez.sanchez.sergio.movie_addicts.core.utils.Identificable
+
 data class PersonDetail(
-        val id: Long,
+        override val id: Long,
         val name: String,
         val profilePath: String?,
         val adult: Boolean,
@@ -11,4 +13,4 @@ data class PersonDetail(
         val placeOfBirth: String?,
         val alsoKnownAs: List<String>?,
         val biography: String
-)
+): Identificable

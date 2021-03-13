@@ -9,6 +9,7 @@ import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.IDBRe
 import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.exception.DBError
 import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.exception.DBErrorException
 import sanchez.sanchez.sergio.movie_addicts.core.persistence.db.repository.exception.DBNoResultException
+import sanchez.sanchez.sergio.movie_addicts.core.utils.Identificable
 import java.lang.Exception
 import java.util.*
 
@@ -18,7 +19,7 @@ import java.util.*
  * @param entityMapper
  *
  */
-class SupportObjectBoxRepositoryImpl<T, E: IObjectBoxEntity>(
+class SupportObjectBoxRepositoryImpl<T: Identificable, E: IObjectBoxEntity>(
         private val objectBoxDao: Box<E>,
         private val entityMapper: IEntityToModelMapper<E, T>,
         private val objectBoxConfiguration: ObjectBoxRepositoryConfiguration<E>
@@ -86,6 +87,13 @@ class SupportObjectBoxRepositoryImpl<T, E: IObjectBoxEntity>(
                         .build().findFirst()?.let {
                             objectBoxDao.remove(it)
                         }
+
+            objectBoxDao.query()
+                .equal(objectBoxConfiguration.objectIdProperty, model.id)
+                .build().findUnique()?.let {
+                    objectBoxDao.remove(it)
+                }
+
             objectBoxDao.put(entityMapper.modelToEntity(model))
         } catch (ex: Exception) {
             throw DBErrorException("Exception when try to save model into the box", ex)
@@ -106,6 +114,13 @@ class SupportObjectBoxRepositoryImpl<T, E: IObjectBoxEntity>(
                             .build().find(0, modelList.size.toLong()).let {
                                 objectBoxDao.remove(it)
                             }
+
+                objectBoxDao.query()
+                    .`in`(objectBoxConfiguration.objectIdProperty, modelList.map { it.id }.toLongArray())
+                    .build().findUnique()?.let {
+                        objectBoxDao.remove(it)
+                    }
+
                 put(entityMapper.modelToEntity(modelList))
             }
         } catch (ex: Exception) {

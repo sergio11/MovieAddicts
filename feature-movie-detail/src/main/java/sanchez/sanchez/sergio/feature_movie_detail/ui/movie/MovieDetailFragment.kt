@@ -57,6 +57,7 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
                 with(binding) {
+                    saveInFavorites.isEnabled = true
                     activity = requireActivity() as FeatureMovieDetailActivity
                     videoListAdapter = movieVideoListAdapter
                     reviewListAdapter = movieReviewListAdapter

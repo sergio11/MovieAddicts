@@ -139,7 +139,7 @@
     },
     {
       "id": "3:2368198065260171240",
-      "lastPropertyId": "15:1837234197636620884",
+      "lastPropertyId": "16:542274292523025234",
       "name": "MovieEntity",
       "properties": [
         {
@@ -224,6 +224,12 @@
           "id": "15:1837234197636620884",
           "name": "saved_at_in_millis",
           "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "16:542274292523025234",
+          "name": "is_favorite",
+          "type": 1,
           "flags": 4
         }
       ],

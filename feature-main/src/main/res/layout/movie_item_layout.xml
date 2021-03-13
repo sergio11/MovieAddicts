@@ -25,6 +25,7 @@
             android:foreground="?attr/selectableItemBackground"
             android:background="@color/colorPrimaryDark">
 
+
             <!-- Movie Poster -->
             <ImageView
                 android:id="@+id/moviePoster"
@@ -39,6 +40,20 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription"
                 tools:src="@drawable/ic_star_white_24dp"/>
+
+            <ImageView
+                android:id="@+id/favoriteIconImageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/common_margin"
+                android:layout_marginEnd="@dimen/common_margin"
+                android:src="@drawable/ic_favorite"
+                app:bindVisibilityByFavoriteState="@{movie.isFavorite}"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_favorite"/>
 
             <!-- Movie Title -->
             <TextView

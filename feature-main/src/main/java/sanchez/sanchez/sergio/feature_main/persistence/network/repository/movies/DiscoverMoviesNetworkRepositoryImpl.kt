@@ -39,9 +39,6 @@ class DiscoverMoviesNetworkRepositoryImpl(
         data.forEach {
             it.isFavorite = favoriteMovieList.contains(it.id)
         }
-
-        Log.d("DISCOVER_MOV", "favoriteMovieList -> ${favoriteMovieList.size}")
-
         PageData(
                 page = result.page,
                 data = data,

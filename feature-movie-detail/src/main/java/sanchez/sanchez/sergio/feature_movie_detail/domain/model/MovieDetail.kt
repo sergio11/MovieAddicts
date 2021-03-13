@@ -1,7 +1,9 @@
 package sanchez.sanchez.sergio.feature_movie_detail.domain.model
 
+import sanchez.sanchez.sergio.movie_addicts.core.utils.Identificable
+
 data class MovieDetail (
-        val id: Long,
+        override val id: Long,
         val originalTitle: String,
         val originalLanguage: String,
         val title: String,
@@ -19,7 +21,7 @@ data class MovieDetail (
         val video: Boolean,
         val voteAverage: Double,
         var isFavorite: Boolean = false
-)
+): Identificable
 
 /**
  * Keyword Definition

@@ -1,10 +1,12 @@
 package sanchez.sanchez.sergio.feature_tv_detail.domain.model
 
+import sanchez.sanchez.sergio.movie_addicts.core.utils.Identificable
+
 /**
  * Tv Detail Definition
  */
 data class TvDetail (
-        val id: Long,
+        override val id: Long,
         val name: String,
         val originalName: String,
         var keywords: List<Keyword>? = ArrayList(),
@@ -20,7 +22,7 @@ data class TvDetail (
         val genres: List<String>,
         val originalLanguage: String,
         val voteCount: Long
-)
+): Identificable
 
 
 /**

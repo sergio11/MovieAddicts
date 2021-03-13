@@ -27,7 +27,8 @@ class MovieEntityMapper: IEntityToModelMapper<MovieEntity, Movie> {
             popularity = entity.popularity,
             voteCount = entity.voteCount,
             video = entity.video,
-            voteAverage = entity.voteAverage
+            voteAverage = entity.voteAverage,
+            isFavorite = entity.isFavorite
     )
 
     /**
@@ -56,7 +57,8 @@ class MovieEntityMapper: IEntityToModelMapper<MovieEntity, Movie> {
             voteCount = model.voteCount,
             video = model.video,
             voteAverage = model.voteAverage,
-            savedAtInMillis = Date().time
+            savedAtInMillis = Date().time,
+            isFavorite = model.isFavorite
     )
 
     /**

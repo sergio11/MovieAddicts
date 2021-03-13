@@ -42,6 +42,7 @@ class MovieDetailEntityMapper(
         voteCount = entity.voteCount,
         video = entity.video,
         voteAverage = entity.voteAverage,
+        isFavorite = entity.isFavorite,
         keywords = entity.keywords.let {
             movieKeywordEntityMapper.entityToModel(it)
         },
@@ -76,7 +77,8 @@ class MovieDetailEntityMapper(
             voteCount = model.voteCount,
             video = model.video,
             voteAverage = model.voteAverage,
-            savedAtInMillis = Date().time
+            savedAtInMillis = Date().time,
+            isFavorite = model.isFavorite
     ).apply {
         model.keywords?.let {
              keywords.addAll(movieKeywordEntityMapper.modelToEntity(it))

@@ -41,7 +41,9 @@ class MoviesRepositoryImpl constructor(
      * @param id
      */
     override suspend fun addMovieToFavoriteList(id: Long): MovieDetail = try {
-        moviesNetworkRepository.addMovieToFavorites(id)
+        moviesNetworkRepository.addMovieToFavorites(id).also {
+            movieDBRepository.save(it)
+        }
     } catch (ex: Exception) {
         throw RepoErrorException(ex)
     }
@@ -51,7 +53,9 @@ class MoviesRepositoryImpl constructor(
      * @param id
      */
     override suspend fun deleteMovieFromFavorites(id: Long): MovieDetail = try {
-        moviesNetworkRepository.removeMovieFromFavorites(id)
+        moviesNetworkRepository.removeMovieFromFavorites(id).also {
+            movieDBRepository.save(it)
+        }
     } catch (ex: Exception) {
         throw RepoErrorException(ex)
     }

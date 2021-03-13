@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
-import android.graphics.ColorFilter
 import android.graphics.PorterDuff
 import android.os.Build
 import android.widget.ImageView
@@ -52,9 +51,8 @@ object MovieDetailBinding {
     @JvmStatic
     @BindingAdapter("bindFavoriteState")
     fun bindFavoriteState(view: FloatingActionButton, movie: MovieDetail?) {
-        view.isEnabled = true
         movie?.isFavorite?.let { isFavorite ->
-            ContextCompat.getDrawable(view.context, R.drawable.ic_baseline_favorite_24)?.let { drawable ->
+            ContextCompat.getDrawable(view.context, R.drawable.ic_favorite)?.let { drawable ->
                 val color = ContextCompat.getColor(view.context, if(isFavorite) R.color.colorAccent else R.color.colorPrimaryDark)
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     drawable.colorFilter = BlendModeColorFilter(color, BlendMode.SRC_ATOP)
