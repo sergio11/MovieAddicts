@@ -4,7 +4,10 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collect
 import sanchez.sanchez.sergio.feature_tv_detail.R
@@ -14,6 +17,7 @@ import sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivity
 import sanchez.sanchez.sergio.feature_tv_detail.ui.FeatureTvDetailActivityDelegate
 import sanchez.sanchez.sergio.movie_addicts.core.ui.SupportFragment
 import java.lang.IllegalStateException
+import kotlin.math.abs
 
 /**
  * Tv Detail Fragment
@@ -61,9 +65,13 @@ class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBind
                     tvReviewAdapter = tvReviewListAdapter
                 }
             }
+
+        }
+
+        lifecycleScope.launchWhenStarted {
             viewModel.effect.collect {
                 if(it is TvDetailContract.Effect.OnShowError)
-                    Snackbar.make(requireView(), it.ex.message ?: "An error occurred, please try again", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(requireView(), getString(R.string.common_error), Snackbar.LENGTH_LONG).show()
             }
         }
     }
@@ -71,5 +79,25 @@ class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.setEvent(TvDetailContract.Event.FetchTvDetail(activityDelegate.getTvId()))
+        with(binding) {
+            appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+                if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
+                    configureHomeAsUpIndicatorWithColor(android.R.color.black)
+                } else {
+                    configureHomeAsUpIndicatorWithColor(R.color.colorPrimaryDark)
+                }
+            })
+        }
+    }
+
+    /**
+     * Private Methods
+     */
+
+    private fun configureHomeAsUpIndicatorWithColor(color: Int) {
+        ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_arrow_back_24)?.let {
+            DrawableCompat.setTint(it, requireContext().getColor(color))
+            parentActivity.supportActionBar?.setHomeAsUpIndicator(it)
+        }
     }
 }

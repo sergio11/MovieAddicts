@@ -69,7 +69,9 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
                         null
                 }
             }
+        }
 
+        lifecycleScope.launchWhenStarted {
             viewModel.effect.collect {
                 if(it is MovieDetailContract.Effect.OnShowError)
                     Snackbar.make(requireView(), it.ex.message ?: "An error occurred, please try again", Snackbar.LENGTH_LONG).show()
