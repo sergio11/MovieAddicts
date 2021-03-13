@@ -16,6 +16,7 @@ class MovieDetailContract {
      */
     sealed class Event : UiEvent {
         data class FetchMovieDetail(val id: Long): Event()
+        data class ChangeFavoriteState(val id: Long): Event()
     }
 
     /**

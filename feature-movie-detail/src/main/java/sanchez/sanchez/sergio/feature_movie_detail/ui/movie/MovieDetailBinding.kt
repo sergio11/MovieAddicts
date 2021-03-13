@@ -1,13 +1,21 @@
 package sanchez.sanchez.sergio.feature_movie_detail.ui.movie
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.graphics.ColorFilter
+import android.graphics.PorterDuff
+import android.os.Build
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import sanchez.sanchez.sergio.feature_movie_detail.R
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.Keyword
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
@@ -32,6 +40,33 @@ object MovieDetailBinding {
     fun bindReleaseDate(view: TextView, movie: MovieDetail?) {
         movie?.releaseDate?.let {
             view.text = "Release Date : $it"
+        }
+
+    }
+
+    /**
+     * Bind Favorite State
+     * @param view
+     * @param movie
+     */
+    @JvmStatic
+    @BindingAdapter("bindFavoriteState")
+    fun bindFavoriteState(view: FloatingActionButton, movie: MovieDetail?) {
+        view.isEnabled = true
+        movie?.isFavorite?.let { isFavorite ->
+            ContextCompat.getDrawable(view.context, R.drawable.ic_baseline_favorite_24)?.let { drawable ->
+                val color = ContextCompat.getColor(view.context, if(isFavorite) R.color.colorAccent else R.color.colorPrimaryDark)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    drawable.colorFilter = BlendModeColorFilter(color, BlendMode.SRC_ATOP)
+                } else {
+                    drawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+                }
+                view.setImageDrawable(drawable)
+            }
+
+            view.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(
+                view.context, if(isFavorite) R.color.colorPrimaryDark else R.color.colorSecondary
+            ))
         }
 
     }

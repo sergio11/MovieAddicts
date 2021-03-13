@@ -14,6 +14,7 @@ import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.mapper.Mo
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.mapper.MovieVideoNetworkMapper
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.service.MoviesService
 import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.repository.SupportNetworkRepository
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.service.IMovieFavoriteService
 import java.lang.Exception
 
 /**
@@ -23,13 +24,15 @@ import java.lang.Exception
  * @param movieReviewNetworkMapper
  * @param movieVideoNetworkMapper
  * @param moviesService
+ * @param movieFavoriteService
  */
 class MoviesNetworkRepositoryImpl constructor(
         private val movieDetailNetworkMapper: MovieDetailNetworkMapper,
         private val movieKeywordNetworkMapper: MovieKeywordNetworkMapper,
         private val movieReviewNetworkMapper: MovieReviewNetworkMapper,
         private val movieVideoNetworkMapper: MovieVideoNetworkMapper,
-        private val moviesService: MoviesService
+        private val moviesService: MoviesService,
+        private val movieFavoriteService: IMovieFavoriteService
 ): SupportNetworkRepository(), IMoviesNetworkRepository {
 
     /**
@@ -44,6 +47,7 @@ class MoviesNetworkRepositoryImpl constructor(
         val getMovieKeywordsDeferred = async { getMovieKeywords(id) }
         val getMovieReviewsDeferred = async { getMovieReviews(id) }
         val getMovieVideosDeferred = async { getMovieVideos(id) }
+        val isMovieFavoriteDeferred = async { isMovieFavorite(id) }
 
         getMovieDetailDeferred.await().also {
 
@@ -68,7 +72,22 @@ class MoviesNetworkRepositoryImpl constructor(
                 null
             }
 
+            // Is Favorite
+            it.isFavorite = isMovieFavoriteDeferred.await()
+
         }
+    }
+
+    @WorkerThread
+    override suspend fun addMovieToFavorites(id: Long): MovieDetail = coroutineScope {
+        movieFavoriteService.addMovieToFavorite(id)
+        getMovieDetail(id)
+    }
+
+    @WorkerThread
+    override suspend fun removeMovieFromFavorites(id: Long): MovieDetail= coroutineScope {
+        movieFavoriteService.deleteMovieFromFavorite(id)
+        getMovieDetail(id)
     }
 
     /**
@@ -117,6 +136,16 @@ class MoviesNetworkRepositoryImpl constructor(
         Log.d("MOVIES_DETAIL", "getMovieVideos -> $id")
         val response = moviesService.getMovieVideos(id)
         movieVideoNetworkMapper.dtoToModel(response.videos)
+    }
+
+    /**
+     * Is Movie Favorite
+     * @param id
+     */
+    private suspend fun isMovieFavorite(id: Long): Boolean = try {
+        movieFavoriteService.getFavoriteMovieIds().contains(id)
+    } catch (ex: Exception) {
+        false
     }
 
 

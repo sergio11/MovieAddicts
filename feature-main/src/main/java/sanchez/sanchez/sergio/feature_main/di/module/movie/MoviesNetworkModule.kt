@@ -8,6 +8,7 @@ import sanchez.sanchez.sergio.feature_main.persistence.network.repository.movies
 import sanchez.sanchez.sergio.feature_main.persistence.network.repository.movies.IDiscoverMoviesNetworkRepository
 import sanchez.sanchez.sergio.feature_main.persistence.network.service.DiscoverMoviesService
 import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.service.IMovieFavoriteService
 
 /**
  * Movies Network Module
@@ -36,13 +37,16 @@ class MoviesNetworkModule {
      * Provide Discover Movies Network Repository
      * @param discoverMoviesService
      * @param movieNetworkMapper
+     * @param movieFavoriteService
      *
      */
     @Provides
     @PerFragment
     fun provideDiscoverMoviesNetworkRepository(
             discoverMoviesService: DiscoverMoviesService,
-            movieNetworkMapper: MovieNetworkMapper
-    ): IDiscoverMoviesNetworkRepository = DiscoverMoviesNetworkRepositoryImpl(movieNetworkMapper, discoverMoviesService)
+            movieNetworkMapper: MovieNetworkMapper,
+            movieFavoriteService: IMovieFavoriteService
+    ): IDiscoverMoviesNetworkRepository =
+        DiscoverMoviesNetworkRepositoryImpl(movieNetworkMapper, discoverMoviesService, movieFavoriteService)
 
 }

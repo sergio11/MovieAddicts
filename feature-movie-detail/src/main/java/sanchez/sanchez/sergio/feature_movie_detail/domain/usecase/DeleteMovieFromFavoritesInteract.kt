@@ -3,11 +3,14 @@ package sanchez.sanchez.sergio.feature_movie_detail.domain.usecase
 import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.api.IMoviesRepository
 
+
 /**
- * Get Movie Detail interact
+ * Delete Movie From Favorites Interact
+ * @param movieRepository
  */
-class GetMovieDetailInteract (
-        private val moviesRepository: IMoviesRepository) {
+class DeleteMovieFromFavoritesInteract(
+    private val movieRepository: IMoviesRepository
+) {
 
     /**
      * Execute
@@ -16,9 +19,9 @@ class GetMovieDetailInteract (
      */
     suspend fun execute(
         params: Params,
-        onSuccess: (movie: MovieDetail) -> Unit,
+        onSuccess: (movieDetail: MovieDetail) -> Unit,
         onError: (ex: Exception) -> Unit) = try {
-        val movieDetail = moviesRepository.getMovieDetails(params.movieId)
+            val movieDetail = movieRepository.deleteMovieFromFavorites(params.movieId)
         onSuccess(movieDetail)
     } catch (ex: Exception) {
         onError(ex)
@@ -30,5 +33,4 @@ class GetMovieDetailInteract (
     data class Params(
         val movieId: Long
     )
-
 }

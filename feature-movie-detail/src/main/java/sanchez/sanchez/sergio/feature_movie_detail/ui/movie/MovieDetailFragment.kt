@@ -75,10 +75,6 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
 
         with(binding) {
             appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-                Log.d("MOVIE_DETAIL", "measuredHeight -> ${appBarLayout.measuredHeight}")
-                Log.d("MOVIE_DETAIL", "height -> ${appBarLayout.height}")
-                Log.d("MOVIE_DETAIL", "appBarLayout.totalScrollRange -> ${appBarLayout.totalScrollRange}")
-
                 if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
                     configureHomeAsUpIndicatorWithColor(android.R.color.black)
                     moviePoster.gone()
@@ -87,6 +83,12 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
                     moviePoster.visible()
                 }
             })
+
+            saveInFavorites.setOnClickListener {
+                it.isEnabled = false
+                viewModel.setEvent(MovieDetailContract.Event.ChangeFavoriteState(activityDelegate.getMovieId()))
+            }
+
         }
     }
 
@@ -94,7 +96,7 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
      * Private Methods
      */
 
-    fun configureHomeAsUpIndicatorWithColor(color: Int) {
+    private fun configureHomeAsUpIndicatorWithColor(color: Int) {
         ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_arrow_back_24)?.let {
             DrawableCompat.setTint(it, requireContext().getColor(color))
             parentActivity.supportActionBar?.setHomeAsUpIndicator(it)

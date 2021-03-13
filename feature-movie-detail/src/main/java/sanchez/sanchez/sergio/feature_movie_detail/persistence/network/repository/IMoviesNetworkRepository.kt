@@ -17,4 +17,17 @@ interface IMoviesNetworkRepository {
     @Throws(NetworkException::class)
     suspend fun getMovieDetail(id: Long): MovieDetail
 
+    /**
+     * Add Movie to favorites
+     * @param id
+     */
+    @Throws(NetworkException::class)
+    suspend fun addMovieToFavorites(id: Long): MovieDetail
+
+    /**
+     * Remove Movie from favorites
+     * @param id
+     */
+    @Throws(NetworkException::class)
+    suspend fun removeMovieFromFavorites(id: Long): MovieDetail
 }

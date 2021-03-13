@@ -11,6 +11,7 @@ import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repositor
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.repository.MoviesNetworkRepositoryImpl
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.network.service.MoviesService
 import sanchez.sanchez.sergio.movie_addicts.core.di.scope.PerFragment
+import sanchez.sanchez.sergio.movie_addicts.core.persistence.network.service.IMovieFavoriteService
 
 /**
  * Movie Detail Network Module
@@ -65,11 +66,12 @@ class MovieDetailNetworkModule {
             movieDetailNetworkMapper: MovieDetailNetworkMapper,
             movieKeywordNetworkMapper: MovieKeywordNetworkMapper,
             movieReviewNetworkMapper: MovieReviewNetworkMapper,
-            movieVideoNetworkMapper: MovieVideoNetworkMapper
+            movieVideoNetworkMapper: MovieVideoNetworkMapper,
+            movieFavoriteService: IMovieFavoriteService
     ): IMoviesNetworkRepository = MoviesNetworkRepositoryImpl(
             movieDetailNetworkMapper, movieKeywordNetworkMapper,
             movieReviewNetworkMapper, movieVideoNetworkMapper,
-            moviesService
+            moviesService, movieFavoriteService
     )
 
 }

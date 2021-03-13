@@ -4,10 +4,13 @@ import sanchez.sanchez.sergio.feature_movie_detail.domain.model.MovieDetail
 import sanchez.sanchez.sergio.feature_movie_detail.persistence.api.IMoviesRepository
 
 /**
- * Get Movie Detail interact
+ * Add Movie To Favorites Interact
+ * @param movieRepository
  */
-class GetMovieDetailInteract (
-        private val moviesRepository: IMoviesRepository) {
+class AddMovieToFavoritesInteract(
+    private val movieRepository: IMoviesRepository
+) {
+
 
     /**
      * Execute
@@ -16,13 +19,14 @@ class GetMovieDetailInteract (
      */
     suspend fun execute(
         params: Params,
-        onSuccess: (movie: MovieDetail) -> Unit,
+        onSuccess: (movieDetail: MovieDetail) -> Unit,
         onError: (ex: Exception) -> Unit) = try {
-        val movieDetail = moviesRepository.getMovieDetails(params.movieId)
+        val movieDetail = movieRepository.addMovieToFavoriteList(params.movieId)
         onSuccess(movieDetail)
     } catch (ex: Exception) {
         onError(ex)
     }
+
 
     /**
      * Params
@@ -30,5 +34,4 @@ class GetMovieDetailInteract (
     data class Params(
         val movieId: Long
     )
-
 }
