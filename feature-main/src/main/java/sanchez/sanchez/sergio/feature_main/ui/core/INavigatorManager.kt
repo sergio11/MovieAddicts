@@ -27,4 +27,9 @@ interface INavigatorManager {
      */
     fun showTvDetail(id: Long)
 
+    /**
+     * Show Login
+     */
+    fun showLogin()
+
 }

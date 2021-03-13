@@ -62,5 +62,17 @@ class NavigatorManagerImpl constructor(
         )
     }
 
+    /**
+     * Show Login
+     */
+    override fun showLogin() {
+        activity.startActivity(
+                Intent("sanchez.sanchez.sergio.intent.action.SHOW_LOGIN").apply {
+                    setPackage(activity.packageName)
+                }
+        )
+        activity.finish()
+    }
+
 
 }

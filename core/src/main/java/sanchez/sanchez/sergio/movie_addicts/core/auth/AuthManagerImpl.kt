@@ -44,6 +44,14 @@ class AuthManagerImpl(
 
     }
 
+    override suspend fun closeSession() = withContext(Dispatchers.IO) {
+        try {
+            firebaseAuth.signOut()
+        } catch (ex: Exception) {
+            throw AuthException(ex)
+        }
+    }
+
     /**
      * Private Methods
      */

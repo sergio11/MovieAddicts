@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+    <data />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,20 +12,18 @@
         android:orientation="vertical"
         tools:context=".view.ui.main.MainActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding"
+            android:background="@color/colorPrimary"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/mainNavHostContainer">
+            app:layout_constraintBottom_toTopOf="@id/mainNavHostContainer" />
 
-            <include
-                android:id="@+id/main_toolbar"
-                layout="@layout/toolbar_home_layout" />
-
-        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/mainNavHostContainer"
@@ -34,7 +32,7 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
             app:navGraph="@navigation/main_navigation_graph"
-            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/mainBottomNavigation"

@@ -1,0 +1,14 @@
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingDefaultResource">
+
+    <item
+        android:id="@+id/closeSession"
+        android:checkable="true"
+        android:enabled="true"
+        android:icon="@drawable/ic_sign_out"
+        android:title="Close Session"
+        android:visible="true"
+        app:showAsAction="always" />
+</menu>

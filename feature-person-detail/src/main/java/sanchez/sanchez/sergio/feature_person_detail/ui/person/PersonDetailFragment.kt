@@ -73,16 +73,7 @@ class PersonDetailFragment: SupportFragment<PersonDetailViewModel, PersonDetailF
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.setEvent(PersonDetailContract.Event.FetchPersonDetail(activityDelegate.getPersonId()))
-
-        with(binding) {
-            appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-                if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
-                    configureHomeAsUpIndicatorWithColor(android.R.color.black)
-                } else {
-                    configureHomeAsUpIndicatorWithColor(R.color.colorPrimaryDark)
-                }
-            })
-        }
+        configureHomeAsUpIndicatorWithColor(android.R.color.black)
     }
 
 

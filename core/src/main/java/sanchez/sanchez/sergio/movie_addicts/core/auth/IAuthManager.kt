@@ -14,4 +14,6 @@ interface IAuthManager {
      */
     suspend fun signInWithAccessToken(accessToken: String, authTypeEnum: AuthTypeEnum): AuthUser
 
+    suspend fun closeSession()
+
 }
