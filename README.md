@@ -18,8 +18,8 @@
    - MVI UI Architecture ( Event + State + Effect)
    - Clean architecture approach with repository pattern
    - Dagger 2 - dependency injection
-   - DataBinding - Android DataBinding kit for notifying data changes to UI layers.
  - UI
+    - DataBinding - Android DataBinding kit for notifying data changes to UI layers.
     - Material Design Components
     - Design based on Constraint Layout
     - Ripple animation, Shared element transition
