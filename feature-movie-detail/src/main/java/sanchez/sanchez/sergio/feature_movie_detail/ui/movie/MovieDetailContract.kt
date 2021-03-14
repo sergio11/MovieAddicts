@@ -36,6 +36,7 @@ class MovieDetailContract {
     sealed class MovieState {
         object OnIdle: MovieState()
         object OnLoading : MovieState()
+        object OnError: MovieState()
         data class OnLoaded(val movie: MovieDetail): MovieState()
     }
 }

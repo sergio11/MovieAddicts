@@ -37,6 +37,7 @@ class TvDetailContract {
     sealed class TvState {
         object OnIdle: TvState()
         object OnLoading : TvState()
+        object OnError: TvState()
         data class OnLoaded(val tv: TvDetail): TvState()
     }
 }

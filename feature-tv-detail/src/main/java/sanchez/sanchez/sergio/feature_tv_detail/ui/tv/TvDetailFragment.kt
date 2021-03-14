@@ -63,6 +63,7 @@ class TvDetailFragment : SupportFragment<TvDetailViewModel, TvDetailFragmentBind
                         null
                     tvVideoAdapter = tvVideoListAdapter
                     tvReviewAdapter = tvReviewListAdapter
+                    uiState = state.tvState
                 }
             }
 

@@ -55,6 +55,7 @@ class MovieDetailViewModel @Inject constructor(
      * @param movieId
      */
     private fun onAddMovieToFavorites(movieId: Long) = viewModelScope.launch {
+        setState { copy(movieState = MovieDetailContract.MovieState.OnLoading) }
         addMovieToFavoritesInteract.execute(
             params = AddMovieToFavoritesInteract.Params(movieId),
             onSuccess = fun(movieDetail) {
@@ -66,6 +67,9 @@ class MovieDetailViewModel @Inject constructor(
             onError = fun(ex: Exception) {
                 ex.printStackTrace()
                 Log.d("MOVIES_DETAIL", "onError ${ex.message} CALLED")
+                setState {
+                    copy(movieState = MovieDetailContract.MovieState.OnError)
+                }
                 setEffect { MovieDetailContract.Effect.OnShowError(ex) }
             }
         )
@@ -76,6 +80,7 @@ class MovieDetailViewModel @Inject constructor(
      * @param movieId
      */
     private fun onDeleteFromFavorites(movieId: Long) = viewModelScope.launch {
+        setState { copy(movieState = MovieDetailContract.MovieState.OnLoading) }
         deleteMovieFromFavoritesInteract.execute(
             params = DeleteMovieFromFavoritesInteract.Params(movieId),
             onSuccess = fun(movieDetail) {
@@ -86,7 +91,9 @@ class MovieDetailViewModel @Inject constructor(
             },
             onError = fun(ex: Exception) {
                 ex.printStackTrace()
-                Log.d("MOVIES_DETAIL", "onError ${ex.message} CALLED")
+                setState {
+                    copy(movieState = MovieDetailContract.MovieState.OnError)
+                }
                 setEffect { MovieDetailContract.Effect.OnShowError(ex) }
             }
         )
@@ -109,7 +116,9 @@ class MovieDetailViewModel @Inject constructor(
                 },
                 onError = fun(ex) {
                     ex.printStackTrace()
-                    Log.d("MOVIES_DETAIL", "onError ${ex.message} CALLED")
+                    setState {
+                        copy(movieState = MovieDetailContract.MovieState.OnError)
+                    }
                     setEffect { MovieDetailContract.Effect.OnShowError(ex) }
                 }
         )

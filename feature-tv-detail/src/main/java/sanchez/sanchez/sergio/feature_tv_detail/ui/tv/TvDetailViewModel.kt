@@ -43,6 +43,9 @@ class TvDetailViewModel @Inject constructor(
                 },
                 onError = fun(ex) {
                     ex.printStackTrace()
+                    setState {
+                        copy(tvState = TvDetailContract.TvState.OnError)
+                    }
                     setEffect { TvDetailContract.Effect.OnShowError(ex) }
                 }
         )

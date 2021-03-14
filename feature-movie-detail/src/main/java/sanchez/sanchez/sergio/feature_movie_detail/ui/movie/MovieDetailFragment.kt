@@ -67,6 +67,7 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
                         state.movieState.movie
                     else
                         null
+                    uiState = state.movieState
                 }
             }
         }
@@ -74,7 +75,7 @@ class MovieDetailFragment: SupportFragment<MovieDetailViewModel, MovieDetailFrag
         lifecycleScope.launchWhenStarted {
             viewModel.effect.collect {
                 if(it is MovieDetailContract.Effect.OnShowError)
-                    Snackbar.make(requireView(), it.ex.message ?: "An error occurred, please try again", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(requireView(), getString(R.string.common_error), Snackbar.LENGTH_LONG).show()
             }
         }
     }

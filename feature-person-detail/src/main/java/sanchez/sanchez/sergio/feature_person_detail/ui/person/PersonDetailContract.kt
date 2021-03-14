@@ -35,6 +35,7 @@ class PersonDetailContract {
     sealed class PersonState {
         object OnIdle: PersonState()
         object OnLoading : PersonState()
+        object OnError : PersonState()
         data class OnLoaded(val personDetail: PersonDetail): PersonState()
     }
 }

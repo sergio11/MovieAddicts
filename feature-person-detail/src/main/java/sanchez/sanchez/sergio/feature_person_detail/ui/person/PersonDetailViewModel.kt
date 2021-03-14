@@ -43,6 +43,9 @@ class PersonDetailViewModel @Inject constructor(
                 },
                 onError = fun(ex) {
                     ex.printStackTrace()
+                    setState {
+                        copy(personState = PersonDetailContract.PersonState.OnError)
+                    }
                     setEffect { PersonDetailContract.Effect.OnShowError(ex) }
                 }
         )

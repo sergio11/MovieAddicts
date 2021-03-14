@@ -7,10 +7,19 @@
     <data>
 
         <import type="android.view.View" />
+        
+        <import type="sanchez.sanchez.sergio.feature_person_detail.ui.person.PersonDetailContract.PersonState.OnLoading" />
+        <import type="sanchez.sanchez.sergio.feature_person_detail.ui.person.PersonDetailContract.PersonState.OnError" />
+        <import type="sanchez.sanchez.sergio.feature_person_detail.ui.person.PersonDetailContract.PersonState.OnLoaded" />
 
         <variable
             name="activity"
             type="sanchez.sanchez.sergio.feature_person_detail.ui.FeaturePersonDetailActivity" />
+
+
+        <variable
+            name="uiState"
+            type="sanchez.sanchez.sergio.feature_person_detail.ui.person.PersonDetailContract.PersonState" />
 
         <variable
             name="person"
@@ -18,17 +27,19 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAppBackground"
-        android:orientation="vertical"
-        android:visibility="@{person != null ? View.VISIBLE : View.GONE}">
+        android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/person_detail_toolbar"
@@ -41,8 +52,13 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="@{uiState instanceof OnLoaded ? View.VISIBLE : View.GONE}">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -122,5 +138,51 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
-    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            android:visibility="@{uiState instanceof OnError ? View.VISIBLE : View.GONE}"
+            android:gravity="center"
+            android:padding="@dimen/common_padding"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_error_occurred"
+                android:layout_marginBottom="@dimen/common_margin"
+                app:tint="@color/colorPrimaryDark"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/TextAppearance.App.Headline4"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/common_error"/>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_loading"
+            app:tint="@color/colorPrimaryDark"
+            android:visibility="@{ uiState instanceof OnLoading ? View.VISIBLE : View.GONE}"
+            tools:ignore="ContentDescription" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

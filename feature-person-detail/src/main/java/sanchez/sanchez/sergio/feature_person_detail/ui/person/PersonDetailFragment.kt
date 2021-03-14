@@ -52,6 +52,7 @@ class PersonDetailFragment: SupportFragment<PersonDetailViewModel, PersonDetailF
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
                 with(binding) {
+                    uiState = state.personState
                     activity = requireActivity() as FeaturePersonDetailActivity
                     person = if(state.personState is PersonDetailContract.PersonState.OnLoaded)
                         state.personState.personDetail
