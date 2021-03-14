@@ -5,6 +5,32 @@
   <a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
  </p>
  
+ 
+ ## Tech stack & Open-source libraries
+ - Minimum SDK level 23
+ - 100% [Kotlin](https://kotlinlang.org/) based + [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+ - JetPack
+   - LiveData - notify domain layer data to views.
+   - Lifecycle - dispose observing data when lifecycle state changes.
+   - ViewModel - UI related data holder, lifecycle aware.
+ - Architecture
+   - Modularization by features and Layers
+   - MVI UI Architecture ( Event + State + Effect)
+   - Clean architecture approach with repository pattern
+   - Dagger 2 - dependency injection
+   - DataBinding - Android DataBinding kit for notifying data changes to UI layers.
+ - UI
+    - Material Design Components
+    - Design based on Constraint Layout
+    - Ripple animation, Shared element transition
+ - Persistence
+    - [Retrofit2 & Moshi](https://github.com/square/retrofit) - constructing the REST API
+    - [OkHttp3](https://github.com/square/okhttp) - implementing interceptor, logging and mocking web server
+    - [Glide](https://github.com/bumptech/glide) - loading images
+    - [ObjectBox](https://github.com/objectbox) - The superfast NoSQL database for implementing a local cache layer.
+    - Cloud Firestore - To persist users' favorite movies.
+    - Firebase Auth - To authenticate users
+    
  ## Screenshots
  
  ### Movies
