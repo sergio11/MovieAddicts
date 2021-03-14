@@ -34,20 +34,22 @@
  ## Screenshots
  
  ### Movies
- <img width="200px" align="left" src="./screenshots/capture_3.png" />
- <img width="200px" align="left" src="./screenshots/capture_4.png" />
- <img width="200px" align="left" src="./screenshots/capture_5.png" />
- <img width="200px" src="./screenshots/capture_6.png" />
+ <img width="250px" align="left" src="./screenshots/capture_3.png" />
+ <img width="250px" align="left" src="./screenshots/capture_4.png" />
+ <img width="250px" align="left" src="./screenshots/capture_5.png" />
+ <img width="250px" src="./screenshots/capture_6.png" />
  
- ### Tv Series
-<img width="200px" align="left" src="./screenshots/capture_10.png" />
-<img width="200px" src="./screenshots/capture_11.png" />
+### Tv Series
+<img width="250px" align="left" src="./screenshots/capture_7.png" />
+<img width="250px" align="left" src="./screenshots/capture_8.png" />
+<img width="250px" src="./screenshots/capture_9.png" />
+ 
 
 ### Stars
-<img width="200px" align="left" src="./screenshots/capture_7.png" />
-<img width="200px" align="left" src="./screenshots/capture_8.png" />
-<img width="200px"  src="./screenshots/capture_9.png" />
- 
+<img width="250px" align="left" src="./screenshots/capture_10.png" />
+<img width="250px" src="./screenshots/capture_11.png" />
+
+
  ## MAD Score
 <img src="./mad_scorecard/summary.png" />
 <img src="./mad_scorecard/kotlin.png" />
