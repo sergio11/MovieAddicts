@@ -8,6 +8,7 @@
  
  A simple to project to demonstrate an approach based on MVI + Clean architecture and modularization based on features and layers
  
+ <img width="350px" align="left" src="./screenshots/video.gif" />
  
  ## Tech stack & Open-source libraries
  - Minimum SDK level 23
