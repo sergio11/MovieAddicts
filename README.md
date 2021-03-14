@@ -51,8 +51,9 @@
 ### Tv Series
 <img width="250px" align="left" src="./screenshots/capture_7.png" />
 <img width="250px" align="left" src="./screenshots/capture_8.png" />
-<img width="250px" src="./screenshots/capture_9.png" />
- 
+<img width="250px" align="left" src="./screenshots/capture_9.png" />
+<img width="250px" align="left" src="./screenshots/capture_12.png" />
+<img width="250px" src="./screenshots/capture_13.png" />
 
 ### Stars
 <img width="250px" align="left" src="./screenshots/capture_10.png" />
