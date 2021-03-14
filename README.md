@@ -6,6 +6,9 @@
  </p>
  
  
+ A simple to project to demonstrate an approach based on MVI + Clean architecture and modularization based on features and layers
+ 
+ 
  ## Tech stack & Open-source libraries
  - Minimum SDK level 23
  - 100% [Kotlin](https://kotlinlang.org/) based + [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
