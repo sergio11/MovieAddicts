@@ -36,6 +36,11 @@
     
  ## Screenshots
  
+ ### Login
+ 
+ <img width="250px" align="left" src="./screenshots/capture_1.png" />
+ <img width="250px" src="./screenshots/capture_2.png" />
+ 
  ### Movies
  <img width="250px" align="left" src="./screenshots/capture_3.png" />
  <img width="250px" align="left" src="./screenshots/capture_4.png" />
