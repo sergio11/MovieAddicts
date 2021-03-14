@@ -7,7 +7,8 @@
  
  A simple to project to demonstrate an approach based on MVI + Clean architecture and modularization based on features and layers
  
- [![Movie Addicts](https://img.youtube.com/vi/0wV9Mmp7_Ik/maxresdefault.jpg)](hhttps://youtu.be/0wV9Mmp7_Ik)
+ 
+ [![Movie Addicts](https://img.youtube.com/vi/0wV9Mmp7_Ik/maxresdefault.jpg)](https://youtu.be/0wV9Mmp7_Ik)
  
  ## Tech stack & Open-source libraries
  - Minimum SDK level 23
