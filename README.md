@@ -1,5 +1,3 @@
-# android_architecture_test
-
 <h1 align="center">Movie Addicts</h1>
 
 <p align="center">
